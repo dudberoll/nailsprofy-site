@@ -1,0 +1,435 @@
+---
+import BookingShaderButton from "./BookingShaderButton";
+import data from "../data/nailsprofi.json";
+
+interface Props {
+	title: string;
+	description: string;
+	phrase: string;
+}
+
+const { title, description, phrase } = Astro.props;
+const bookingUrl = data.contacts.booking_url;
+---
+
+<section class="hero" aria-labelledby="page-title">
+	<div class="hero__visual">
+		<div class="hero__poster">
+			<video
+				class="hero__image"
+				src="/videos/hero-mirror-last5.mp4"
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="auto"
+				aria-label="Женщина улыбается у зеркала в салоне"
+			></video>
+		</div>
+		<p class="hero__phrase">{phrase}</p>
+	</div>
+
+	<div class="hero__panel">
+		<div class="hero__copy">
+			<p class="hero__eyebrow">Салон красоты NailsProfi</p>
+			<h1 id="page-title">{title}</h1>
+			<p class="hero__description">{description}</p>
+			<div class="hero__actions">
+				<div class="hero__booking-wrap">
+						<span class="hero__discount">Скидка 800 ₽ на первый визит</span>
+					<BookingShaderButton
+						href={bookingUrl}
+						client:idle
+					>
+						Записаться
+					</BookingShaderButton>
+				</div>
+				<a class="button button--secondary" href="/services">Посмотреть услуги</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 3fr) minmax(320px, 1fr);
+		width: 100%;
+		max-width: calc(var(--content-width) - 96px);
+		min-width: 0;
+		aspect-ratio: 1400.92 / 496.5;
+		margin-inline: auto;
+		overflow: hidden;
+		border-radius: var(--radius-hero);
+		background: var(--color-surface);
+	}
+
+	.hero__visual {
+		position: relative;
+		min-width: 0;
+		min-height: 100%;
+		overflow: hidden;
+		background: #bdb3aa;
+	}
+
+	.hero__poster {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.hero__poster {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero__visual :global(.hero__image) {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 42%;
+	}
+
+	.hero__visual::after {
+		position: absolute;
+		inset: auto 0 0;
+		height: 38%;
+		background: linear-gradient(to top, rgb(20 16 13 / 26%), transparent);
+		content: "";
+		pointer-events: none;
+	}
+
+	.hero__phrase {
+		position: absolute;
+		z-index: 1;
+		bottom: clamp(2rem, 4.85vw, 4.25rem);
+		left: 50%;
+		width: min(82%, 820px);
+		margin: 0;
+		color: #fff;
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 0.93;
+		letter-spacing: 0;
+		text-align: center;
+		text-shadow: 0 2px 18px rgb(17 13 10 / 34%);
+		transform: translateX(-50%);
+	}
+
+	.hero__panel {
+		display: grid;
+		min-width: 0;
+		align-items: start;
+		padding: clamp(2.5rem, 3.4vw, 3.125rem) clamp(1.65rem, 1.9vw, 1.75rem);
+		background: var(--color-surface);
+	}
+
+	.hero__copy {
+		width: 100%;
+		min-width: 0;
+		max-width: 294px;
+		margin-inline: auto;
+	}
+
+	.hero__eyebrow {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.13em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		margin: 1.25rem 0 0;
+		font-size: 1.6875rem;
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: 0;
+	}
+
+	.hero__description {
+		margin: 0.7rem 0 0;
+		color: var(--color-muted);
+		font-size: 0.95rem;
+		line-height: 1.18;
+	}
+
+	.hero__actions {
+		display: grid;
+		align-items: end;
+		gap: 0.75rem;
+		margin-top: clamp(1.85rem, calc(1.85rem + (100vw - 80rem) * 0.12), 5rem);
+	}
+
+	.hero__booking-wrap {
+		position: relative;
+		display: grid;
+		min-width: 0;
+	}
+
+	.hero__discount {
+		position: relative;
+		z-index: 2;
+		justify-self: end;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 38px;
+		margin-right: -0.45rem;
+		margin-bottom: -0.55rem;
+		padding: 0.45rem 1.75rem;
+		border: 1px solid rgb(58 36 48 / 58%);
+		border-radius: 999px;
+		background: rgb(244 241 237 / 84%);
+		color: rgb(58 36 48 / 72%);
+		font-size: 0.827rem;
+		line-height: 1;
+		white-space: nowrap;
+		backdrop-filter: blur(16px) saturate(112%);
+		box-shadow: 0 10px 28px rgb(58 36 48 / 8%);
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 52px;
+		padding: 0.75rem 1.25rem;
+		border: 1px solid transparent;
+		border-radius: 999px;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 500;
+		line-height: 1.2;
+		cursor: pointer;
+		transition:
+			background-color 160ms var(--ease-out),
+			border-color 160ms var(--ease-out),
+			color 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.button:active {
+		transform: scale(0.97);
+	}
+
+	.button--primary {
+		border-color: var(--shader-booking-border);
+		background: var(--shader-booking-background);
+		color: var(--shader-booking-text);
+	}
+
+	.button--secondary {
+		border-color: var(--color-surface-strong);
+		background: var(--color-surface-strong);
+		color: var(--color-text);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.button--primary:hover {
+			border-color: var(--shader-booking-border-strong);
+			color: var(--shader-booking-text);
+			box-shadow:
+				inset 0 1px 0 rgb(255 255 255 / 48%),
+				0 16px 38px rgb(201 138 165 / 22%);
+		}
+
+		.button--secondary:hover {
+			border-color: var(--color-text);
+			background: transparent;
+		}
+	}
+
+	@media (max-width: 1119px) {
+		.hero {
+			grid-template-columns: 1fr;
+			aspect-ratio: auto;
+			min-height: 0;
+		}
+
+		.hero__visual {
+			aspect-ratio: 16 / 10;
+		}
+
+		.hero__panel {
+			align-items: center;
+			padding: clamp(2rem, 6vw, 4rem);
+		}
+
+		.hero__copy {
+			max-width: 680px;
+			margin-inline: 0;
+		}
+
+		h1 {
+			max-width: 660px;
+			font-size: clamp(2.25rem, 5vw, 4.25rem);
+		}
+
+		.hero__description {
+			max-width: 610px;
+		}
+
+		.hero__actions {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			max-width: 610px;
+		}
+
+		.hero__discount {
+			margin-right: 0.5rem;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1119px) {
+		.hero {
+			grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+			min-height: 460px;
+			aspect-ratio: auto;
+		}
+
+		.hero__visual {
+			min-height: 0;
+			aspect-ratio: auto;
+		}
+
+		.hero__panel {
+			align-items: center;
+			padding: 2.25rem 2rem;
+		}
+
+		.hero__copy {
+			max-width: 360px;
+		}
+
+		h1 {
+			font-size: clamp(2rem, 3vw, 2.4rem);
+		}
+
+		.hero__description {
+			font-size: 1rem;
+			line-height: 1.32;
+		}
+
+		.hero__actions {
+			gap: 0.6rem;
+			margin-top: 2rem;
+		}
+
+		.hero__discount {
+			min-height: 34px;
+			margin-bottom: -0.4rem;
+			padding-inline: 1rem;
+			font-size: 0.74rem;
+		}
+
+		.button {
+			min-height: 48px;
+			padding-inline: 0.8rem;
+			font-size: 0.86rem;
+		}
+	}
+
+	@media (min-width: 1120px) and (max-width: 1439px) {
+		.hero {
+			min-height: 480px;
+			aspect-ratio: auto;
+		}
+
+		.hero__panel {
+			padding-block: clamp(2rem, 3vw, 2.75rem);
+		}
+
+		.hero__actions {
+			margin-top: clamp(1.85rem, 3vw, 3.25rem);
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 860px) {
+		.hero__panel {
+			padding: 1.75rem 1.5rem;
+		}
+
+		h1 {
+			font-size: 2.1rem;
+		}
+
+		.hero__actions {
+			grid-template-columns: 1fr;
+		}
+
+		.hero__discount {
+			margin-bottom: -0.35rem;
+		}
+	}
+
+	@media (min-width: 861px) and (max-width: 1119px) {
+		.hero__actions {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.hero {
+			border-radius: 1.5rem;
+		}
+
+		.hero__visual {
+			aspect-ratio: 16 / 9;
+		}
+
+		.hero__visual :global(.hero__image) {
+			object-position: 56% 42%;
+		}
+
+		.hero__phrase {
+			bottom: 1.5rem;
+			left: 1.5rem;
+			width: min(78%, 360px);
+			font-size: clamp(1.4rem, 7vw, 2rem);
+			text-align: left;
+			transform: none;
+		}
+
+		.hero__panel {
+			padding: 2rem 1rem 1rem;
+		}
+
+		.hero__eyebrow {
+			margin-bottom: 1rem;
+		}
+
+		h1 {
+			font-size: clamp(1.75rem, 8vw, 3rem);
+			hyphens: auto;
+		}
+
+		.hero__description {
+			margin-top: 1.25rem;
+		}
+
+		.hero__actions {
+			grid-template-columns: 1fr;
+			margin-top: 2rem;
+		}
+
+		.hero__booking-wrap {
+			gap: 0.6rem;
+		}
+
+		.hero__discount {
+			justify-self: end;
+			max-width: 100%;
+			min-height: 34px;
+			margin: 0;
+			padding-inline: 0.95rem;
+			font-size: 0.78rem;
+			text-align: center;
+			white-space: normal;
+		}
+	}
+
+</style>

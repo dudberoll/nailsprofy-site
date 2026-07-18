@@ -1,0 +1,194 @@
+---
+const brands = [
+	["ARAVIA", "/images/brands/aravia.webp"],
+	["BINACIL", "/images/brands/binacil.webp"],
+	["Botanix", "/images/brands/botanix.webp"],
+	["BRONSUN", "/images/brands/bron.webp"],
+	["BrowXenna", "/images/brands/browxenna.webp"],
+	["CHRISTINA FITZGERALD", "/images/brands/christina-fitzgerald.webp"],
+	["davines", "/images/brands/davines.webp"],
+	["Depilflax", "/images/brands/depiflax.webp"],
+	["ESTEL", "/images/brands/estel.webp"],
+	["i do", "/images/brands/i-do.webp"],
+	["IQ Beauty", "/images/brands/iq-beauty.webp"],
+	["ItalWax", "/images/brands/italwax.webp"],
+	["KM", "/images/brands/km.webp"],
+	["Lebel", "/images/brands/lebel.webp"],
+	["Luxio", "/images/brands/luxio.webp"],
+	["Lycon", "/images/brands/lycon.webp"],
+	["Nashi Argan", "/images/brands/nashi-argan.webp"],
+	["P.Shine", "/images/brands/p-shine.webp"],
+	["RC", "/images/brands/rc.webp"],
+	["SHIK", "/images/brands/shik.webp"],
+	["Smart", "/images/brands/smart.webp"],
+	["Straderm", "/images/brands/straderm.webp"],
+	["TOKIO INKARAMI", "/images/brands/tokio-inkarami.webp"],
+];
+---
+
+<section class="brands-standalone" id="brands" aria-label="Бренды, на которых мы работаем">
+	<h2>Бренды, на которых мы работаем</h2>
+	<div class="brands-marquee" data-auto-scroll="1">
+		{[...brands, ...brands].map(([name, src]) => (
+			<span class="brand-logo" aria-label={name}>
+				<img src={src} alt="" loading="lazy" decoding="async" />
+			</span>
+		))}
+	</div>
+</section>
+
+<script>
+	document.querySelectorAll<HTMLElement>(".brands-marquee").forEach((scroller) => {
+		if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) return;
+
+		let pressed = false;
+		let dragging = false;
+		let suppressClickUntil = 0;
+		let startX = 0;
+		let startLeft = 0;
+		const speed = Number(scroller.dataset.autoScroll ?? 1);
+
+		window.setInterval(() => {
+			if (dragging || scroller.querySelector("details[open]")) return;
+			const halfway = scroller.scrollWidth / 2;
+			scroller.scrollLeft = scroller.scrollLeft >= halfway ? 0 : scroller.scrollLeft + speed;
+		}, 18);
+
+		scroller.addEventListener("pointerdown", (event) => {
+			pressed = true;
+			startX = event.clientX;
+			startLeft = scroller.scrollLeft;
+		});
+
+		scroller.addEventListener("pointermove", (event) => {
+			if (!pressed) return;
+			const distance = event.clientX - startX;
+			if (!dragging && Math.abs(distance) < 6) return;
+			if (!dragging) {
+				dragging = true;
+				scroller.classList.add("dragging");
+				scroller.setPointerCapture(event.pointerId);
+			}
+			scroller.scrollLeft = startLeft - distance;
+		});
+
+		const stop = () => {
+			if (dragging) suppressClickUntil = performance.now() + 100;
+			pressed = false;
+			dragging = false;
+			scroller.classList.remove("dragging");
+		};
+
+		scroller.addEventListener("click", (event) => {
+			if (performance.now() >= suppressClickUntil) return;
+			event.preventDefault();
+			event.stopPropagation();
+		});
+		scroller.addEventListener("pointerup", stop);
+		scroller.addEventListener("pointercancel", stop);
+	});
+</script>
+
+<style>
+	.brands-standalone {
+		width: 100%;
+		padding: 28px 0 92px;
+		overflow: hidden;
+	}
+
+	.brands-standalone h2 {
+		width: min(100% - 60px, 2000px);
+		margin: 0 auto;
+		color: #333131;
+		font-size: clamp(34px, 3.8vw, 56px);
+		font-weight: 300;
+		line-height: 1.08;
+		letter-spacing: 0;
+	}
+
+	.brands-marquee {
+		display: flex;
+		gap: 0;
+		margin-top: 64px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		overscroll-behavior-x: contain;
+		padding: 8px 0;
+		scrollbar-width: none;
+		touch-action: pan-y;
+		user-select: none;
+		cursor: grab;
+	}
+
+	.brands-marquee::-webkit-scrollbar {
+		display: none;
+	}
+
+	.brands-marquee.dragging {
+		cursor: grabbing;
+	}
+
+	.brand-logo {
+		position: relative;
+		display: grid;
+		flex: 0 0 203px;
+		height: 74px;
+		place-items: center;
+		transition: transform 180ms ease;
+		transform-origin: center;
+	}
+
+	.brands-marquee:not(.dragging) .brand-logo:hover {
+		z-index: 1;
+		transform: scale(1.1);
+	}
+
+	.brand-logo img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		filter: grayscale(1) contrast(1.08);
+	}
+
+	@media (max-width: 900px) {
+		.brands-standalone {
+			padding-top: 34px;
+		}
+
+		.brands-standalone h2 {
+			width: min(100% - 32px, 1198px);
+			font-size: 32px;
+		}
+
+		.brands-marquee {
+			margin-top: 48px;
+		}
+
+		.brand-logo {
+			flex-basis: 176px;
+		}
+
+	}
+
+	@media (max-width: 767px) {
+		.brands-standalone {
+			padding: 24px 0 44px;
+		}
+
+		.brands-standalone h2 {
+			width: calc(100% - 32px);
+			font-size: clamp(2rem, 9vw, 2.5rem);
+		}
+
+		.brands-marquee {
+			margin-top: 24px;
+			padding-left: 16px;
+		}
+
+		.brand-logo {
+			flex-basis: 142px;
+			height: 58px;
+		}
+	}
+</style>

@@ -1,0 +1,93 @@
+---
+import data from "../data/nailsprofi.json";
+import PriceGroup from "./PriceGroup.astro";
+import ServiceCategoryNav from "./ServiceCategoryNav";
+import { initialServiceCategory, serviceCategories } from "../data/servicesCatalog";
+
+const bookingUrl = data.contacts.booking_url;
+const categoryNavItems = serviceCategories.map(({ id, label }) => ({
+	id,
+	label,
+}));
+---
+
+<section class="services-intro" aria-labelledby="services-title">
+	<h1 id="services-title">Прайс на все услуги</h1>
+	<ServiceCategoryNav
+		categories={categoryNavItems}
+		activeCategoryId={initialServiceCategory.id}
+		client:load
+	/>
+</section>
+
+<section class="price-list" id="price" aria-label="Прайс на услуги">
+	{
+		serviceCategories.map((category) => (
+			<div
+				class="service-panel"
+				id={`service-panel-${category.id}`}
+				role="tabpanel"
+				aria-labelledby={`service-tab-${category.id}`}
+				data-service-panel={category.id}
+				hidden={category.id !== initialServiceCategory.id}
+			>
+				{category.priceGroups.map((group) => (
+					<PriceGroup group={group} categoryId={category.id} bookingUrl={bookingUrl} />
+				))}
+			</div>
+		))
+	}
+</section>
+
+<style>
+	.services-intro,
+	.price-list {
+		width: min(100%, var(--content-width));
+		min-width: 0;
+		margin-inline: auto;
+	}
+
+	.services-intro {
+		display: grid;
+		gap: clamp(1.25rem, 2.5vw, 2.8rem);
+		padding-top: clamp(1.25rem, 2.8vw, 3rem);
+	}
+
+	h1 {
+		margin: 0;
+		font-size: clamp(1.5rem, 2.1vw, 2.35rem);
+		font-weight: 400;
+		letter-spacing: 0.03em;
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	.price-list {
+		display: grid;
+		gap: clamp(1.15rem, 2vw, 2rem);
+		margin-top: clamp(1.25rem, 2.8vw, 3rem);
+		padding-top: 0;
+		padding-bottom: clamp(2rem, 4vw, 4.5rem);
+	}
+
+	.service-panel {
+		display: grid;
+		gap: clamp(1.15rem, 2vw, 2rem);
+		opacity: 1;
+		filter: blur(0);
+		transition:
+			opacity 160ms var(--ease-out),
+			filter 160ms var(--ease-out);
+	}
+
+	@starting-style {
+		.service-panel {
+			opacity: 0;
+			filter: blur(2px);
+		}
+	}
+
+	.service-panel[hidden] {
+		display: none;
+	}
+</style>

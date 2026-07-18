@@ -1,0 +1,44 @@
+---
+import ServicesCatalog from "../components/ServicesCatalog.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Услуги и цены салона красоты NailsProfi: маникюр, педикюр и уход."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:title" content="Услуги и цены — NailsProfi" />
+		<meta
+			property="og:description"
+			content="Прайс на услуги салона красоты NailsProfi."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>Услуги и цены — NailsProfi</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">Перейти к содержимому</a>
+		<SiteHeader />
+		<main id="main-content">
+			<ServicesCatalog />
+		</main>
+	</body>
+</html>
+
+<style>
+	main {
+		min-width: 0;
+		overflow: hidden;
+		padding-inline: var(--page-gutter);
+	}
+
+</style>

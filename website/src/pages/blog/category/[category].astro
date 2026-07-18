@@ -1,0 +1,26 @@
+---
+import BlogIndex from "../../../components/BlogIndex.astro";
+import BlogLayout from "../../../components/BlogLayout.astro";
+import {
+	blogCategories,
+	blogCategoryPageArticles,
+	blogCategoryTotalPages,
+	categoryLabel,
+	type BlogCategorySlug,
+} from "../../../data/blog";
+
+export function getStaticPaths() {
+	return blogCategories
+		.filter((category) => category.slug !== "all")
+		.map((category) => ({ params: { category: category.slug }, props: { category: category.slug } }));
+}
+
+const { category } = Astro.props as { category: BlogCategorySlug };
+const currentPage = 1;
+const articles = blogCategoryPageArticles(category, currentPage);
+const totalPages = blogCategoryTotalPages(category);
+---
+
+<BlogLayout title={`${categoryLabel(category)} — блог NailsProfi`}>
+	<BlogIndex articles={articles} currentPage={currentPage} totalPages={totalPages} activeCategory={category} />
+</BlogLayout>

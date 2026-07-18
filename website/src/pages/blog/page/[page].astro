@@ -1,0 +1,19 @@
+---
+import BlogIndex from "../../../components/BlogIndex.astro";
+import BlogLayout from "../../../components/BlogLayout.astro";
+import { blogPageArticles, totalBlogPages } from "../../../data/blog";
+
+export function getStaticPaths() {
+	return Array.from({ length: Math.max(totalBlogPages - 1, 0) }, (_, index) => {
+		const page = index + 2;
+		return { params: { page: String(page) }, props: { page } };
+	});
+}
+
+const { page } = Astro.props;
+const articles = blogPageArticles(page);
+---
+
+<BlogLayout title={`Блог — страница ${page} — NailsProfi`}>
+<BlogIndex articles={articles} currentPage={page} totalPages={totalBlogPages} activeCategory="all" />
+</BlogLayout>

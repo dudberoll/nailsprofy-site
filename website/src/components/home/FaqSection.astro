@@ -1,0 +1,200 @@
+---
+const questions = [
+	{
+		question: "Есть ли у вас система лояльности?",
+		answer:
+			"Да. Мы регулярно готовим специальные предложения для постоянных гостей. Актуальные условия и персональные предложения подскажет администратор.",
+	},
+	{
+		question: "Какие услуги вы предоставляете?",
+		answer:
+			"В NailsProfi можно записаться на маникюр, педикюр, уход за волосами и другие бьюти-услуги. Полный список и стоимость есть в разделе «Услуги».",
+	},
+	{
+		question: "Где я могу оставить свой отзыв о посещении?",
+		answer:
+			"Нам будет приятно получить отзыв в Яндекс Картах или в социальных сетях салона. Поделиться впечатлениями можно и напрямую с администратором после визита.",
+	},
+	{
+		question: "Как я могу оставить мастеру чаевые?",
+		answer:
+			"Чаевые можно оставить наличными или попросить администратора добавить их к оплате картой. Мы обязательно передадим их вашему мастеру.",
+	},
+	{
+		question: "Можно ли отменить или перенести запись?",
+		answer:
+			"Конечно. Пожалуйста, сообщите об изменениях как можно раньше — мы предложим другое удобное время и сможем передать освободившееся окно другому гостю.",
+	},
+];
+---
+
+<section class="faq-section" aria-labelledby="faq-title">
+	<div class="faq-section__heading">
+		<h2 id="faq-title">Ответы на частые вопросы</h2>
+	</div>
+	<div class="faq-list">
+		{
+			questions.map((item) => (
+				<details class="faq-item">
+					<summary>
+						<span>{item.question}</span>
+						<span class="faq-item__icon" aria-hidden="true"></span>
+					</summary>
+					<p>{item.answer}</p>
+				</details>
+			))
+		}
+	</div>
+</section>
+
+<script>
+	document.querySelectorAll<HTMLElement>(".faq-list").forEach((list) => {
+		list.querySelectorAll<HTMLDetailsElement>(".faq-item").forEach((item) => {
+			item.addEventListener("toggle", () => {
+				if (!item.open) return;
+				list.querySelectorAll<HTMLDetailsElement>(".faq-item[open]").forEach((other) => {
+					if (other !== item) other.open = false;
+				});
+			});
+		});
+	});
+</script>
+
+<style>
+	.faq-section {
+		width: min(100%, 1400.922px);
+		margin: clamp(1rem, 2.4vw, 2.75rem) auto 0;
+	}
+
+	.faq-section__heading {
+		margin-bottom: 3.2rem;
+	}
+
+	.faq-section h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: 52.9px;
+		font-weight: 400;
+		line-height: 1.02;
+		letter-spacing: -2.9px;
+	}
+
+	.faq-list {
+		display: grid;
+		gap: 1.15rem;
+		width: 100%;
+	}
+
+	.faq-item {
+		border-radius: 1.65rem;
+		background: var(--color-surface);
+	}
+
+	.faq-item summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		min-height: 5.25rem;
+		padding: 1rem 2.25rem;
+		cursor: pointer;
+		color: var(--color-text);
+		font-size: clamp(1.15rem, 1.42vw, 1.62rem);
+		font-weight: 400;
+		line-height: 1.35;
+		list-style: none;
+	}
+
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-item__icon {
+		position: relative;
+		flex: 0 0 1.2rem;
+		width: 1.2rem;
+		height: 0.7rem;
+		margin-left: 1rem;
+		transition: transform 180ms var(--ease-out);
+	}
+
+	.faq-item__icon::before,
+	.faq-item__icon::after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 0.66rem;
+		height: 1.5px;
+		border-radius: 999px;
+		background: var(--color-muted);
+		content: "";
+		transform: translate(-76%, -50%) rotate(45deg);
+	}
+
+	.faq-item__icon::after {
+		transform: translate(-24%, -50%) rotate(-45deg);
+	}
+
+	.faq-item[open] .faq-item__icon {
+		transform: rotate(180deg);
+	}
+
+	.faq-item p {
+		max-width: 1100px;
+		margin: -0.15rem 5rem 0 2.25rem;
+		padding-bottom: 1.85rem;
+		color: var(--color-muted);
+		font-size: 1rem;
+		line-height: 1.55;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.faq-item summary:hover {
+			color: var(--color-muted);
+		}
+	}
+
+	@media (max-width: 720px) {
+		.faq-section__heading {
+			margin-bottom: 1.65rem;
+		}
+
+		.faq-section h2 {
+			font-size: clamp(2rem, 10vw, 3rem);
+			line-height: 1.05;
+			letter-spacing: 0;
+		}
+
+		.faq-item summary {
+			min-height: 4.75rem;
+			padding: 0.9rem 1.35rem;
+			font-size: 1rem;
+		}
+
+		.faq-item p {
+			margin-right: 3rem;
+			margin-left: 1.35rem;
+			padding-bottom: 1.2rem;
+			font-size: 0.95rem;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1119px) {
+		.faq-list {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: start;
+			gap: 1rem;
+		}
+
+		.faq-item summary {
+			min-height: 5.8rem;
+			padding-inline: 1.6rem;
+			font-size: 1.1rem;
+		}
+
+		.faq-item p {
+			margin-right: 2.75rem;
+			margin-left: 1.6rem;
+		}
+	}
+</style>

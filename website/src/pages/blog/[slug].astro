@@ -1,0 +1,16 @@
+---
+import BlogArticle from "../../components/BlogArticle.astro";
+import BlogLayout from "../../components/BlogLayout.astro";
+import { blogArticles } from "../../data/blog";
+
+export function getStaticPaths() {
+	return blogArticles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+}
+
+const { article } = Astro.props;
+const description = article.text || article.body[0] || "Статья NailsProfi.";
+---
+
+<BlogLayout title={`${article.title} — NailsProfi`} description={description}>
+	<BlogArticle article={article} />
+</BlogLayout>

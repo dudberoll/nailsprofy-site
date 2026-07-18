@@ -1,0 +1,53 @@
+---
+import type { BlogArticle } from "../../data/blog";
+import { articlePath, blogCardImages, formatBlogDate } from "../../data/blog";
+
+interface Props {
+	cards: BlogArticle[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section class="journal-section" aria-labelledby="journal-title">
+	<div class="journal-head">
+		<div class="section-heading">
+			<h2 id="journal-title">Коротко об уходе и трендах</h2>
+		</div>
+		<a href="/blog">К блогу</a>
+	</div>
+	<div class="journal-grid">
+		{
+			cards.map((card, index) => (
+				<article>
+					<a class="journal-card-link" href={articlePath(card)}>
+						<img src={blogCardImages[index % blogCardImages.length]} alt="" loading="lazy" />
+						<div class="journal-card-content">
+							<h3>{card.title}</h3>
+							<time datetime={card.date}>{formatBlogDate(card.date)}</time>
+							<p>{card.text}</p>
+						</div>
+					</a>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.journal-section { width: min(100%, 1400.922px); margin: clamp(1rem, 2.4vw, 2.75rem) auto 0; }
+	.journal-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+	.journal-head h2 { margin: 0; color: var(--color-text); font-size: 52.9px; font-weight: 400; line-height: 1.02; letter-spacing: -2.9px; }
+	.journal-head a { display: inline-flex; align-items: center; justify-content: center; min-height: 43.66px; padding: .72rem 1.55rem; border: 1px solid var(--color-accent-muted); border-radius: 999px; background: var(--color-accent-soft); color: var(--color-accent-text); text-decoration: none; font-size: 16px; line-height: 1; }
+	.journal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 19.845px; margin-top: 34.539px; }
+	.journal-grid article { min-width: 0; }
+	.journal-card-link { display: grid; gap: 17px; height: 100%; color: inherit; text-decoration: none; }
+	.journal-card-link > img { display: block; width: 100%; aspect-ratio: .8; border-radius: 29.4px; background: var(--color-surface); object-fit: cover; transition: transform 240ms var(--ease-out), filter 240ms var(--ease-out); }
+	.journal-card-content { display: grid; align-content: start; gap: 8px; }
+	.journal-grid h3 { margin: 0; color: var(--color-text); font-size: 29px; font-weight: 400; line-height: 1.18; letter-spacing: -1px; }
+	.journal-grid time { color: #8c8379; font-size: 14px; line-height: 1.2; }
+	.journal-grid p { margin: 8px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.38; }
+	.journal-card-link:hover > img, .journal-card-link:focus-visible > img { filter: brightness(.96); transform: translateY(-.2rem); }
+	@media (min-width: 768px) and (max-width: 1439px) { .journal-head h2 { font-size: clamp(2.25rem, 4.3vw, 3.3rem); letter-spacing: -.05em; } .journal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 1.4vw, 1.25rem); margin-top: clamp(1.25rem, 2.5vw, 2rem); } .journal-card-link { gap: clamp(.65rem, 1.2vw, 1rem); } .journal-card-link > img { border-radius: clamp(1rem, 2vw, 1.6rem); } .journal-grid h3 { font-size: clamp(1.05rem, 1.75vw, 1.45rem); letter-spacing: -.04em; } .journal-grid time, .journal-grid p { font-size: clamp(.76rem, 1.1vw, .9rem); } }
+	@media (max-width: 767px) { .journal-section { overflow: visible; } .journal-head { align-items: center; gap: 1rem; } .journal-head h2 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; letter-spacing: 0; } .journal-head a { flex: 0 0 auto; min-height: 40px; padding-inline: 15px; font-size: 14px; } .journal-grid { display: flex; gap: 12px; margin-top: 20px; margin-right: calc(-1 * var(--page-gutter)); overflow-x: auto; padding: 0 var(--page-gutter) 6px 0; scroll-snap-type: x mandatory; } .journal-grid article { flex: 0 0 min(80vw, 310px); scroll-snap-align: start; } .journal-card-link > img { aspect-ratio: 1 / .86; border-radius: 1.35rem; } .journal-grid h3 { font-size: 1.65rem; letter-spacing: 0; } .journal-grid p { font-size: 1rem; line-height: 1.45; } }
+</style>

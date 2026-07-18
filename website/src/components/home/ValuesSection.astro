@@ -1,0 +1,40 @@
+---
+interface ValueItem {
+	title: string;
+	text: string;
+}
+
+interface Props {
+	values: ValueItem[];
+}
+
+const { values } = Astro.props;
+---
+
+<section class="values-section" aria-labelledby="values-title">
+	<div class="section-heading">
+		<h2 id="values-title">Наши ценности</h2>
+	</div>
+	<div class="values-grid">
+		{
+			values.map((value) => (
+				<article>
+					<h3>{value.title}</h3>
+					<p>{value.text}</p>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.values-section { width: min(100%, 1400.922px); margin: clamp(1rem, 2.4vw, 2.75rem) auto 0; }
+	.values-section h2 { margin: 0; color: var(--color-text); font-size: 52.9px; font-weight: 400; line-height: 1.02; letter-spacing: -2.9px; }
+	.values-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34.539px; margin-top: 34.539px; }
+	.values-grid article { min-height: 246px; padding: 45px 32px 32px; border-radius: 29.4px; background: var(--color-surface); }
+	.values-grid article:nth-child(2) { background: var(--color-accent-soft); }
+	.values-grid h3 { margin: 0; color: var(--color-text); font-size: 29px; font-weight: 400; line-height: 1.2; letter-spacing: -1px; }
+	.values-grid p { max-width: 390px; margin: 20px 0 0; color: var(--color-muted); font-size: 18px; line-height: 1.5; }
+	@media (max-width: 767px) { .values-section { overflow: visible; } .values-section h2 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; letter-spacing: 0; } .values-grid { display: flex; gap: 12px; margin-right: calc(-1 * var(--page-gutter)); overflow-x: auto; padding: 0 var(--page-gutter) 6px 0; scroll-snap-type: x mandatory; } .values-grid article { flex: 0 0 min(80vw, 310px); min-height: 220px; padding: 24px; border-radius: 22px; scroll-snap-align: start; } }
+	@media (min-width: 768px) and (max-width: 1439px) { .values-section h2 { font-size: clamp(2.25rem, 4.3vw, 3.3rem); letter-spacing: -.05em; } .values-grid { gap: clamp(.75rem, 2vw, 1.5rem); margin-top: clamp(1.25rem, 2.5vw, 2rem); } .values-grid article { min-height: clamp(190px, 25vw, 246px); padding: clamp(1.25rem, 3vw, 2rem); } .values-grid h3 { font-size: clamp(1.25rem, 2.4vw, 1.8rem); } .values-grid p { margin-top: clamp(.75rem, 1.8vw, 1.25rem); font-size: clamp(.9rem, 1.5vw, 1.125rem); line-height: 1.42; } }
+</style>

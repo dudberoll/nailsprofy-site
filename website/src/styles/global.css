@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import "./mobile.css";
+
+:root {
+	color-scheme: light;
+	font-family:
+		Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", sans-serif;
+	font-synthesis: none;
+	--color-page: #e8e6e2;
+	--color-surface: #f4f1ed;
+	--color-surface-strong: #dedad5;
+	--color-text: #171916;
+	--color-muted: #696560;
+	--color-border: #cec9c5;
+	--color-accent: #d2cbc3;
+	--color-accent-soft: #eee9e3;
+	--color-accent-muted: #9b8e84;
+	--color-accent-text: #2f2d2a;
+	--color-button: #171916;
+	--color-button-text: #fffdf9;
+	--shader-booking-background: #ead0dc;
+	--shader-booking-border: #d8adbf;
+	--shader-booking-border-strong: #c98aa5;
+	--shader-booking-text: #2f252a;
+	--page-gutter: clamp(1.35rem, 2.35vw, 2.7rem);
+	--content-width: 1740px;
+	--radius-hero: clamp(1.5rem, 2vw, 2.25rem);
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+	--focus-ring: #ad5f87;
+	background: var(--color-page);
+	color: var(--color-text);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	min-width: 320px;
+	overflow-x: hidden;
+	background: var(--color-page);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	overflow-x: hidden;
+	background: var(--color-page);
+}
+
+button,
+a {
+	font: inherit;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--focus-ring);
+	outline-offset: 4px;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 100;
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0.75rem 1rem;
+	border-radius: 999px;
+	background: var(--color-button);
+	color: var(--color-button-text);
+	transform: translateY(-180%);
+	transition: transform 160ms var(--ease-out);
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+.shader-booking-button {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	border-color: var(--shader-booking-border);
+	background: var(--shader-booking-background);
+	color: var(--shader-booking-text);
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 42%);
+}
+
+.booking-shader-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 52px;
+	padding: 0.75rem 1.25rem;
+	border: 1px solid var(--shader-booking-border);
+	border-radius: 999px;
+	text-decoration: none;
+	font-size: 0.95rem;
+	font-weight: 500;
+	line-height: 1.2;
+	cursor: pointer;
+	transition:
+		border-color 160ms var(--ease-out),
+		box-shadow 160ms var(--ease-out),
+		color 160ms var(--ease-out),
+		transform 120ms var(--ease-out);
+}
+
+.booking-shader-button:active {
+	transform: scale(0.97);
+}
+
+.booking-shader-button:hover {
+	border-color: var(--shader-booking-border-strong);
+	box-shadow:
+		inset 0 1px 0 rgb(255 255 255 / 42%),
+		0 14px 30px rgb(201 138 165 / 24%);
+}
+
+.shader-booking-button::before,
+.shader-booking-button::after {
+	content: none;
+}
+
+.booking-shader-button__label {
+	position: relative;
+	z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}
+
+@media (max-width: 480px) {
+	:root {
+		--page-gutter: 1rem;
+	}
+}

@@ -1,0 +1,374 @@
+---
+interface Contacts {
+	address: string;
+	hours: string;
+	emails: string[];
+	social_urls?: string[];
+}
+
+interface Props {
+	contacts: Contacts;
+	primaryPhone: string;
+	phoneHref: string;
+}
+
+const { contacts, primaryPhone, phoneHref } = Astro.props;
+const telegramUrl = contacts.social_urls?.find((url) => url.includes("t.me"));
+const formattedHours = contacts.hours
+	.replace(/^С/, "с")
+	.replace("10-00", "10:00")
+	.replace("21-00", "21:00");
+const mapUrl =
+	"https://yandex.ru/map-widget/v1/org/nailsprofi/1122428957/?ll=37.585767%2C55.732181&utm_source=share&z=15";
+---
+
+<section class="studio-section" id="contacts" aria-labelledby="contacts-title">
+	<div class="studio-map">
+		<img
+			class="studio-map__static"
+			src="/images/map-full-static.png"
+			alt=""
+			width="1672"
+			height="941"
+			loading="lazy"
+			decoding="async"
+		/>
+
+		<iframe
+			class="studio-map__widget"
+			title="Интерактивная карта проезда к NailsProfi"
+			src={mapUrl}
+			loading="lazy"
+			allowfullscreen
+		></iframe>
+
+		<article class="studio-card">
+			<header>
+				<h2 id="contacts-title">Студия у<br />Парка Культуры</h2>
+				<p>{contacts.address}</p>
+			</header>
+
+			<address class="studio-meta">
+				<div class="studio-meta__row">
+					<span class="studio-meta__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24">
+							<circle cx="12" cy="12" r="8.25"></circle>
+							<path d="M12 7.25v5l3.25 2"></path>
+						</svg>
+					</span>
+					<span>{formattedHours}</span>
+				</div>
+
+				<div class="studio-meta__row">
+					<span class="studio-meta__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24">
+							<path d="M7.2 3.75 10 8.3 7.9 10a14.4 14.4 0 0 0 6.1 6.1l1.7-2.1 4.55 2.8-.8 3.1c-.2.75-.9 1.25-1.68 1.2C9.9 20.55 3.45 14.1 2.9 6.23a1.7 1.7 0 0 1 1.2-1.68l3.1-.8Z"></path>
+						</svg>
+					</span>
+					<div class="studio-phone">
+						<a href={phoneHref}>{primaryPhone}</a>
+						{
+							telegramUrl && (
+								<a
+									class="studio-telegram"
+									href={telegramUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="Telegram NailsProfi"
+								>
+									<svg viewBox="0 0 24 24" aria-hidden="true">
+										<path d="M20.6 4.5 3.8 11c-1.1.4-1.1 1.1-.2 1.4l4.3 1.3 1.7 5.1c.2.6.4.8.8.8.3 0 .5-.1.8-.4l2.4-2.3 4.9 3.6c.9.5 1.5.3 1.7-.8l3.1-14.5c.3-1.2-.4-1.7-1.5-1.3Zm-11.9 8 9.7-6.1c.5-.3.9-.1.5.2l-8.3 7.5-.3 3.2-1.6-4.8Z"></path>
+									</svg>
+								</a>
+							)
+						}
+					</div>
+				</div>
+
+				<div class="studio-meta__row">
+					<span class="studio-meta__icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24">
+							<rect x="3.25" y="5.25" width="17.5" height="13.5" rx="1"></rect>
+							<path d="m4.5 7 7.5 6 7.5-6"></path>
+						</svg>
+					</span>
+					<a class="studio-email" href={`mailto:${contacts.emails[0]}`}>{contacts.emails[0]}</a>
+				</div>
+			</address>
+		</article>
+	</div>
+</section>
+
+<style>
+	.studio-section {
+		width: min(100%, 1400.922px);
+		margin: -11.99px auto 0;
+		container-type: inline-size;
+	}
+
+	.studio-map {
+		--map-attribution-safe-area: 4rem;
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		min-height: clamp(620px, 48vw, 700px);
+		border: 1px solid rgb(92 85 79 / 12%);
+		border-radius: 32px;
+		background: #e8e5e1;
+	}
+
+	.studio-map__static,
+	.studio-map__widget {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		display: block;
+		height: 100%;
+	}
+
+	.studio-map__static {
+		left: 0;
+		z-index: -3;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.studio-map__widget {
+		right: 0;
+		z-index: -2;
+		width: 66%;
+		border: 0;
+	}
+
+	.studio-section .studio-card {
+		position: absolute;
+		top: clamp(2rem, 5vw, 3.5rem);
+		bottom: clamp(1rem, 2.5vw, 2rem);
+		left: clamp(2rem, 4vw, 3.5rem);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: min(41%, 520px);
+		height: auto;
+		gap: 1.5rem;
+		padding: clamp(2.25rem, 3.5vw, 3.5rem) clamp(2.5rem, 4vw, 4rem) clamp(1.25rem, 2vw, 2rem);
+		border: 1px solid rgb(255 255 255 / 55%);
+		border-radius: 28px;
+		background: #fffdfa;
+		box-shadow: 0 24px 70px rgb(64 53 45 / 7%);
+	}
+
+	.studio-section .studio-card > header {
+		display: grid;
+		gap: clamp(1.25rem, 2vw, 2rem);
+	}
+
+	.studio-section .studio-card h2 {
+		margin: 0;
+		color: var(--color-text);
+		font-size: clamp(3.25rem, 4.3vw, 4.5rem);
+		font-weight: 400;
+		line-height: 0.98;
+		letter-spacing: -0.055em;
+	}
+
+	.studio-section .studio-card header p {
+		max-width: 30rem;
+		margin: 0;
+		color: var(--color-muted);
+		font-size: clamp(1rem, 1.25vw, 1.2rem);
+		line-height: 1.5;
+	}
+
+	.studio-section .studio-meta {
+		display: grid;
+		justify-items: stretch;
+		width: 100%;
+		gap: 0;
+		margin: 0;
+		color: var(--color-text);
+		font-style: normal;
+		text-align: left;
+	}
+
+	.studio-section .studio-meta__row {
+		display: grid;
+		grid-template-columns: 3rem minmax(0, 1fr);
+		align-items: center;
+		gap: 1rem;
+		min-height: 4.5rem;
+		border-top: 1px solid rgb(92 85 79 / 16%);
+		font-size: clamp(0.98rem, 1.2vw, 1.15rem);
+		line-height: 1.35;
+	}
+
+	.studio-section .studio-meta__icon {
+		display: grid;
+		width: 3rem;
+		height: 3rem;
+		place-items: center;
+		border-radius: 50%;
+		background: rgb(233 230 226 / 82%);
+	}
+
+	.studio-section .studio-meta__icon svg {
+		width: 1.45rem;
+		height: 1.45rem;
+		fill: none;
+		stroke: currentColor;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 1.8;
+	}
+
+	.studio-section .studio-meta a {
+		min-width: 0;
+		max-width: 100%;
+		color: inherit;
+		font-size: inherit;
+		text-decoration: none;
+		text-underline-offset: 0.2em;
+		overflow-wrap: anywhere;
+		transition: color 160ms var(--ease-out);
+	}
+
+	.studio-section .studio-phone {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	.studio-section .studio-telegram {
+		display: grid;
+		flex: 0 0 auto;
+		width: 1.4rem;
+		height: 1.4rem;
+		place-items: center;
+		transition: transform 120ms var(--ease-out);
+	}
+
+	.studio-section .studio-telegram svg {
+		width: 1.25rem;
+		height: 1.25rem;
+		fill: currentColor;
+	}
+
+	.studio-section .studio-email {
+		width: auto;
+	}
+
+	.studio-section .studio-meta a:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+
+	.studio-section .studio-telegram:active {
+		transform: scale(0.97);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.studio-section .studio-meta a:hover {
+			color: var(--color-accent);
+			text-decoration: underline;
+		}
+	}
+
+	@container (max-width: 900px) {
+		.studio-section .studio-card {
+			width: min(58%, 560px);
+		}
+	}
+
+	@container (max-width: 620px) {
+		.studio-map {
+			min-height: 620px;
+			border-radius: 23px;
+		}
+
+		.studio-map__widget {
+			width: 72%;
+		}
+
+		.studio-section .studio-card {
+			top: 1rem;
+			bottom: 1rem;
+			left: 1rem;
+			width: calc(100% - 2rem);
+			gap: 1.5rem;
+			padding: 1.65rem 1.25rem 1rem;
+			border-radius: 18px;
+		}
+
+		.studio-section .studio-card h2 {
+			font-size: clamp(2.35rem, 13vw, 3.25rem);
+		}
+
+		.studio-section .studio-card header p {
+			font-size: 0.98rem;
+		}
+
+		.studio-section .studio-meta__row {
+			grid-template-columns: 2.65rem minmax(0, 1fr);
+			gap: 0.8rem;
+			min-height: 4.65rem;
+			font-size: 0.94rem;
+		}
+
+		.studio-section .studio-meta__icon {
+			width: 2.65rem;
+			height: 2.65rem;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.studio-map {
+			display: flex;
+			flex-direction: column;
+			min-height: 0;
+			padding-top: 238px;
+			border-radius: 24px;
+		}
+
+		.studio-map__static,
+		.studio-map__widget {
+			top: 0;
+			right: 0;
+			bottom: auto;
+			left: 0;
+			width: 100%;
+			height: 254px;
+		}
+
+		.studio-map__static {
+			z-index: -1;
+		}
+
+		.studio-map__widget {
+			z-index: 0;
+		}
+
+		.studio-section .studio-card {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			z-index: 1;
+			width: auto;
+			margin: -16px 16px 16px;
+			padding: 24px 20px 16px;
+			border-radius: 20px;
+		}
+
+		.studio-section .studio-card h2 {
+			font-size: clamp(2.1rem, 10vw, 2.75rem);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.studio-meta a,
+		.studio-telegram {
+			transition: none;
+		}
+	}
+</style>

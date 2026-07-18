@@ -1,0 +1,202 @@
+---
+import type { PriceGroup } from "../data/servicesCatalog";
+
+interface Props {
+	group: PriceGroup;
+	categoryId: string;
+	bookingUrl: string;
+}
+
+const { group, categoryId, bookingUrl } = Astro.props;
+const headingId = `price-${categoryId}-${group.title.toLowerCase().replaceAll(" ", "-")}`;
+---
+
+<section class="price-group" aria-labelledby={headingId}>
+	<h2 id={headingId}>{group.title}</h2>
+	{
+		group.note ? (
+			<div class="price-group__note">
+				<p>{group.note}</p>
+				<a
+					class="shader-booking-button"
+					href={bookingUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Записаться онлайн
+				</a>
+			</div>
+		) : (
+			<ul>
+				{group.items.map((item) => (
+					<li class="price-card">
+						<div class="price-card__service">
+							<h3>{item.name}</h3>
+							{item.description ? <p>{item.description}</p> : null}
+						</div>
+						<dl class="price-card__prices">
+							{item.prices.map(([role, price]) => (
+								<div>
+									<dt>{role}:</dt>
+									<dd>{price}</dd>
+								</div>
+							))}
+						</dl>
+					</li>
+				))}
+			</ul>
+		)
+	}
+</section>
+
+<style>
+	.price-group {
+		padding: clamp(1.25rem, 2vw, 2rem);
+		border-radius: clamp(1.5rem, 2vw, 2.5rem);
+		background: linear-gradient(180deg, rgb(234 208 223 / 34%), rgb(218 214 209 / 44%));
+	}
+
+	.price-group h2 {
+		margin: 0 0 clamp(1.25rem, 2vw, 2rem);
+		font-size: clamp(1.8rem, 2.4vw, 3rem);
+		font-weight: 400;
+		letter-spacing: -0.035em;
+		line-height: 1.1;
+	}
+
+	.price-group ul {
+		display: grid;
+		gap: clamp(0.75rem, 1.2vw, 1.25rem);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.price-group__note {
+		display: grid;
+		gap: 1.25rem;
+		max-width: 760px;
+	}
+
+	.price-group__note p {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+		line-height: 1.45;
+	}
+
+	.price-group__note a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		min-height: 46px;
+		padding: 0.8rem 1.3rem;
+		border: 1px solid var(--shader-booking-border);
+		border-radius: 999px;
+		background: var(--shader-booking-background);
+		color: var(--shader-booking-text);
+		text-decoration: none;
+		transition:
+			background-color 160ms var(--ease-out),
+			border-color 160ms var(--ease-out),
+			color 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.price-group__note a:active {
+		transform: scale(0.97);
+	}
+
+	.price-card {
+		display: grid;
+		grid-template-columns: minmax(260px, 1fr) auto;
+		align-items: center;
+		gap: 2rem;
+		min-height: 78px;
+		padding: clamp(1rem, 1.4vw, 1.5rem) clamp(1.25rem, 1.8vw, 2rem);
+		border-radius: 999px;
+		background: #f8f7f5;
+	}
+
+	.price-card__service h3,
+	.price-card__service p {
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.price-card__service h3 {
+		font-size: clamp(1.1rem, 1.55vw, 1.9rem);
+		letter-spacing: -0.025em;
+		line-height: 1.2;
+	}
+
+	.price-card__service p {
+		margin-top: 0.7rem;
+		font-size: clamp(0.9rem, 1.15vw, 1.35rem);
+		line-height: 1.35;
+	}
+
+	.price-card__prices {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 0.5rem 1.75rem;
+		margin: 0;
+		font-size: clamp(0.88rem, 1vw, 1.2rem);
+		white-space: nowrap;
+	}
+
+	.price-card__prices div {
+		display: flex;
+		gap: 0.35rem;
+	}
+
+	.price-card__prices dt,
+	.price-card__prices dd {
+		margin: 0;
+	}
+
+	.price-card__prices dt {
+		color: var(--color-accent-text);
+	}
+
+	@media (max-width: 1100px) {
+		.price-card {
+			border-radius: 1.5rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.price-card {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.price-card__prices {
+			justify-content: flex-start;
+			white-space: normal;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.price-group {
+			padding: 1rem;
+		}
+
+		.price-card__prices {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		.price-card {
+			min-width: 0;
+			padding: 1rem;
+		}
+
+		.price-card__service {
+			min-width: 0;
+			overflow-wrap: anywhere;
+		}
+	}
+</style>

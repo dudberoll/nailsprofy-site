@@ -1,0 +1,88 @@
+---
+import type { BlogArticle } from "../data/blog";
+
+interface Props {
+	article: BlogArticle;
+}
+
+type ArticleContentBlock =
+	| { type: "heading"; text: string; level: 2 | 3 }
+	| { type: "paragraph"; text: string }
+	| { type: "list"; items: string[] };
+
+const { article } = Astro.props;
+const articleContent = article.body.reduce<ArticleContentBlock[]>((blocks, rawItem) => {
+	const item = rawItem.trim();
+	if (!item) return blocks;
+
+	if (item.startsWith("## ") || item.startsWith("### ")) {
+		blocks.push({
+			type: "heading",
+			text: item.startsWith("### ") ? item.slice(4) : item.slice(3),
+			level: item.startsWith("### ") ? 3 : 2,
+		});
+		return blocks;
+	}
+
+	if (item.startsWith("- ")) {
+		const previousBlock = blocks.at(-1);
+		if (previousBlock?.type === "list") previousBlock.items.push(item.slice(2));
+		else blocks.push({ type: "list", items: [item.slice(2)] });
+		return blocks;
+	}
+
+	blocks.push({ type: "paragraph", text: item });
+	return blocks;
+}, []);
+---
+
+<main id="main-content" class="article-page">
+	<a class="article-back" href="/blog">К блогу</a>
+	<article class="article-shell">
+		<header class="article-head">
+			<p>{article.category}</p>
+			<h1>{article.title}</h1>
+			<div>
+				<span>{article.readingTime}</span>
+				{
+					article.date && (
+						<time datetime={article.date.slice(0, 10)}>
+							{new Intl.DateTimeFormat("ru-RU", {
+								day: "numeric",
+								month: "long",
+								year: "numeric",
+							}).format(new Date(article.date.replace(" ", "T")))}
+						</time>
+					)
+				}
+			</div>
+		</header>
+		<div class="article-content">
+			{
+				articleContent.map((block) => {
+					if (block.type === "heading") return block.level === 2 ? <h2>{block.text}</h2> : <h3>{block.text}</h3>;
+					if (block.type === "list") return <ul>{block.items.map((item) => <li>{item}</li>)}</ul>;
+					return <p>{block.text}</p>;
+				})
+			}
+		</div>
+	</article>
+</main>
+
+<style>
+	.article-page { width: min(100%, calc(920px + var(--page-gutter))); margin-inline: auto; padding: clamp(1.5rem, 2.8vw, 3rem) var(--page-gutter) clamp(2rem, 4vw, 4.5rem); }
+	.article-back { display: inline-flex; margin-bottom: clamp(1rem, 1.8vw, 1.6rem); color: #7d7468; font-size: 0.93rem; text-decoration: none; }
+	.article-back:hover, .article-back:focus-visible { color: #4f5946; }
+	.article-shell { display: grid; gap: clamp(1.2rem, 2vw, 2rem); padding: clamp(1.35rem, 3vw, 3rem); border: 1px solid rgb(255 255 255 / 62%); border-radius: clamp(1.1rem, 2vw, 1.8rem); background: linear-gradient(145deg, rgb(255 255 255 / 94%), rgb(241 238 233 / 88%)), radial-gradient(circle at 100% 0%, rgb(112 124 101 / 16%), transparent 34%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 78%), 0 24px 70px rgb(55 45 38 / 10%); }
+	.article-head { display: grid; gap: 0.9rem; }
+	.article-head p { margin: 0; color: #7d7468; font-size: 0.78rem; font-weight: 600; line-height: 1; text-transform: uppercase; }
+	.article-head h1 { margin: 0; color: var(--color-text); font-size: clamp(2rem, 3.2vw, 3.75rem); font-weight: 400; line-height: 1.08; }
+	.article-head div { display: flex; flex-wrap: wrap; gap: 0.75rem; color: rgb(39 39 35 / 58%); font-size: 0.9rem; }
+	.article-content { display: grid; gap: 1.2rem; }
+	.article-content p { margin: 0; color: rgb(39 39 35 / 84%); font-size: clamp(1rem, 1vw, 1.05rem); line-height: 1.7; }
+	.article-content h2 { margin: clamp(1rem, 2vw, 1.75rem) 0 0; color: var(--color-text); font-size: clamp(1.5rem, 2.15vw, 2rem); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; }
+	.article-content h3 { margin: 0.1rem 0 -0.3rem; color: #514d47; font-size: clamp(1.14rem, 1.35vw, 1.35rem); font-weight: 600; line-height: 1.3; }
+	.article-content ul { display: grid; gap: 0.65rem; margin: 0; padding: clamp(0.95rem, 1.5vw, 1.25rem) clamp(1rem, 1.7vw, 1.4rem); border-radius: 0.9rem; background: rgb(239 236 230 / 68%); color: rgb(39 39 35 / 84%); font-size: clamp(0.98rem, 1vw, 1.04rem); line-height: 1.55; list-style: none; }
+	.article-content li { position: relative; padding-left: 1.25rem; }
+	.article-content li::before { position: absolute; top: 0.02em; left: 0; color: var(--color-accent-muted); content: "•"; font-size: 1.15em; line-height: 1.25; }
+</style>

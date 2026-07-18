@@ -1,0 +1,1 @@
+"""NailsProfi public-data scraper."""

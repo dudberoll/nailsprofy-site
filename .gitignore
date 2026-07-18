@@ -1,0 +1,33 @@
+# Dependencies and generated output
+node_modules/
+website/node_modules/
+website/.astro/
+website/dist/
+coverage/
+
+# Python
+scraper/.venv/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary validation artifacts
+*.log
+.scratch/
+screenshots/
+website/screenshots/
+playwright-report/
+test-results/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

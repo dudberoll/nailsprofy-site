@@ -1,0 +1,35 @@
+---
+import GiftShopPage from "../components/GiftShopPage";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Подарочные сертификаты и абонементы NailsProfi."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:title" content="Сертификаты и абонементы — NailsProfi" />
+		<meta
+			property="og:description"
+			content="Подарочные сертификаты и абонементы NailsProfi."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>Сертификаты и абонементы — NailsProfi</title>
+	</head>
+	<body id="top">
+		<a class="skip-link" href="#main-content">Перейти к содержимому</a>
+		<SiteHeader />
+		<main id="main-content">
+			<GiftShopPage client:load />
+		</main>
+	</body>
+</html>

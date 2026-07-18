@@ -1,0 +1,71 @@
+---
+interface ServiceCard {
+	title: string;
+	image: string;
+	href: string;
+}
+
+interface Props {
+	services: ServiceCard[];
+}
+
+const { services } = Astro.props;
+const featuredServices = services.slice(0, 4);
+---
+
+<section class="home-services" id="services" aria-labelledby="home-services-title">
+	<div class="section-heading">
+		<h2 id="home-services-title">Услуги</h2>
+	</div>
+
+	<div class="service-gallery" data-service-gallery aria-label="Услуги NailsProfi">
+		{
+			featuredServices.map((service) => (
+				<a class="service-tile" href={service.href}>
+					<img src={service.image} alt="" width="520" height="270" loading="lazy" />
+					<span class="service-tile__label">
+						<span>{service.title}</span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							aria-hidden="true"
+						>
+							<path
+								d="M8 4l8 8-8 8"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</span>
+				</a>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.home-services { width: min(100%, 1400.922px); min-width: 0; height: 309.094px; margin-inline: auto; padding-top: 64.68px; }
+	.home-services .section-heading { height: 27px; }
+	.home-services h2 { margin: 0; color: var(--color-text); font-size: 26.4px; font-weight: 500; line-height: 1; letter-spacing: 2px; text-transform: uppercase; }
+	.service-gallery { display: flex; gap: 19.845px; width: 1400.922px; height: 218.016px; padding-top: 36.75px; overflow: hidden; }
+	.service-tile { position: relative; flex: 0 0 335.344px; display: block; width: 335.344px; height: 181.266px; overflow: hidden; border-radius: 26.46px; background: #7b6255; text-decoration: none; }
+	.service-tile::before { position: absolute; inset: 0; z-index: 1; background: rgb(0 0 0 / 20%); content: ""; }
+	.service-tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	.service-tile__label { position: absolute; top: 109.25px; left: 26.453px; z-index: 2; display: inline-flex; align-items: center; gap: 8.8px; min-height: 45.57px; padding: 7.2px 19.845px; border-radius: 999px; background: rgb(232 230 226 / 62%); color: rgb(23 25 22 / 82%); font-size: 19.845px; line-height: 19.845px; letter-spacing: -.893px; }
+	.service-tile__label svg { width: 23.516px; height: 23.516px; }
+	@media (min-width: 768px) and (max-width: 1439px) { .home-services { height: auto; padding-top: clamp(1rem, 2.4vw, 2rem); } .home-services .section-heading { height: auto; } .home-services h2 { margin: 0; font-size: clamp(1rem, 1.65vw, 1.35rem); letter-spacing: .08em; } .service-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(.65rem, 1.4vw, 1rem); width: 100%; height: auto; margin-top: clamp(1rem, 2vw, 1.5rem); padding-top: 0; overflow: visible; } .service-tile { min-width: 0; width: 100%; height: clamp(124px, 14vw, 178px); } .service-tile__label { top: auto; bottom: clamp(.65rem, 1.3vw, .9rem); left: clamp(.65rem, 1.3vw, .9rem); min-height: 34px; padding: .38rem clamp(.65rem, 1.2vw, .8rem); font-size: clamp(.78rem, 1.35vw, 1rem); line-height: 1; } .service-tile__label svg { width: clamp(1rem, 1.5vw, 1.2rem); height: clamp(1rem, 1.5vw, 1.2rem); } }
+	@media (max-width: 1023px) {
+		.home-services { height: auto; padding-top: 6px; }
+		.home-services .section-heading { height: auto; }
+		.home-services h2 { margin-top: 0; font-size: 16px; letter-spacing: .08em; }
+		.service-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; height: auto; margin-top: 12px; padding-top: 0; overflow: visible; }
+		.service-tile { min-width: 0; width: 100%; height: clamp(108px, 34vw, 164px); aspect-ratio: auto; border-radius: 14px; }
+		.service-tile__label { top: auto; bottom: 8px; left: 8px; gap: 3px; min-height: 29px; max-width: calc(100% - 16px); padding: 5px 9px; font-size: 12px; line-height: 1; }
+		.service-tile__label svg { width: 14px; height: 14px; }
+	}
+</style>

@@ -1,0 +1,15 @@
+{
+  "name": "nailsprofy-site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": ["website"],
+  "scripts": {
+    "dev": "bun run --cwd website dev",
+    "build": "bun run --cwd website build",
+    "typecheck": "bun run --cwd website typecheck",
+    "check:assets": "bun run scripts/verify-assets.mjs",
+    "check": "bun run typecheck && bun run check:assets && bun run build",
+    "preview": "bun run --cwd website preview"
+  }
+}

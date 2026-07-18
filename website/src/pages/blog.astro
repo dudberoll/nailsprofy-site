@@ -1,0 +1,12 @@
+---
+import BlogIndex from "../components/BlogIndex.astro";
+import BlogLayout from "../components/BlogLayout.astro";
+import { blogPageArticles, totalBlogPages } from "../data/blog";
+
+const currentPage = 1;
+const articles = blogPageArticles(currentPage);
+---
+
+<BlogLayout>
+<BlogIndex articles={articles} currentPage={currentPage} totalPages={totalBlogPages} activeCategory="all" />
+</BlogLayout>

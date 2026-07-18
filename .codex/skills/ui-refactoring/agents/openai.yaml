@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Refactoring"
+  short_description: "Move UI styling into owned components"
+  default_prompt: "Use $ui-refactoring to clean up a UI page so visual styling lives inside reusable components."

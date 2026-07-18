@@ -1,0 +1,173 @@
+---
+import type { ServiceCategory } from "../data/servicesCatalog";
+
+interface Props {
+	categories: ServiceCategory[];
+	activeCategoryId: string;
+}
+
+const { categories, activeCategoryId } = Astro.props;
+---
+
+<div class="category-carousel">
+	<div class="category-scroller" aria-label="Категории услуг">
+		<ul class="category-list" role="tablist" aria-label="Категории услуг">
+			{
+				categories.map((category) => (
+					<li role="presentation">
+						<button
+							id={`service-tab-${category.id}`}
+							class:list={[
+								"category-card",
+								{ "category-card--active": category.id === activeCategoryId },
+							]}
+							type="button"
+							role="tab"
+							aria-selected={category.id === activeCategoryId ? "true" : "false"}
+							aria-controls={`service-panel-${category.id}`}
+							tabindex={category.id === activeCategoryId ? "0" : "-1"}
+							data-service-tab={category.id}
+							data-service-label={category.label}
+							data-service-hero-image={category.heroImage}
+							data-service-hero-alt={category.heroAlt}
+						>
+							<img src={category.image} alt="" width="560" height="270" loading="eager" />
+							<span>{category.label}</span>
+						</button>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+
+<style>
+	.category-carousel {
+		position: relative;
+		width: 100%;
+		max-width: 100%;
+		margin-top: clamp(2rem, 4vw, 4rem);
+	}
+
+	.category-carousel::before,
+	.category-carousel::after {
+		position: absolute;
+		top: 0;
+		bottom: 0.75rem;
+		z-index: 2;
+		width: clamp(2rem, 5vw, 5.5rem);
+		content: "";
+		pointer-events: none;
+	}
+
+	.category-carousel::before {
+		left: 0;
+		background: linear-gradient(to right, var(--color-page), rgb(232 230 226 / 0%));
+	}
+
+	.category-carousel::after {
+		right: 0;
+		background: linear-gradient(to left, var(--color-page), rgb(232 230 226 / 0%));
+	}
+
+	.category-scroller {
+		contain: inline-size layout paint;
+		width: 100%;
+		max-width: 100%;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.category-scroller::-webkit-scrollbar {
+		display: none;
+	}
+
+	.category-list {
+		display: grid;
+		grid-auto-columns: clamp(190px, 13vw, 280px);
+		grid-auto-flow: column;
+		gap: clamp(0.75rem, 1.3vw, 1.6rem);
+		width: max-content;
+		min-width: 0;
+		margin: 0;
+		padding: 0 0 0.75rem;
+		list-style: none;
+	}
+
+	.category-card {
+		position: relative;
+		display: block;
+		width: 100%;
+		aspect-ratio: 2.08 / 1;
+		padding: 0;
+		overflow: hidden;
+		border: 2px solid transparent;
+		border-radius: clamp(1rem, 1.4vw, 1.8rem);
+		background: #bdb3aa;
+		color: #fffdf9;
+		cursor: pointer;
+		font: inherit;
+		transition:
+			border-color 160ms var(--ease-out),
+			box-shadow 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.category-card::after {
+		position: absolute;
+		inset: 0;
+		background: rgb(0 0 0 / 26%);
+		content: "";
+	}
+
+	.category-card--active {
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 3px var(--color-accent-soft);
+	}
+
+	.category-card:active {
+		transform: scale(0.98);
+	}
+
+	.category-card img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 180ms var(--ease-out);
+	}
+
+	.category-card span {
+		position: absolute;
+		z-index: 1;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		padding: 0.75rem;
+		font-size: clamp(1.35rem, 1.7vw, 2rem);
+		letter-spacing: -0.04em;
+		text-shadow: 0 2px 14px rgb(17 13 10 / 32%);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.category-card:hover {
+			border-color: var(--color-accent-muted);
+		}
+
+		.category-card:hover img {
+			transform: scale(1.04);
+		}
+	}
+
+	@media (max-width: 540px) {
+		.category-list {
+			grid-auto-columns: 168px;
+		}
+
+		.category-card {
+			width: 168px;
+		}
+	}
+</style>

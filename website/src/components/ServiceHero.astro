@@ -1,0 +1,74 @@
+---
+import type { ServiceCategory } from "../data/servicesCatalog";
+
+interface Props {
+	category: ServiceCategory;
+}
+
+const { category } = Astro.props;
+---
+
+<div class="service-hero" role="img" aria-label={category.label} data-service-hero>
+	<img
+		src={category.heroImage}
+		alt={category.heroAlt}
+		width="1920"
+		height="464"
+		fetchpriority="high"
+		data-service-hero-image
+	/>
+	<span data-service-hero-title>{category.label}</span>
+</div>
+
+<style>
+	.service-hero {
+		position: relative;
+		margin-top: clamp(2.5rem, 5vw, 7rem);
+		overflow: hidden;
+		border-radius: clamp(1.5rem, 2vw, 2.8rem);
+		background: #bdb3aa;
+	}
+
+	.service-hero::after {
+		position: absolute;
+		inset: 0;
+		background: rgb(0 0 0 / 28%);
+		content: "";
+		pointer-events: none;
+	}
+
+	.service-hero img {
+		display: block;
+		width: 100%;
+		height: auto;
+		min-height: clamp(240px, 24vw, 500px);
+		object-fit: cover;
+		transition:
+			filter 160ms var(--ease-out),
+			opacity 160ms var(--ease-out);
+	}
+
+	.service-hero[data-transitioning="true"] img {
+		opacity: 0.72;
+		filter: blur(2px);
+	}
+
+	.service-hero span {
+		position: absolute;
+		z-index: 1;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		color: #fffdf9;
+		font-size: clamp(2.5rem, 4vw, 4.9rem);
+		letter-spacing: -0.055em;
+		text-shadow: 0 2px 18px rgb(17 13 10 / 34%);
+	}
+
+	@media (max-width: 540px) {
+		.service-hero img {
+			height: 260px;
+			object-position: center;
+		}
+	}
+</style>

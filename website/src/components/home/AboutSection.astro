@@ -1,0 +1,347 @@
+<section class="about-section" id="about" aria-labelledby="about-title">
+	<div class="about-section__media" aria-hidden="true">
+		<div class="about-section__stack">
+			<div class="about-section__back-card">
+				<span>NailsProfi</span>
+			</div>
+			<img
+				class="about-section__photo-card"
+				src="/images/salon-card.png"
+				alt=""
+				width="619"
+				height="724"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</div>
+
+	<div class="about-section__content">
+		<div class="about-section__intro">
+			<p class="about-section__eyebrow">О салоне</p>
+			<h2 id="about-title">Место, где уход не превращается в суету</h2>
+			<p class="about-section__lead">
+				NailsProfi — салон у метро Парк Культуры. Мы делаем маникюр, педикюр,
+				уход за волосами и бровями в спокойной атмосфере, где внимание к деталям
+				важнее громких обещаний.
+			</p>
+		</div>
+		<p class="about-section__copy">
+			В основе подхода — чистые инструменты, качественные материалы, аккуратная
+			форма и честная консультация перед услугой. Если процедуру лучше
+			перенести, разделить на этапы или выбрать другой уход, мы скажем об этом
+			прямо.
+		</p>
+		<a class="about-section__link" href="/services">
+			<span>Посмотреть услуги</span>
+			<svg aria-hidden="true" viewBox="0 0 28 10" focusable="false">
+				<path d="M0 5h25M21 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
+		</a>
+	</div>
+</section>
+
+<style>
+	.about-section { display: grid; grid-template-columns: 517.75px minmax(0, 1fr); align-items: center; gap: 63.2px; width: min(100%, 1400.922px); min-height: 602.688px; margin-inline: auto; padding: 0 28.9px 0 0; border-radius: 29.4px; background: linear-gradient(90deg, rgb(255 253 249 / 44%), rgb(255 253 249 / 14%)); }
+	.about-section__media {
+		position: relative;
+		display: grid;
+		place-items: center;
+		min-width: 0;
+		min-height: 520px;
+	}
+
+	.about-section__stack {
+		position: relative;
+		width: 470px;
+		height: 530px;
+	}
+
+	.about-section__back-card {
+		position: absolute;
+		top: 42px;
+		left: 38px;
+		z-index: 1;
+		width: 390px;
+		height: 490px;
+		border: 1px solid rgb(255 255 255 / 78%);
+		border-radius: 22px;
+		background: #f7f3ed;
+		box-shadow: 0 24px 70px rgb(40 35 30 / 14%);
+		transform: rotate(7.1deg);
+	}
+
+	.about-section__photo-card {
+		position: absolute;
+		top: 30px;
+		left: 52px;
+		z-index: 2;
+		display: block;
+		width: 380px;
+		height: 445px;
+		border-radius: 18px;
+		object-fit: cover;
+		clip-path: inset(3px round 17px);
+		filter: drop-shadow(0 20px 28px rgb(43 37 31 / 19%));
+		transform: rotate(-7.1deg);
+	}
+
+	.about-section__back-card span {
+		position: absolute;
+		right: 27px;
+		bottom: 17px;
+		color: #4d4546;
+		font-size: 27px;
+		font-style: italic;
+		font-weight: 400;
+		line-height: 34px;
+		letter-spacing: -0.03em;
+	}
+
+	.about-section__content {
+		min-width: 0;
+		max-width: 791px;
+		transform: translateY(4.6px);
+	}
+
+	.about-section__eyebrow {
+		margin: 0 0 32.6px;
+		color: #6f6d6a;
+		font-size: 12.5px;
+		font-weight: 500;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	.about-section h2 {
+		margin: 0;
+		color: #2f2b28;
+		font-size: 49.2px;
+		font-weight: 400;
+		line-height: 53.2px;
+		letter-spacing: -3px;
+	}
+
+	.about-section__lead {
+		max-width: 791px;
+		margin: 27.6px 0 0;
+		color: #6b6966;
+		font-size: 22.8px;
+		line-height: 31px;
+	}
+
+	.about-section__copy {
+		max-width: 760px;
+		margin: 36.2px 0 0;
+		color: #6b6966;
+		font-size: 17.3px;
+		line-height: 22px;
+	}
+
+	.about-section__link {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		margin-top: 36px;
+		padding: 0;
+		color: var(--color-text);
+		text-transform: uppercase;
+		font-size: 12.2px;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.about-section__link svg {
+		width: 38px;
+		height: auto;
+	}
+
+	@media (max-width: 1119px) {
+		.about-section__media {
+			display: grid;
+			place-items: center;
+			min-height: 430px;
+		}
+
+		.about-section__stack {
+			transform: scale(0.86);
+			transform-origin: center;
+		}
+	}
+
+	@media (min-width: 765px) and (max-width: 1439px) {
+		.about-section { grid-template-columns: minmax(220px, .82fr) minmax(0, 1.18fr); gap: clamp(1rem, 2.4vw, 2rem); min-height: clamp(360px, 48vw, 500px); padding: clamp(1.25rem, 2.5vw, 2rem); }
+		.about-section__media {
+			min-height: clamp(280px, 42vw, 430px);
+		}
+
+		.about-section__stack {
+			width: clamp(235px, 34vw, 380px);
+			height: auto;
+			aspect-ratio: 470 / 530;
+			transform: none;
+		}
+
+		.about-section__back-card {
+			top: 7.9%;
+			left: 8%;
+			width: 83%;
+			height: 92.5%;
+			border-radius: clamp(0.85rem, 1.8vw, 1.35rem);
+		}
+
+		.about-section__photo-card {
+			top: 5.7%;
+			left: 11%;
+			width: 80.9%;
+			height: 84%;
+			border-radius: clamp(0.7rem, 1.5vw, 1.1rem);
+			clip-path: inset(3px round clamp(0.65rem, 1.4vw, 1rem));
+		}
+
+		.about-section__back-card span {
+			right: 7%;
+			bottom: 3.5%;
+			font-size: clamp(1rem, 2.3vw, 1.45rem);
+			line-height: 1;
+		}
+
+		.about-section__eyebrow {
+			margin-bottom: clamp(1rem, 2.3vw, 1.6rem);
+			font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+		}
+
+		.about-section h2 {
+			font-size: clamp(1.85rem, 4.4vw, 2.85rem);
+			line-height: 1.06;
+			letter-spacing: clamp(-0.12rem, -0.22vw, -0.04rem);
+		}
+
+		.about-section__lead {
+			margin-top: clamp(1rem, 2.3vw, 1.45rem);
+			font-size: clamp(0.95rem, 1.7vw, 1.15rem);
+			line-height: 1.35;
+		}
+
+		.about-section__copy {
+			margin-top: clamp(1.1rem, 2.5vw, 1.6rem);
+			font-size: clamp(0.84rem, 1.35vw, 1rem);
+			line-height: 1.38;
+		}
+
+		.about-section__link {
+			margin-top: clamp(1.3rem, 2.6vw, 2rem);
+			font-size: clamp(0.65rem, 1vw, 0.75rem);
+		}
+	}
+
+	@media (max-width: 720px) {
+		.about-section__media {
+			height: 350px;
+			min-height: 350px;
+		}
+
+		.about-section__stack {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%) scale(0.61);
+			transform-origin: top center;
+		}
+
+		.about-section h2 {
+			font-size: clamp(1.8rem, 9vw, 3rem);
+			hyphens: none;
+			line-height: 1.08;
+			letter-spacing: 0;
+			text-wrap: balance;
+		}
+
+		.about-section__lead {
+			font-size: 1.15rem;
+			line-height: 1.45;
+		}
+
+		.about-section__copy {
+			font-size: 1rem;
+			line-height: 1.45;
+		}
+	}
+
+	@media (max-width: 764px) {
+		.about-section { grid-template-columns: 1fr; padding: 2rem; }
+	}
+
+	@media (max-width: 764px) {
+		.about-section {
+			grid-template-columns: 118px minmax(0, 1fr);
+			align-items: start;
+			gap: 16px;
+			min-height: 0;
+			padding: 18px;
+			border-radius: 24px;
+		}
+
+		.about-section__media {
+			height: 170px;
+			min-height: 170px;
+			align-self: start;
+		}
+
+		.about-section__stack {
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%) scale(0.28);
+			transform-origin: top center;
+		}
+
+		.about-section__content,
+		.about-section__intro {
+			display: contents;
+		}
+
+		.about-section__eyebrow {
+			grid-column: 2;
+			grid-row: 1;
+			align-self: center;
+			margin: 0;
+			font-size: 10px;
+		}
+
+		.about-section h2 {
+			grid-column: 1 / -1;
+			grid-row: 2;
+			margin-top: 2px;
+			font-size: clamp(1.55rem, 7vw, 2rem);
+			line-height: 1.02;
+		}
+
+		.about-section__lead,
+		.about-section__copy {
+			grid-column: 1 / -1;
+			font-size: 0.86rem;
+			line-height: 1.42;
+		}
+
+		.about-section__lead {
+			grid-row: 3;
+			margin-top: 14px;
+		}
+
+		.about-section__copy {
+			grid-row: 4;
+			margin-top: 14px;
+		}
+
+		.about-section__link {
+			grid-column: 1 / -1;
+			grid-row: 5;
+			margin-top: 18px;
+			font-size: 10px;
+		}
+
+		.about-section__link svg {
+			width: 28px;
+		}
+	}
+</style>

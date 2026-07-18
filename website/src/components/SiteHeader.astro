@@ -1,0 +1,421 @@
+---
+import HeaderServicesDropdown from "./HeaderServicesDropdown";
+import data from "../data/nailsprofi.json";
+import { serviceCategories } from "../data/servicesCatalog";
+
+const navigation = [
+	{ label: "Сертификаты и абонементы", href: "/sertifikaty_abonementy" },
+	{ label: "Мастера", href: "/#masters" },
+	{ label: "Отзывы", href: "/#reviews" },
+	{ label: "О салоне", href: "/#about" },
+	{ label: "Блог", href: "/blog" },
+	{ label: "Контакты", href: "/#contacts" },
+];
+
+const isServicesPage = Astro.url.pathname.startsWith("/services");
+const isBlogPage = Astro.url.pathname.startsWith("/blog");
+const isCertificatesPage = Astro.url.pathname.startsWith("/sertifikaty_abonementy");
+const bookingUrl = data.contacts.booking_url;
+const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }));
+---
+
+<header class="site-header" data-site-header>
+	<div class="site-header__inner">
+		<a class="site-header__logo" href="/" aria-label="NailsProfi, на главную">
+			<img src="/images/nailsprofi-logo.png" alt="" width="489" height="206" />
+		</a>
+
+		<nav class="site-header__nav" aria-label="Основная навигация">
+			<ul>
+				<li>
+					<HeaderServicesDropdown
+						services={serviceMenuItems}
+						isActive={isServicesPage}
+						client:load
+					/>
+				</li>
+				{
+					navigation.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								aria-current={
+									(isBlogPage && item.href === "/blog") ||
+									(isCertificatesPage && item.href === "/sertifikaty_abonementy")
+										? "page"
+										: undefined
+								}
+							>
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<div class="site-header__actions">
+			<a class="site-header__price" href="/services#price">Прайс</a>
+			<a
+				class="site-header__booking shader-booking-button"
+				href={bookingUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Записаться
+			</a>
+		</div>
+
+		<button
+			class="menu-toggle"
+			type="button"
+			aria-expanded="false"
+			aria-controls="mobile-navigation"
+			aria-label="Открыть меню"
+			data-menu-toggle
+		>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+
+	<nav
+		class="mobile-navigation"
+		id="mobile-navigation"
+		aria-label="Мобильная навигация"
+		data-mobile-navigation
+		hidden
+	>
+		<ul>
+			<li><a href="/services">Услуги</a></li>
+			{
+				navigation.map((item) => (
+					<li>
+						<a href={item.href}>{item.label}</a>
+					</li>
+				))
+			}
+			<li><a href="/services#price">Прайс</a></li>
+		</ul>
+		<a
+			class="mobile-navigation__booking shader-booking-button"
+			href={bookingUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Записаться
+		</a>
+	</nav>
+
+	<a
+		class="mobile-booking shader-booking-button"
+		href={bookingUrl}
+		target="_blank"
+		rel="noopener noreferrer"
+		aria-label="Записаться онлайн"
+	>
+		<svg viewBox="0 0 24 24" aria-hidden="true">
+			<rect x="3.5" y="5.5" width="17" height="15" rx="2.5"></rect>
+			<path d="M7.5 3.5v4M16.5 3.5v4M3.5 10h17M8.5 14h7"></path>
+		</svg>
+	</a>
+</header>
+
+<script>
+	const header = document.querySelector<HTMLElement>("[data-site-header]");
+	const toggle = header?.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+	const menu = header?.querySelector<HTMLElement>("[data-mobile-navigation]");
+
+	const setMenuOpen = (open: boolean) => {
+		if (!toggle || !menu) return;
+
+		toggle.setAttribute("aria-expanded", String(open));
+		toggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+		toggle.classList.toggle("menu-toggle--open", open);
+		menu.hidden = !open;
+	};
+
+	toggle?.addEventListener("click", () => {
+		setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
+	});
+
+	menu?.addEventListener("click", (event) => {
+		if ((event.target as HTMLElement).closest("a")) setMenuOpen(false);
+	});
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key !== "Escape" || toggle?.getAttribute("aria-expanded") !== "true") {
+			return;
+		}
+
+		setMenuOpen(false);
+		toggle.focus();
+	});
+
+	const wideScreen = window.matchMedia("(min-width: 768px)");
+	wideScreen.addEventListener("change", (event) => {
+		if (event.matches) setMenuOpen(false);
+	});
+</script>
+
+<style>
+	.site-header {
+		position: relative;
+		z-index: 10;
+		border-bottom: 1px solid var(--color-border);
+		background: var(--color-page);
+	}
+
+	.site-header__inner {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: clamp(1.5rem, 3vw, 4rem);
+		width: min(100%, calc(var(--content-width) + 2 * var(--page-gutter)));
+		min-height: 68px;
+		margin-inline: auto;
+		padding-inline: var(--page-gutter);
+	}
+
+	.site-header__logo {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		text-decoration: none;
+		line-height: 0;
+	}
+
+	.site-header__logo img {
+		display: block;
+		width: auto;
+		height: 52px;
+	}
+
+	.site-header__nav ul,
+	.mobile-navigation ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.site-header__nav ul {
+		display: flex;
+		align-items: center;
+		gap: clamp(1rem, 1.7vw, 2rem);
+	}
+
+	.site-header__nav a,
+	.site-header__price {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		text-decoration: none;
+		font-size: 0.875rem;
+		line-height: 1.3;
+	}
+
+	.site-header__nav a::after,
+	.site-header__price::after {
+		position: absolute;
+		right: 0;
+		bottom: 7px;
+		left: 0;
+		height: 1px;
+		background: currentColor;
+		content: "";
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 160ms var(--ease-out);
+	}
+
+	.site-header__nav a[aria-current="page"]::after {
+		transform: scaleX(1);
+	}
+
+	.site-header__actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+	}
+
+	.site-header__booking,
+	.mobile-navigation__booking {
+		min-height: 44px;
+		border: 1px solid var(--shader-booking-border);
+		border-radius: 999px;
+		background: var(--shader-booking-background);
+		color: var(--shader-booking-text);
+		text-decoration: none;
+		font-size: 0.875rem;
+		cursor: pointer;
+		transition:
+			background-color 160ms var(--ease-out),
+			border-color 160ms var(--ease-out),
+			color 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.site-header__booking {
+		padding: 0.65rem 1.2rem;
+	}
+
+	.site-header__booking::before,
+	.site-header__booking::after {
+		display: none;
+	}
+
+	.site-header__booking:active,
+	.mobile-navigation__booking:active {
+		transform: scale(0.97);
+	}
+
+	.menu-toggle {
+		display: none;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		border: 1px solid var(--color-border);
+		border-radius: 50%;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	.mobile-booking {
+		position: fixed;
+		right: clamp(1rem, 2vw, 1.5rem);
+		bottom: max(1rem, env(safe-area-inset-bottom));
+		z-index: 30;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 52px;
+		height: 52px;
+		border: 1px solid var(--shader-booking-border);
+		border-radius: 50%;
+		box-shadow: 0 12px 30px rgb(77 48 62 / 18%);
+		text-decoration: none;
+		transition: transform 120ms var(--ease-out), box-shadow 160ms var(--ease-out);
+	}
+
+	.mobile-booking svg {
+		width: 22px;
+		height: 22px;
+		fill: none;
+		stroke: currentColor;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 1.65;
+	}
+
+	.mobile-booking:active {
+		transform: scale(0.97);
+	}
+
+	.menu-toggle span {
+		position: absolute;
+		width: 18px;
+		height: 1px;
+		background: currentColor;
+		transition: transform 160ms var(--ease-out);
+	}
+
+	.menu-toggle span:first-child {
+		transform: translateY(-4px);
+	}
+
+	.menu-toggle span:last-child {
+		transform: translateY(4px);
+	}
+
+	.menu-toggle--open span:first-child {
+		transform: rotate(45deg);
+	}
+
+	.menu-toggle--open span:last-child {
+		transform: rotate(-45deg);
+	}
+
+	.mobile-navigation {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		right: var(--page-gutter);
+		left: var(--page-gutter);
+		padding: 1rem;
+		border: 1px solid var(--color-border);
+		border-radius: 1.25rem;
+		background: var(--color-surface);
+		box-shadow: 0 18px 48px rgb(38 30 23 / 12%);
+	}
+
+	.mobile-navigation[hidden] {
+		display: none;
+	}
+
+	.mobile-navigation a {
+		display: flex;
+		align-items: center;
+		min-height: 48px;
+		border-bottom: 1px solid var(--color-border);
+		text-decoration: none;
+	}
+
+	.mobile-navigation__booking {
+		width: 100%;
+		margin-top: 1rem;
+		border: 1px solid var(--shader-booking-border);
+		padding-inline: 1rem;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.site-header__nav a:hover::after,
+		.site-header__price:hover::after {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+
+			.site-header__booking:hover,
+			.mobile-navigation__booking:hover {
+				border-color: var(--shader-booking-border-strong);
+				color: var(--shader-booking-text);
+				box-shadow:
+					inset 0 1px 0 rgb(255 255 255 / 48%),
+					0 14px 34px rgb(201 138 165 / 20%);
+			}
+		}
+
+	@media (max-width: 1040px) {
+		.site-header__inner {
+			gap: 1.5rem;
+		}
+
+		.site-header__nav li:nth-child(4),
+		.site-header__nav li:nth-child(5) {
+			display: none;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.site-header__inner {
+			grid-template-columns: 1fr auto;
+			min-height: 64px;
+		}
+
+		.site-header__nav,
+		.site-header__actions {
+			display: none;
+		}
+
+		.site-header__logo img {
+			height: 44px;
+		}
+
+		.menu-toggle {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+	}
+</style>

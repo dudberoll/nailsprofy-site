@@ -1,0 +1,769 @@
+---
+interface Props {
+	variant?: "all" | "masters";
+}
+
+const { variant = "all" } = Astro.props;
+const showAll = variant === "all";
+const showMasters = showAll || variant === "masters";
+
+const cards = [
+	{
+		title: "Education",
+		text: "Higher psychological, humanitarian and additional psychotherapeutic",
+	},
+	{
+		title: "Experience",
+		text: "From three years. During this time, good practical experience is accumulated",
+	},
+	{
+		title: "Interview",
+		text: "We check the most important things: skills and successful case studies",
+	},
+	{
+		title: "Training",
+		text: "It is also important for masters to constantly learn. We develop through seminars",
+	},
+];
+
+const carouselCards = [
+	...cards,
+	{
+		title: "Practice",
+		text: "We test calm communication, attention to detail and confidence in real tasks",
+	},
+	{
+		title: "Support",
+		text: "The team keeps learning together and shares practical cases after every week",
+	},
+];
+
+const masterCards = [
+	{
+		title: "Анна Алешина",
+		level: "Топ мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный, пилочный. Наращивание ногтей акрил/гель/полигель.",
+		experience: "14 лет",
+		photo: "/images/master-anna.png",
+	},
+	{
+		title: "Екатерина Ускова",
+		level: "Топ мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей акрил/гель/полигель.",
+		experience: "15 лет",
+	},
+	{
+		title: "Сокол Оксана",
+		level: "Топ мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель. Подология.",
+		experience: "13 лет",
+		photo: "/images/master-oksana.png",
+	},
+	{
+		title: "Индира Абдуллаева",
+		level: "Стилист-колорист",
+		text: "Стрижки, укладки, окрашивание волос, спа уходы. Кератин.",
+		experience: "15 лет",
+	},
+	{
+		title: "Василиса Сергеева",
+		level: "Бровист",
+		text: "Архитектура бровей, ламинирование бровей и ресниц, окрашивание бровей и ресниц, уходовые услуги.",
+		experience: "4 года",
+		photo: "/images/master-vasilisa.png",
+	},
+	{
+		title: "Квадракова Юлия",
+		level: "Топ мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
+		experience: "10 лет",
+	},
+	{
+		title: "София Забелкина",
+		level: "Мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
+		experience: "6 лет",
+	},
+	{
+		title: "Яна Сальникова",
+		level: "Мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
+		experience: "8 лет",
+	},
+	{
+		title: "Эмма Сафина",
+		level: "Мастер ногтевого сервиса",
+		text: "Маникюр комби, аппаратный, пилочный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
+		experience: "8 лет",
+	},
+];
+---
+
+{
+	showAll && (
+		<>
+			<section class="matte-cards-demo" aria-labelledby="matte-cards-title">
+				<div class="matte-cards-demo__intro">
+					<p>Component 01</p>
+					<h2 id="matte-cards-title">Матовые glass-карточки</h2>
+				</div>
+
+				<div class="matte-cards-demo__stage matte-cards-demo__stage--photo">
+					<div class="matte-cards-demo__branch" aria-hidden="true">
+						<span></span>
+						<span></span>
+					</div>
+
+					<div class="matte-cards">
+						{cards.map((card) => (
+							<article class="matte-card">
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</article>
+						))}
+					</div>
+
+					<a class="matte-cards-demo__button" href="/services">Book a consultation</a>
+				</div>
+			</section>
+
+			<section class="matte-cards-demo matte-cards-demo--carousel" aria-labelledby="matte-carousel-title">
+				<div class="matte-cards-demo__intro">
+					<p>Component 01B</p>
+					<h2 id="matte-carousel-title">Матовые карточки с прокруткой</h2>
+				</div>
+
+				<div class="matte-cards-demo__stage matte-cards-demo__stage--carousel">
+					<div class="matte-cards-demo__branch" aria-hidden="true">
+						<span></span>
+						<span></span>
+					</div>
+
+					<div class="matte-carousel" data-matte-carousel aria-label="Прокручиваемые matte-карточки">
+						{carouselCards.map((card) => (
+							<article class="matte-card matte-card--carousel">
+								<h3>{card.title}</h3>
+								<p>{card.text}</p>
+							</article>
+						))}
+					</div>
+
+					<div class="matte-carousel-controls" aria-label="Управление прокруткой">
+						<button
+							class="matte-carousel-control"
+							type="button"
+							aria-label="Предыдущие карточки"
+							data-matte-carousel-action="previous"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								aria-hidden="true"
+							>
+								<path
+									d="M19 12H5m5.5-5.5L5 12l5.5 5.5"
+									stroke="currentColor"
+									stroke-width="1.35"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</button>
+						<button
+							class="matte-carousel-control"
+							type="button"
+							aria-label="Следующие карточки"
+							data-matte-carousel-action="next"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								aria-hidden="true"
+							>
+								<path
+									d="M5 12h14m-5.5-5.5L19 12l-5.5 5.5"
+									stroke="currentColor"
+									stroke-width="1.35"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</section>
+		</>
+	)
+}
+
+{showMasters && (
+<section class="matte-cards-demo matte-cards-demo--carousel" aria-labelledby="matte-masters-title">
+	<div class="matte-cards-demo__intro">
+		<h2 id="matte-masters-title">Мастера, которым можно доверить детали</h2>
+	</div>
+
+	<div class="matte-cards-demo__stage matte-cards-demo__stage--carousel matte-cards-demo__stage--masters">
+		<div class="matte-cards-demo__branch" aria-hidden="true">
+			<span></span>
+			<span></span>
+		</div>
+
+		<div class="matte-carousel" data-matte-carousel aria-label="Прокручиваемые карточки мастеров">
+			{
+				masterCards.map((card) => (
+					<article class="matte-card matte-card--carousel master-card">
+						{
+							card.photo ? (
+								<img class="master-card__photo" src={card.photo} alt={card.title} loading="lazy" />
+							) : (
+								<div class="master-card__photo master-card__photo--placeholder" aria-hidden="true" />
+							)
+						}
+						<div class="master-card__copy">
+							<h3>{card.title}</h3>
+							<p class="master-card__meta">{card.level}</p>
+							<p class="master-card__experience">Опыт работы — {card.experience}</p>
+							<p>{card.text}</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="matte-carousel-controls" aria-label="Управление прокруткой">
+			<button
+				class="matte-carousel-control"
+				type="button"
+				aria-label="Предыдущие карточки мастеров"
+				data-matte-carousel-action="previous"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					aria-hidden="true"
+				>
+					<path
+						d="M19 12H5m5.5-5.5L5 12l5.5 5.5"
+						stroke="currentColor"
+						stroke-width="1.35"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</button>
+			<button
+				class="matte-carousel-control"
+				type="button"
+				aria-label="Следующие карточки мастеров"
+				data-matte-carousel-action="next"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					aria-hidden="true"
+				>
+					<path
+						d="M5 12h14m-5.5-5.5L19 12l-5.5 5.5"
+						stroke="currentColor"
+						stroke-width="1.35"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					/>
+				</svg>
+			</button>
+		</div>
+	</div>
+</section>
+)}
+
+<script>
+	const matteCarousels = document.querySelectorAll<HTMLElement>("[data-matte-carousel]");
+	const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+	matteCarousels.forEach((carousel) => {
+		if (reducedMotion.matches) return;
+
+		let animationFrame = 0;
+		let lastTime = 0;
+		let isPaused = false;
+		let resumeTimer = 0;
+
+		const maxScroll = () => carousel.scrollWidth - carousel.clientWidth;
+		const scrollStep = () => {
+			const card = carousel.querySelector<HTMLElement>(".matte-card--carousel");
+			const style = window.getComputedStyle(carousel);
+			const gap = Number.parseFloat(style.columnGap || style.gap || "0");
+
+			return card ? card.getBoundingClientRect().width + gap : carousel.clientWidth * 0.8;
+		};
+
+		const pause = () => {
+			isPaused = true;
+			window.clearTimeout(resumeTimer);
+		};
+
+		const resumeSoon = () => {
+			window.clearTimeout(resumeTimer);
+			resumeTimer = window.setTimeout(() => {
+				lastTime = 0;
+				isPaused = false;
+			}, 1400);
+		};
+
+		const tick = (time: number) => {
+			if (!lastTime) lastTime = time;
+
+			const delta = time - lastTime;
+			lastTime = time;
+
+			if (!isPaused && maxScroll() > 0) {
+				carousel.scrollLeft += delta * 0.022;
+
+				if (carousel.scrollLeft >= maxScroll() - 2) {
+					carousel.scrollLeft = 0;
+				}
+			}
+
+			animationFrame = window.requestAnimationFrame(tick);
+		};
+
+		window.requestAnimationFrame(() => {
+			carousel.scrollLeft = Math.min(72, maxScroll());
+			animationFrame = window.requestAnimationFrame(tick);
+		});
+
+		carousel.addEventListener("pointerenter", pause);
+		carousel.addEventListener("pointerleave", resumeSoon);
+		carousel.addEventListener("pointerdown", pause);
+		carousel.addEventListener("pointerup", resumeSoon);
+		carousel.addEventListener("touchend", resumeSoon);
+		carousel.addEventListener("focusin", pause);
+		carousel.addEventListener("focusout", resumeSoon);
+
+		const stage = carousel.closest<HTMLElement>(".matte-cards-demo__stage");
+		const controls = stage?.querySelectorAll<HTMLButtonElement>("[data-matte-carousel-action]");
+
+		controls?.forEach((control) => {
+			control.addEventListener("click", () => {
+				const direction =
+					control.dataset.matteCarouselAction === "previous" ? -1 : 1;
+
+				pause();
+				carousel.scrollBy({
+					left: scrollStep() * direction,
+					behavior: "smooth",
+				});
+				resumeSoon();
+			});
+		});
+
+		window.addEventListener("pagehide", () => {
+			window.cancelAnimationFrame(animationFrame);
+			window.clearTimeout(resumeTimer);
+		});
+	});
+</script>
+
+<style>
+	.matte-cards-demo {
+		display: grid;
+		gap: clamp(1.5rem, 3vw, 2.5rem);
+		width: min(100%, var(--content-width));
+		margin-inline: auto;
+	}
+
+	.matte-cards-demo--carousel {
+		margin-top: clamp(2rem, 5vw, 5rem);
+	}
+
+	.matte-cards-demo__intro {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.matte-cards-demo__intro p {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: 0.82rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.matte-cards-demo__intro h2 {
+		margin: 0;
+		font-size: clamp(2rem, 4vw, 4.5rem);
+		font-weight: 400;
+		line-height: 0.98;
+		letter-spacing: -0.055em;
+	}
+
+	.matte-cards-demo__stage {
+		position: relative;
+		min-height: clamp(360px, 38vw, 560px);
+		overflow: hidden;
+		border-radius: var(--radius-hero);
+		background:
+			radial-gradient(circle at 48% 10%, rgb(214 156 125 / 30%), transparent 18%),
+			radial-gradient(circle at 64% 72%, rgb(116 131 82 / 18%), transparent 22%),
+			linear-gradient(115deg, #fbfaf8 0%, #f0ebe6 55%, #f8f5f0 100%);
+		box-shadow: inset 0 1px 0 rgb(255 255 255 / 70%);
+	}
+
+	.matte-cards-demo__stage--carousel {
+		display: grid;
+		align-items: center;
+		min-height: clamp(300px, 30vw, 460px);
+	}
+
+	.matte-cards-demo__stage--masters {
+		align-items: start;
+		background: url("/images/masters-pink-bg.png") 0 0 / 100% 100% no-repeat #eeebe6;
+	}
+
+	.matte-cards-demo__stage--masters .matte-cards-demo__branch {
+		display: none;
+	}
+
+	.matte-cards-demo__stage--masters .matte-card {
+		background: rgb(238 235 230 / 50%);
+		box-shadow: inset 0 1px 0 rgb(255 255 255 / 50%);
+		backdrop-filter: none;
+	}
+
+	.matte-cards-demo__stage--masters .matte-carousel {
+		padding-top: 28px;
+	}
+
+	.matte-cards-demo__branch {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		filter: blur(0.2px);
+		opacity: 0.72;
+	}
+
+	.matte-cards-demo__branch::before {
+		position: absolute;
+		top: -12%;
+		left: 47%;
+		width: 34px;
+		height: 92%;
+		border-radius: 999px;
+		background: linear-gradient(180deg, #9f634b, #6f4b37 56%, #3e5f38);
+		content: "";
+		transform: rotate(-14deg);
+	}
+
+	.matte-cards-demo__branch span {
+		position: absolute;
+		display: block;
+		border-radius: 999px;
+		background: linear-gradient(90deg, #9c5f49, #df9b7f 45%, #805640);
+	}
+
+	.matte-cards-demo__branch span:first-child {
+		top: 22%;
+		left: 39%;
+		width: 22%;
+		height: 28px;
+		filter: blur(7px);
+		transform: rotate(-18deg);
+	}
+
+	.matte-cards-demo__branch span:last-child {
+		top: 56%;
+		left: 48%;
+		width: 24%;
+		height: 22px;
+		background: linear-gradient(90deg, #345934, #7c8a61);
+		transform: rotate(48deg);
+	}
+
+	.matte-cards {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: clamp(0.75rem, 1.4vw, 1.25rem);
+		padding: clamp(1rem, 2vw, 1.75rem);
+	}
+
+	.matte-carousel {
+		--matte-carousel-gap: clamp(0.75rem, 1.4vw, 1.25rem);
+
+		position: relative;
+		z-index: 1;
+		display: flex;
+		gap: var(--matte-carousel-gap);
+		min-width: 0;
+		overflow-x: auto;
+		overscroll-behavior-inline: contain;
+		padding: clamp(1rem, 2vw, 1.75rem) clamp(1.25rem, 6vw, 5rem);
+		scroll-padding-inline: clamp(1.25rem, 6vw, 5rem);
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.matte-carousel::-webkit-scrollbar {
+		display: none;
+	}
+
+	.matte-carousel-controls {
+		position: absolute;
+		right: clamp(1rem, 2vw, 1.75rem);
+		bottom: clamp(1rem, 2vw, 1.75rem);
+		z-index: 2;
+		display: flex;
+		gap: 0.55rem;
+	}
+
+	.matte-carousel-control {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 42px;
+		height: 42px;
+		padding: 0;
+		border: 1px solid rgb(23 25 22 / 14%);
+		border-radius: 999px;
+		background: rgb(255 255 255 / 30%);
+		color: rgb(23 25 22 / 78%);
+		backdrop-filter: blur(18px) saturate(112%);
+		cursor: pointer;
+		transition:
+			background-color 160ms var(--ease-out),
+			border-color 160ms var(--ease-out),
+			color 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.matte-carousel-control svg {
+		width: 1.1rem;
+		height: 1.1rem;
+	}
+
+	.matte-carousel-control:active {
+		transform: scale(0.96);
+	}
+
+	.matte-card {
+		display: grid;
+		align-content: space-between;
+		min-height: clamp(190px, 18vw, 280px);
+		padding: clamp(1.1rem, 1.8vw, 1.75rem);
+		border: 1px solid rgb(255 255 255 / 46%);
+		border-radius: clamp(1.15rem, 1.6vw, 1.75rem);
+		background: rgb(255 255 255 / 32%);
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 50%),
+			0 20px 60px rgb(72 57 45 / 7%);
+		backdrop-filter: blur(22px) saturate(112%);
+	}
+
+	.matte-card--carousel {
+		flex: 0 0 calc((100% - (var(--matte-carousel-gap) * 2)) / 2.72);
+		scroll-snap-align: center;
+	}
+
+	.matte-card h3 {
+		margin: 0;
+		font-size: clamp(1.4rem, 2vw, 2.25rem);
+		font-weight: 400;
+		letter-spacing: -0.055em;
+	}
+
+	.matte-card p {
+		max-width: 24ch;
+		margin: 0;
+		color: rgb(23 25 22 / 76%);
+		font-size: clamp(0.82rem, 1vw, 1rem);
+		line-height: 1.15;
+		letter-spacing: -0.035em;
+	}
+
+	.master-card {
+		align-content: start;
+		gap: clamp(1rem, 1.6vw, 1.35rem);
+		min-height: clamp(270px, 23vw, 340px);
+	}
+
+	.master-card__photo {
+		display: block;
+		width: clamp(5.5rem, 7vw, 7.25rem);
+		aspect-ratio: 1;
+		border: 1px solid rgb(255 255 255 / 58%);
+		border-radius: 999px;
+		object-fit: cover;
+		background:
+			linear-gradient(145deg, rgb(255 255 255 / 54%), rgb(255 255 255 / 18%)),
+			radial-gradient(circle at 32% 26%, rgb(201 140 114 / 28%), transparent 46%);
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 58%),
+			0 16px 38px rgb(72 57 45 / 8%);
+	}
+
+	.master-card__copy {
+		display: grid;
+		gap: 0.45rem;
+		align-content: start;
+	}
+
+	.master-card h3 {
+		margin-bottom: 0.05rem;
+		line-height: 1.02;
+	}
+
+	.master-card__meta,
+	.master-card__experience {
+		color: rgb(23 25 22 / 62%);
+		font-size: clamp(0.82rem, 1vw, 1rem);
+		line-height: 1.15;
+		font-weight: 400;
+		letter-spacing: -0.035em;
+	}
+
+	.master-card p {
+		max-width: 34ch;
+	}
+
+	.master-card__experience {
+		margin-bottom: 0.35rem;
+	}
+
+	.matte-cards-demo__button {
+		position: absolute;
+		bottom: clamp(1rem, 2vw, 1.75rem);
+		left: clamp(1rem, 2vw, 1.75rem);
+		z-index: 1;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 220px;
+		min-height: 58px;
+		padding-inline: 1.4rem;
+		border: 1px solid rgb(133 79 55 / 28%);
+		border-radius: 999px;
+		background: #c98c72;
+		color: #fff8f3;
+		text-decoration: none;
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 30%),
+			0 14px 34px rgb(130 73 48 / 20%);
+		transition:
+			background-color 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.matte-cards-demo__button:active {
+		transform: scale(0.98);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.matte-cards-demo__button:hover {
+			background: #bd7c62;
+		}
+
+		.matte-carousel-control:hover {
+			border-color: rgb(23 25 22 / 24%);
+			background: rgb(255 255 255 / 48%);
+			color: var(--color-text);
+		}
+	}
+
+	@media (max-width: 980px) {
+		.matte-cards {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding-bottom: 6.5rem;
+		}
+
+		.matte-card--carousel {
+			flex-basis: calc((100% - var(--matte-carousel-gap)) / 2.25);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.matte-cards-demo__intro {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.matte-cards-demo__stage {
+			min-height: auto;
+		}
+
+		.matte-cards {
+			grid-template-columns: 1fr;
+		}
+
+		.matte-carousel {
+			padding-inline: 1rem;
+			scroll-padding-inline: 1rem;
+			padding-bottom: 5.25rem;
+		}
+
+		.matte-card {
+			min-height: 160px;
+		}
+
+		.matte-card--carousel {
+			flex-basis: 82%;
+		}
+
+		.matte-carousel-controls {
+			right: 1rem;
+			bottom: 1rem;
+		}
+
+		.matte-cards-demo__button {
+			right: 1rem;
+			width: auto;
+			min-width: 0;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.matte-cards-demo--carousel {
+			margin-inline: calc(-1 * var(--page-gutter));
+			padding-inline: var(--page-gutter);
+		}
+
+		.matte-cards-demo--carousel .matte-cards-demo__intro {
+			padding-inline: 0;
+		}
+
+		.matte-cards-demo--carousel .matte-cards-demo__intro h2 {
+			font-size: clamp(2rem, 9vw, 2.75rem);
+			line-height: 1.04;
+			letter-spacing: -0.045em;
+		}
+
+		.matte-cards-demo--carousel .matte-carousel {
+			gap: 12px;
+			scroll-padding-inline: var(--page-gutter);
+		}
+
+		.matte-cards-demo--carousel .matte-card--carousel {
+			flex-basis: min(82vw, 330px);
+			scroll-snap-align: start;
+		}
+
+		.matte-cards-demo--carousel .matte-carousel-controls {
+			display: none;
+		}
+	}
+</style>

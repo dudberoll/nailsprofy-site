@@ -1,0 +1,44 @@
+---
+import data from "../data/nailsprofi.json";
+import { blogPageArticles } from "../data/blog";
+import { serviceCards, values } from "../data/homeContent";
+import BrandsSection from "./BrandsSection.astro";
+import CallbackSection from "./home/CallbackSection.astro";
+import FaqSection from "./home/FaqSection.astro";
+import JournalSection from "./home/JournalSection.astro";
+import PromoSection from "./home/PromoSection.astro";
+import ServicesSection from "./home/ServicesSection.astro";
+import StudioSection from "./home/StudioSection.astro";
+import ValuesSection from "./home/ValuesSection.astro";
+import AboutSection from "./home/AboutSection.astro";
+import MatteCards from "./playground/MatteCards.astro";
+import ReviewsSection from "./ReviewsSection.astro";
+
+const contacts = data.contacts;
+const primaryPhone = contacts.phones[0];
+const phoneHref = `tel:${primaryPhone.replace(/[^\d+]/g, "")}`;
+const journalCards = blogPageArticles(1).slice(0, 4);
+---
+
+<div class="home-sections">
+	<PromoSection phoneHref={phoneHref} />
+	<ServicesSection services={serviceCards} />
+	<AboutSection />
+	<MatteCards variant="masters" />
+	<ReviewsSection />
+	<StudioSection contacts={contacts} primaryPhone={primaryPhone} phoneHref={phoneHref} />
+	<BrandsSection />
+	<ValuesSection values={values} />
+	<JournalSection cards={journalCards} />
+	<FaqSection />
+	<CallbackSection bookingUrl={contacts.booking_url} />
+</div>
+
+<style>
+	.home-sections {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		min-width: 0;
+		gap: clamp(1.25rem, 2.4vw, 3rem);
+	}
+</style>

@@ -1,0 +1,4479 @@
+{
+  "source": "https://nailsprofi.ru/",
+  "scraped_at": "2026-06-15T18:27:15.054432+00:00",
+  "contacts": {
+    "address": "Москва, улица Тимура Фрунзе 18 (метро Парк Культуры).",
+    "hours": "С 10-00 до 21-00 без выходных.",
+    "phones": [
+      "+7 (495) 617 00 19",
+      "+7 (925) 881-68-86"
+    ],
+    "emails": [
+      "info@nailsprofi.ru"
+    ],
+    "social_urls": [
+      "https://www.instagram.com/nailsprofi_ru/",
+      "https://vk.com/nailsprofi",
+      "https://www.facebook.com/Nailsprofi/",
+      "https://www.youtube.com/user/nailsprofi",
+      "https://t.me/nailsprofisalon",
+      "http://www.facebook.com/Nailsprofi",
+      "https://twitter.com/#!/Nailsprofi"
+    ],
+    "booking_url": "https://nailsprofi.ru/online"
+  },
+  "services": [
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/manikur",
+      "title": "Маникюр",
+      "description": "Сделать маникюр в сети салонов красоты NailsProfi в Москве. Опытные мастера нашей сети воплотят любой задуманный дизайн маникюра и сделают вам индивидуалнее",
+      "hero_image": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikur-nailsprofi-1.jpg",
+      "price_sections": [
+        {
+          "name": "Комплексные услуги",
+          "items": [
+            {
+              "name": "SMART педикюр+гель лак",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "SMART педикюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "SMART педикюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "3900 р.",
+              "price_rub_min": 3900,
+              "price_rub_max": 3900
+            },
+            {
+              "name": "SMART педикюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "4300 р.",
+              "price_rub_min": 4300,
+              "price_rub_max": 4300
+            },
+            {
+              "name": "SMART педикюр+лак",
+              "duration": "01:00",
+              "price_text": "3100 р.",
+              "price_rub_min": 3100,
+              "price_rub_max": 3100
+            },
+            {
+              "name": "SMART педикюр+лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Аппаратный маникюр+гель лак",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Аппаратный маникюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Аппаратный маникюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Аппаратный маникюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Аппаратный маникюр+лак",
+              "duration": "01:00",
+              "price_text": "1900 р.",
+              "price_rub_min": 1900,
+              "price_rub_max": 1900
+            },
+            {
+              "name": "Аппаратный маникюр+лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Аппаратный педикюр+гель лак",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Аппаратный педикюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Аппаратный педикюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "3900 р.",
+              "price_rub_min": 3900,
+              "price_rub_max": 3900
+            },
+            {
+              "name": "Аппаратный педикюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Аппаратный педикюр+лак",
+              "duration": "01:00",
+              "price_text": "3100 р.",
+              "price_rub_min": 3100,
+              "price_rub_max": 3100
+            },
+            {
+              "name": "Аппаратный педикюр+лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Востановление архитектуры+гель лак+снятие",
+              "duration": "01:00",
+              "price_text": "3800 р.",
+              "price_rub_min": 3800,
+              "price_rub_max": 3800
+            },
+            {
+              "name": "Востановление архитектуры+гель лак+снятие — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Гелевый маникюр+гель лак",
+              "duration": "01:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "Гелевый маникюр+гель лак -топ мастер",
+              "duration": "01:00",
+              "price_text": "3400 р.",
+              "price_rub_min": 3400,
+              "price_rub_max": 3400
+            },
+            {
+              "name": "Гелевый маникюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "Гелевый маникюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Комбинированный маникюр + гель лак",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Комбинированный маникюр + гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Комбинированный маникюр + гель лак френч",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Комбинированный маникюр + гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Комбинированный маникюр + лак",
+              "duration": "01:00",
+              "price_text": "1900 р.",
+              "price_rub_min": 1900,
+              "price_rub_max": 1900
+            },
+            {
+              "name": "Комбинированный маникюр + лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Комбинированный педикюр+гель лак",
+              "duration": "01:00",
+              "price_text": "3300 р.",
+              "price_rub_min": 3300,
+              "price_rub_max": 3300
+            },
+            {
+              "name": "Комбинированный педикюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Комбинированный педикюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Комбинированный педикюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Комбинированный педикюр+лак",
+              "duration": "01:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            },
+            {
+              "name": "Комбинированный педикюр+лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "3100 р.",
+              "price_rub_min": 3100,
+              "price_rub_max": 3100
+            },
+            {
+              "name": "Отдых от гель лака маникюр+система IBX",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Отдых от гель лака маникюр+система IBX топ мастер",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Экспресс маникюр+востанавливающее покрытие",
+              "duration": "01:00",
+              "price_text": "1600 р.",
+              "price_rub_min": 1600,
+              "price_rub_max": 1600
+            },
+            {
+              "name": "Экспресс маникюр+востанавливающее покрытие — топ мастер",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Экспресс маникюр+гель лак",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Экспресс маникюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Экспресс маникюр+гель лак френч",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Экспресс маникюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Экспресс маникюр+лак",
+              "duration": "01:00",
+              "price_text": "1700 р.",
+              "price_rub_min": 1700,
+              "price_rub_max": 1700
+            },
+            {
+              "name": "Экспресс маникюр+лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Экспресс педикюр+востанавливающее покрытие",
+              "duration": "01:00",
+              "price_text": "2400 р.",
+              "price_rub_min": 2400,
+              "price_rub_max": 2400
+            },
+            {
+              "name": "Экспресс педикюр+востанавливающее покрытие — топ мастер",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Экспресс педикюр+гель лак",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Экспресс педикюр+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "3300 р.",
+              "price_rub_min": 3300,
+              "price_rub_max": 3300
+            },
+            {
+              "name": "Экспресс педикюр+гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            }
+          ]
+        },
+        {
+          "name": "Маникюр",
+          "items": [
+            {
+              "name": "Аппаратный маникюр",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Аппаратный маникюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Детский маникюр",
+              "duration": "01:00",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "Детский маникюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "1700 р.",
+              "price_rub_min": 1700,
+              "price_rub_max": 1700
+            },
+            {
+              "name": "Донаращивание ногтя",
+              "duration": "01:00",
+              "price_text": "300 р.",
+              "price_rub_min": 300,
+              "price_rub_max": 300
+            },
+            {
+              "name": "Донаращивание ногтя — топ мастер",
+              "duration": "01:00",
+              "price_text": "400 р.",
+              "price_rub_min": 400,
+              "price_rub_max": 400
+            },
+            {
+              "name": "Комбинированный маникюр",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Комбинированный маникюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Массаж рук",
+              "duration": "01:00",
+              "price_text": "700 р.",
+              "price_rub_min": 700,
+              "price_rub_max": 700
+            },
+            {
+              "name": "Полировка ногтей",
+              "duration": "01:00",
+              "price_text": "400 р.",
+              "price_rub_min": 400,
+              "price_rub_max": 400
+            },
+            {
+              "name": "Полировка ногтей — топ мастер",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Придание формы ногтям",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Придание формы ногтям — топ мастер",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Снятие гель лака",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Снятие лака",
+              "duration": "01:00",
+              "price_text": "100 р.",
+              "price_rub_min": 100,
+              "price_rub_max": 100
+            },
+            {
+              "name": "Укрепление акриловой пудрой",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Холодный парафин для рук",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            }
+          ]
+        },
+        {
+          "name": "Покрытие\\Дизайн",
+          "items": [
+            {
+              "name": "Гель лак",
+              "duration": "01:00",
+              "price_text": "1900 р.",
+              "price_rub_min": 1900,
+              "price_rub_max": 1900
+            },
+            {
+              "name": "Гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Гель лак 1 ноготь",
+              "duration": "01:00",
+              "price_text": "200 р.",
+              "price_rub_min": 200,
+              "price_rub_max": 200
+            },
+            {
+              "name": "Гель лак 1 ноготь — топ мастер",
+              "duration": "01:00",
+              "price_text": "290 р.",
+              "price_rub_min": 290,
+              "price_rub_max": 290
+            },
+            {
+              "name": "Гель лак френч",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Гель лак френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Гель лак френч 1 ноготь",
+              "duration": "01:00",
+              "price_text": "300 р.",
+              "price_rub_min": 300,
+              "price_rub_max": 300
+            },
+            {
+              "name": "Гель лак френч 1 ноготь — топ мастер",
+              "duration": "01:00",
+              "price_text": "320 р.",
+              "price_rub_min": 320,
+              "price_rub_max": 320
+            },
+            {
+              "name": "Градиент 1 ногтя",
+              "duration": "01:00",
+              "price_text": "200 р.",
+              "price_rub_min": 200,
+              "price_rub_max": 200
+            },
+            {
+              "name": "Градиент 1 ногтя — топ мастер",
+              "duration": "01:00",
+              "price_text": "300 р.",
+              "price_rub_min": 300,
+              "price_rub_max": 300
+            },
+            {
+              "name": "Инкрустация 1 ноготь (полностью) стразы",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Лак",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Лечебное покрытие (от расслоения)",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Покрытие ног гелем",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Покрытие ног гелем — топ мастер",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Покрытие топом гель лак",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Стемпинг/Слайдер/Втирка/Лунки",
+              "duration": "01:00",
+              "price_text": "100 р.",
+              "price_rub_min": 100,
+              "price_rub_max": 100
+            },
+            {
+              "name": "Стразы 1 ноготь",
+              "duration": "01:00",
+              "price_text": "50 р.",
+              "price_rub_min": 50,
+              "price_rub_max": 50
+            },
+            {
+              "name": "Укрепление IBX",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikur-nailsprofi-1-200x200.jpg",
+          "alt": "manikur-nailsprofi-1"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/apparatnyi-manikjur-2020-pokrytie-gel-lak-nailsprofi-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/belyi-manikjur-apparatnyi-manikjur-ukreplenie-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/kombimanikjur-pokrytie-nailsprofi-zhidkaja-folga-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/krasnyi-gel-lak-na-nogtjah-kombimanikjur-ukreplenie-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/krasnyi-manikjur-apparatnyi-manikjur-remont-naturalnogo-nogtja-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/letnii-manikjur-2020-ukreplenie-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/lunnyi-manikjur-ukreplenie-nogtei-apparatnyi-manikjur-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/manikjur-na-korotkih-nogtjah-dizain-nogtei-gel-lak-nailsprofi-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/manikjur-cveta-haki-krasivyi-zeljonyi-gel-lak-ukreplenie-gelem-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/matovyi-manikjur-dizain-nogtei-2020-kombimanikjur-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/nezhnyi-goluboi-manikjur-dizain-nogtei-apparatnyi-manikjur-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/njudovyi-apparatnyi-manikjur-dizain-nogtei-ukreplenie-bazoi-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/njudovyi-manikjur-dizain-nogtei-slaider-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/pastel-na-nogtjah-apparatnyi-manikjur-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/ukreplenie-nogtei-matovyi-manikjur-gel-lak-pastel-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/chjornyi-manikjur-njudovyi-dizain-nogtei-pokrytie-gel-lak-nailsprofi-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/jarkii-apparatnyi-manikjur-pokrytie-gel-lak-nailsprofi-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/Clipboard02-81-701x701.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/Clipboard02-80-676x676.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/Clipboard02-79-681x681.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/nailsprofi-075-apparatnyi-manikjur-ukreplenie-odnofaznym-gelem-620x580.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/njudovyi-manikjur-dizain-nogtei-kombimanikjur-nailsprofi-620x618.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/modnyi-manikjur-nailsprofi-ideja-manikjura-620x677.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/krasnyi-manikjur-apparatnyi-manikjur-ukreplenie-nogtei-nailsprofi-620x447.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/krasivyi-sinii-manikjur-samye-modnye-ottenki-nailsprofi-apparatnyi-manikjur-ukreplenie-poligelem-620x579.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/apparatnyi-manikjur-pastel-nailsprofi-620x732.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/pedikur",
+      "title": "Педикюр",
+      "description": "Сделайте свои ногти красивыми и здоровыми с помощью педикюра в салоне красоты NailsProfi в Москве. Покрытие ногтей, дизайн. Цены на услуги.",
+      "hero_image": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikur-pedikyur-nailsprofi-1.jpg",
+      "price_sections": [
+        {
+          "name": "Педикюр",
+          "items": [
+            {
+              "name": "Аппаратный педикюр",
+              "duration": "01:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "Аппаратный педикюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Комбинированный педикюр",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Комбинированный педикюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Реставрация на ногах 1 ногтя — топ мастер",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Реставрация на ногах 1 ногтя акри/гель",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Смарт педикюр",
+              "duration": "01:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "Смарт педикюр — топ мастер",
+              "duration": "01:00",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "Холодный парафин ноги",
+              "duration": "01:00",
+              "price_text": "800 р.",
+              "price_rub_min": 800,
+              "price_rub_max": 800
+            }
+          ]
+        },
+        {
+          "name": "ПОДОЛОГИЯ",
+          "items": [
+            {
+              "name": "Коррекция вросшего ногтя",
+              "duration": "00:20",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Обработка глубоких трещин",
+              "duration": "00:20",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Обработка мозоли (межпальцевая/стержневая/подногтевая)",
+              "duration": "00:20",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Обработка онихализиса",
+              "duration": "00:20",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Установка тампонады",
+              "duration": "00:10",
+              "price_text": "100 р.",
+              "price_rub_min": 100,
+              "price_rub_max": 100
+            },
+            {
+              "name": "Установка титановой нити",
+              "duration": "00:30",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikur-pedikyur-nailsprofi-1-200x200.jpg",
+          "alt": "Педикюр в NailsProfi"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_619939763-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_670487443-238x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_765841420-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_789090397-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_1144629887-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/klassich-ped-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_205514533-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_318086462-224x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_411706855-224x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_541613353-224x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/06/nailsprofi-ru-uslugi-pedikur-1.jpg",
+          "alt": "Популярная услуга - педикюр"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/06/nailsprofi-ru-uslugi-pedikur-2.jpg",
+          "alt": "Популярная услуга - педикюр"
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/narashhivanie-nogtej",
+      "title": "Наращивание ногтей",
+      "description": "Сеть студий красоты NailsProfi предлагает вам наращивание ногтей в Москве. Коррекция под лак + Shellac. Сделайте свои ногти красивее!",
+      "hero_image": "https://nailsprofi.ru/wp-content/uploads/2017/01/nailsprofi-gel-51-1.jpg",
+      "price_sections": [
+        {
+          "name": "Наращивание ногтей",
+          "items": [
+            {
+              "name": "Коррекция под лак + Shellac",
+              "duration": null,
+              "price_text": "2 ч",
+              "price_rub_min": 2,
+              "price_rub_max": 2
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/temoi-manikjur-na-korotkih-nogtjah-193x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/mindal-akrilovye-nogti-209x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/sinii-manikjur-dizain-fotona-akrilovye-nogti-212x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/krasnyi-manikjur-forma-kvadrat-dizain-geometrija-193x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/dizain-slaider-akrilovye-nogti-molochnaja-baza-255x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/akrilovye-nogti-forma-mindal-dizain-nogtei-175x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikjur-2020-akrilovye-nogti-190x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/njudovyi-manikjur-neonovyi-dizain-nogtei-185x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikjur-na-korotkih-nogtjah-narashhivanie-akrilom-dizain-nogtei-214x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/narashhivanie-akril-dizain-nogtei-200x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/narashhivanie-akril-njudovyi-manikjur-177x210.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/narashhivanie-nogtej/narashivanie-akrilom",
+      "title": "Наращивание ногтей акрилом/полигелем",
+      "description": "Наращивание и коррекция ногтей акрилом в студии красоты \"NailsProfi\". Акриловые ногти от профессионалов! Звоните прямо сейчас ☎ +7 (495) 642-53-15",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Наращивание ногтей",
+          "items": [
+            {
+              "name": "Акция!!! коррекция АК\\Лак+гель лак",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Акция!!! коррекция АК\\Лак+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Акция!!! коррекция верхние формы+гель лак",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Акция!!! коррекция полигель\\Лак+гель лак",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Акция!!! коррекция полигель\\Лак+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Длина более 3 мм",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Замена 1 ногтя акрил под лак",
+              "duration": "01:00",
+              "price_text": "440 р.",
+              "price_rub_min": 440,
+              "price_rub_max": 440
+            },
+            {
+              "name": "Замена 1 ногтя акрил под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Замена 1 ногтя акрил растушевка",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Замена 1 ногтя акрил растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "510 р.",
+              "price_rub_min": 510,
+              "price_rub_max": 510
+            },
+            {
+              "name": "Замена 1 ногтя акрил френч",
+              "duration": "01:00",
+              "price_text": "620 р.",
+              "price_rub_min": 620,
+              "price_rub_max": 620
+            },
+            {
+              "name": "Замена 1 ногтя акрил френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "650 р.",
+              "price_rub_min": 650,
+              "price_rub_max": 650
+            },
+            {
+              "name": "Замена 1 ногтя верхние формы под лак",
+              "duration": "01:00",
+              "price_text": "450 р.",
+              "price_rub_min": 450,
+              "price_rub_max": 450
+            },
+            {
+              "name": "Замена 1 ногтя верхние формы растушевка",
+              "duration": "01:00",
+              "price_text": "470 р.",
+              "price_rub_min": 470,
+              "price_rub_max": 470
+            },
+            {
+              "name": "Замена 1 ногтя верхние формы френч",
+              "duration": "01:00",
+              "price_text": "0 р.",
+              "price_rub_min": 0,
+              "price_rub_max": 0
+            },
+            {
+              "name": "Замена 1 ногтя полигель под лак",
+              "duration": "01:00",
+              "price_text": "450 р.",
+              "price_rub_min": 450,
+              "price_rub_max": 450
+            },
+            {
+              "name": "Замена 1 ногтя полигель под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Замена 1 ногтя полигель растушевка",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Замена 1 ногтя полигель растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "550 р.",
+              "price_rub_min": 550,
+              "price_rub_max": 550
+            },
+            {
+              "name": "Замена 1 ногтя полигель френч",
+              "duration": "01:00",
+              "price_text": "620 р.",
+              "price_rub_min": 620,
+              "price_rub_max": 620
+            },
+            {
+              "name": "Замена 1 ногтя полигель френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "650 р.",
+              "price_rub_min": 650,
+              "price_rub_max": 650
+            },
+            {
+              "name": "Коррекция акрил растушевка",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Коррекция акрил растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Коррекция акрил под лак",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Коррекция акрил под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Коррекция акрил френч",
+              "duration": "01:00",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            },
+            {
+              "name": "Коррекция акрил френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            },
+            {
+              "name": "Коррекция верхние формы под лак",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Коррекция верхние формы растушевкв",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Коррекция верхние формы френч",
+              "duration": "01:00",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Коррекция полигель под лак",
+              "duration": "01:00",
+              "price_text": "3800 р.",
+              "price_rub_min": 3800,
+              "price_rub_max": 3800
+            },
+            {
+              "name": "Коррекция полигель под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Коррекция полигель растушевка",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Коррекция полигель растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Коррекция полигель френч",
+              "duration": "01:00",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            },
+            {
+              "name": "Коррекция полигель френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            },
+            {
+              "name": "Наращивание акрил под лак",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Наращивание акрил под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            },
+            {
+              "name": "Наращивание акрил растушевка",
+              "duration": "01:00",
+              "price_text": "4800 р.",
+              "price_rub_min": 4800,
+              "price_rub_max": 4800
+            },
+            {
+              "name": "Наращивание акрил растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "5100 р.",
+              "price_rub_min": 5100,
+              "price_rub_max": 5100
+            },
+            {
+              "name": "Наращивание акрил френч",
+              "duration": "01:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Наращивание акрил френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Наращивание верхние формы под лак",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Наращивание верхние формы растушевка",
+              "duration": "01:00",
+              "price_text": "4800 р.",
+              "price_rub_min": 4800,
+              "price_rub_max": 4800
+            },
+            {
+              "name": "Наращивание верхние формы френч",
+              "duration": "01:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Наращивание полигель под лак",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Наращивание полигель под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            },
+            {
+              "name": "Наращивание полигель растушевка",
+              "duration": "01:00",
+              "price_text": "4800 р.",
+              "price_rub_min": 4800,
+              "price_rub_max": 4800
+            },
+            {
+              "name": "Наращивание полигель растушевка — топ мастер",
+              "duration": "01:00",
+              "price_text": "5100 р.",
+              "price_rub_min": 5100,
+              "price_rub_max": 5100
+            },
+            {
+              "name": "Наращивание полигель френч",
+              "duration": "01:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Наращивание полигель френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Перекрытие финиша",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Придание формы искуственным ногтям + опил",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Придание формы искуственным ногтям + опил — топ мастер",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Снятие исскуственых ногтей",
+              "duration": "01:00",
+              "price_text": "800 р.",
+              "price_rub_min": 800,
+              "price_rub_max": 800
+            },
+            {
+              "name": "Снятие исскуственых ногтей — топ мастер",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-akril-narashivanie-3-200x200.jpg",
+          "alt": "nailsprofi-akril-narashivanie-3"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/sinii-manikjur-dizain-fotona-akrilovye-nogti-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/njudovyi-manikjur-neonovyi-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/narashhivanie-akril-njudovyi-manikjur-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/narashhivanie-akril-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/mindal-akrilovye-nogti-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikjur-na-korotkih-nogtjah-narashhivanie-akrilom-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/manikjur-2020-akrilovye-nogti-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/krasnyi-manikjur-forma-kvadrat-dizain-geometrija-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/akrilovye-nogti-forma-mindal-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/dizain-slaider-akrilovye-nogti-molochnaja-baza-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-10-710x710.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-9-685x685.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-8-692x692.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-7-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-6-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-5-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-4-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-3-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-2-742x742.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/Clipboard02-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/Krasivyj-manikjur-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-1-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-2-1-720x720.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-3-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-4-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-5-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-6-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-7-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-8-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-9-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-10-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-11-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-12-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-13-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-14-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-15-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-16-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-17-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-18-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-19-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-20-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-21-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-22-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-23-1-675x675.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-24-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-25-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-26-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-27-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-28-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-29-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-30-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-31-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-32-2-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-33-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-34-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-35-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-36-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-37-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-38-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-39-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-40-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-41-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-42-1-578x578.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-43-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-44-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-45-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-46-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-47-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-48-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-49-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-50-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-51-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-52-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-53-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-54-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-55-1-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/temoi-manikjur-na-korotkih-nogtjah-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-narashivanie-akril-56-1-768x768.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/narashhivanie-nogtej/narashivanie-nogtey-gelem",
+      "title": "Наращивание ногтей гелем",
+      "description": "Наращивание и коррекция ногтей гелем в сети студий красоты \"NailsProfi\". Гелевые ногти от профессионалов! Звоните прямо сейчас ☎ +7 (495) 642-53-15 !!!",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Наращивание ногтей",
+          "items": [
+            {
+              "name": "Акция!!! коррекция Гель\\Лак+гель лак",
+              "duration": "01:00",
+              "price_text": "3800 р.",
+              "price_rub_min": 3800,
+              "price_rub_max": 3800
+            },
+            {
+              "name": "Акция!!! коррекция Гель\\Лак+гель лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Длина более 3 мм",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Замена 1 ногтя гель под лак",
+              "duration": "01:00",
+              "price_text": "400 р.",
+              "price_rub_min": 400,
+              "price_rub_max": 400
+            },
+            {
+              "name": "Замена 1 ногтя гель под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "420 р.",
+              "price_rub_min": 420,
+              "price_rub_max": 420
+            },
+            {
+              "name": "Замена 1 ногтя гель френч",
+              "duration": "01:00",
+              "price_text": "550 р.",
+              "price_rub_min": 550,
+              "price_rub_max": 550
+            },
+            {
+              "name": "Замена 1 ногтя гель френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "580 р.",
+              "price_rub_min": 580,
+              "price_rub_max": 580
+            },
+            {
+              "name": "Коррекция гель под лак",
+              "duration": "01:00",
+              "price_text": "3400 р.",
+              "price_rub_min": 3400,
+              "price_rub_max": 3400
+            },
+            {
+              "name": "Коррекция гель под лак — топ масте",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Коррекция гель френч",
+              "duration": "01:00",
+              "price_text": "3900 р.",
+              "price_rub_min": 3900,
+              "price_rub_max": 3900
+            },
+            {
+              "name": "Коррекция гель френч — топи мастер",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Наращивание гель под лак",
+              "duration": "01:00",
+              "price_text": "3900 р.",
+              "price_rub_min": 3900,
+              "price_rub_max": 3900
+            },
+            {
+              "name": "Наращивание гель под лак — топ мастер",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Наращивание гель френч",
+              "duration": "01:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Наращивание гель френч — топ мастер",
+              "duration": "01:00",
+              "price_text": "5800 р.",
+              "price_rub_min": 5800,
+              "price_rub_max": 5800
+            },
+            {
+              "name": "Перекрытие финиша",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Придание формы искуственным ногтям + опил",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Придание формы искуственным ногтям + опил — топ мастер",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Снятие исскуственых ногтей",
+              "duration": "01:00",
+              "price_text": "800 р.",
+              "price_rub_min": 800,
+              "price_rub_max": 800
+            },
+            {
+              "name": "Снятие исскуственых ногтей — топ мастер",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-akril-narashivanie-2-200x200.jpg",
+          "alt": "nailsprofi-akril-narashivanie-2"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/temoi-manikjur-na-korotkih-nogtjah-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/mindal-akrilovye-nogti-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/sinii-manikjur-dizain-fotona-akrilovye-nogti-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/krasnyi-manikjur-forma-kvadrat-dizain-geometrija-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/dizain-slaider-akrilovye-nogti-molochnaja-baza-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/akrilovye-nogti-forma-mindal-dizain-nogtei-768x768.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/blestjashhii-manikjur-narashhivanie-nogtei-gelem-zhidkaja-folga-nailsprofi-410x483.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/gelevye-nogti-dizain-nogtei-gradient-ombre-410x433.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/gelevye-nogti-dizain-nogtei-na-korotkih-nogtjah-410x485.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/gelevye-nogti-ideja-manikjura-410x495.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/gradient-dizain-ombre-korrekcija-nogtei-gelem-410x485.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/dizain-perchinki-krasnyi-manikjurnarashhivanie-gel-dizain-nogtei-410x245.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/krasivyi-manikjur-s-pokrytiem-nailsprofi-narashhivanie-gel-410x487.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/krasnyi-gelevyi-manikjur-gel-zhele-nailsprofi-410x494.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/matovyi-manikjur-pastel-na-nogtjah-gel-lak-top-nailsprofi-410x347.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/matovyi-nogti-narashhivanie-gel-lunnyi-manikjur-410x490.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-gel-pod-lak-dizain-nogtei-apparatnyi-manikjur-410x491.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-nogtei-gelem-njudovyi-manikjur-410x308.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-nogtei-gelem-pokrytie-gel-lak-nailsprofi-dizain-nogtei-410x488.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-nogtei-gelem-stilnyi-manikjur-ideja-manikjura-410x497.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-nogtei-gel-pod-lak-gel-make-up-nailsprofi-410x259.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-nogtei-gel-gel-zhele-nailsprofi-410x471.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/narashhivanie-pod-lak-gel-dizain-gel-zhele-nailsprofi-410x486.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/neonovyi-manikjur-narashhivanie-gelem-dizain-nogtei-jozhik-410x488.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/njudovyi-gelevyi-manikjur-bez-pokrytija-410x449.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/njudovyi-manikjur-narashhivanie-gel-pokrytie-pod-kutikulu-nailsprofi-410x295.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/pastel-na-nogtjah-dizain-nogtei-2020-narashhivanie-gel-410x427.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/temnyi-manikjur-na-korotkih-nogtjah-korrekcija-gel-pokrytie-pod-kutikulu-gel-lak-nailsprofi-410x468.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/ukreplenie-nogtei-gelem-nailsprofi-apparatnyi-manikjur-410x471.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/ukreplenie-nogtei-gelem-one-phase-gel-gloss-410x301.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/ukreplenie-nogtei-zhjostkim-gelem-pokrytie-pod-kutikulu-gel-lak-nailsprofi-410x310.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/french-manikjur-gel-gel-zhele-042-nailsprofi-410x394.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/french-manikjur-na-korotkih-nogtjah-korrekcija-gel-410x476.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/french-manikjur-korrekcija-gel-410x409.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/french-manikjur-narashhivanie-gnoevyh-nogtei-410x384.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2020/07/jarkii-neonovyi-manikjur-narashhivanie-gelem-dizain-nogtei-2020-410x456.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy",
+      "title": "Парикмахерские услуги",
+      "description": "Парикмахерские услуги в NailsProfi - парикмахеры-стилисты воплотят в жизнь самые смелые мечты своих клиентов, индивидуально подойдут к подбору причесок.",
+      "hero_image": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-ru-parikmaherskie-uslugi_2-1.jpg",
+      "price_sections": [
+        {
+          "name": "Стрижки и укладки",
+          "items": [
+            {
+              "name": "Детская стрижка челки",
+              "duration": "01:00",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Модельная стрижка девочки",
+              "duration": "01:00",
+              "price_text": "1100 р.",
+              "price_rub_min": 1100,
+              "price_rub_max": 1100
+            },
+            {
+              "name": "Модельная стрижка мальчики",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Мытье длиные волосы",
+              "duration": "01:00",
+              "price_text": "1200 р.",
+              "price_rub_min": 1200,
+              "price_rub_max": 1200
+            },
+            {
+              "name": "Мытье короткие волосы",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Мытье очень длиные волосы",
+              "duration": "01:00",
+              "price_text": "1300 р.",
+              "price_rub_min": 1300,
+              "price_rub_max": 1300
+            },
+            {
+              "name": "Мытье средние волосы",
+              "duration": "01:00",
+              "price_text": "1100 р.",
+              "price_rub_min": 1100,
+              "price_rub_max": 1100
+            },
+            {
+              "name": "Снятие нарощенных волос капсулы-ленты 170 шт.",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Стрижка в один срез (без мытья)",
+              "duration": "01:00",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "Стрижка горячими ножницами длиный волос",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Стрижка горячими ножницами короткий волос",
+              "duration": "01:00",
+              "price_text": "2600 р.",
+              "price_rub_min": 2600,
+              "price_rub_max": 2600
+            },
+            {
+              "name": "Стрижка горячими ножницами очень длиный волос",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Стрижка горячими ножницами средний волос",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Стрижка длиный волос с укладкой",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Стрижка короткий волос с укладкой",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Стрижка очень длиный волос с укладкой",
+              "duration": "01:00",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Стрижка средний волос с укладкой",
+              "duration": "01:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            },
+            {
+              "name": "Стрижка челка",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Укладка длиный волос",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Укладка для девочки",
+              "duration": "01:00",
+              "price_text": "1100 р.",
+              "price_rub_min": 1100,
+              "price_rub_max": 1100
+            },
+            {
+              "name": "Укладка короткий волос",
+              "duration": "01:00",
+              "price_text": "1700 р.",
+              "price_rub_min": 1700,
+              "price_rub_max": 1700
+            },
+            {
+              "name": "Укладка на плойку длиный волос",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Укладка на плойку короткий волос",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Укладка на плойку очень длиный волос",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Укладка на плойку средний волос",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Укладка очень длиный волос",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Укладка средний волос",
+              "duration": "01:00",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание волос",
+          "items": [
+            {
+              "name": "Air Touch длиный волос LEBEL",
+              "duration": "01:00",
+              "price_text": "15000 р.",
+              "price_rub_min": 15000,
+              "price_rub_max": 15000
+            },
+            {
+              "name": "Air Touch длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "13600 р.",
+              "price_rub_min": 13600,
+              "price_rub_max": 13600
+            },
+            {
+              "name": "Air Touch длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "15300 р.",
+              "price_rub_min": 15300,
+              "price_rub_max": 15300
+            },
+            {
+              "name": "Air Touch очень длиный волос LEBEL",
+              "duration": "01:00",
+              "price_text": "16800 р.",
+              "price_rub_min": 16800,
+              "price_rub_max": 16800
+            },
+            {
+              "name": "Air Touch очень длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "15000 р.",
+              "price_rub_min": 15000,
+              "price_rub_max": 15000
+            },
+            {
+              "name": "Air Touch очень длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "16700 р.",
+              "price_rub_min": 16700,
+              "price_rub_max": 16700
+            },
+            {
+              "name": "Air Touch средний волос LEBEL",
+              "duration": "01:00",
+              "price_text": "13000 р.",
+              "price_rub_min": 13000,
+              "price_rub_max": 13000
+            },
+            {
+              "name": "Air Touch средний волос MATRIX",
+              "duration": "01:00",
+              "price_text": "11300 р.",
+              "price_rub_min": 11300,
+              "price_rub_max": 11300
+            },
+            {
+              "name": "Air Touch средний волос Wella",
+              "duration": "01:00",
+              "price_text": "13200 р.",
+              "price_rub_min": 13200,
+              "price_rub_max": 13200
+            },
+            {
+              "name": "Доплата за густоту до 40г LEBEL",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Доплата за густоту до 40г MATRIX",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Доплата за густоту до 40г Wella",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Доплата за густоту при осветлении до 40г LEBEL",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Доплата за густоту при осветлении до 40г MATRIX",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Доплата за густоту при осветлении до 40г Wella",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Прикорневое окрашивание LEBEL",
+              "duration": "01:00",
+              "price_text": "5900 р.",
+              "price_rub_min": 5900,
+              "price_rub_max": 5900
+            },
+            {
+              "name": "Прикорневое окрашивание Wella",
+              "duration": "01:00",
+              "price_text": "5800 р.",
+              "price_rub_min": 5800,
+              "price_rub_max": 5800
+            },
+            {
+              "name": "Прикорневое окрашивание от 1 месяца до 2 месяцев MATRIX",
+              "duration": "01:00",
+              "price_text": "5100 р.",
+              "price_rub_min": 5100,
+              "price_rub_max": 5100
+            },
+            {
+              "name": "Прикорневое окрашивание от 2 месяцев до 6 месяцев MATRIX",
+              "duration": "01:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Растяжка цвета MATRIX",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Растяжка цвета LEBEL",
+              "duration": "01:00",
+              "price_text": "1800 р.",
+              "price_rub_min": 1800,
+              "price_rub_max": 1800
+            },
+            {
+              "name": "Растяжка цвета Wella",
+              "duration": "01:00",
+              "price_text": "1300 р.",
+              "price_rub_min": 1300,
+              "price_rub_max": 1300
+            },
+            {
+              "name": "Тонирование в один тон длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "7400 р.",
+              "price_rub_min": 7400,
+              "price_rub_max": 7400
+            },
+            {
+              "name": "Тонирование в один тон длиный волос LEBEL",
+              "duration": "01:00",
+              "price_text": "8800 р.",
+              "price_rub_min": 8800,
+              "price_rub_max": 8800
+            },
+            {
+              "name": "Тонирование в один тон длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "8600 р.",
+              "price_rub_min": 8600,
+              "price_rub_max": 8600
+            },
+            {
+              "name": "Тонирование в один тон короткий волос MATRIX",
+              "duration": "01:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Тонирование в один тон короткий волос LEBEL",
+              "duration": "01:00",
+              "price_text": "6400 р.",
+              "price_rub_min": 6400,
+              "price_rub_max": 6400
+            },
+            {
+              "name": "Тонирование в один тон короткий волос Wella",
+              "duration": "01:00",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Тонирование в один тон очень длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "8400 р.",
+              "price_rub_min": 8400,
+              "price_rub_max": 8400
+            },
+            {
+              "name": "Тонирование в один тон очень длиный волос LEBEL",
+              "duration": "01:00",
+              "price_text": "10000 р.",
+              "price_rub_min": 10000,
+              "price_rub_max": 10000
+            },
+            {
+              "name": "Тонирование в один тон очень длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "9800 р.",
+              "price_rub_min": 9800,
+              "price_rub_max": 9800
+            },
+            {
+              "name": "Тонирование в один тон средний LEBEL",
+              "duration": "01:00",
+              "price_text": "7650 р.",
+              "price_rub_min": 7650,
+              "price_rub_max": 7650
+            },
+            {
+              "name": "Тонирование в один тон средний волос MATRIX",
+              "duration": "01:00",
+              "price_text": "6300 р.",
+              "price_rub_min": 6300,
+              "price_rub_max": 6300
+            },
+            {
+              "name": "Тонирование в один тон средний волос Wella",
+              "duration": "01:00",
+              "price_text": "7600 р.",
+              "price_rub_min": 7600,
+              "price_rub_max": 7600
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "10300 р.",
+              "price_rub_min": 10300,
+              "price_rub_max": 10300
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила короткий волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "4100 р.",
+              "price_rub_min": 4100,
+              "price_rub_max": 4100
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила очень длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "12600 р.",
+              "price_rub_min": 12600,
+              "price_rub_max": 12600
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила средний волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "6800 р.",
+              "price_rub_min": 6800,
+              "price_rub_max": 6800
+            },
+            {
+              "name": "Частичное окрашивание волос до 40г MATRIX",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Частичное окрашивание волос до 40г Wella",
+              "duration": "01:00",
+              "price_text": "3400 р.",
+              "price_rub_min": 3400,
+              "price_rub_max": 3400
+            },
+            {
+              "name": "Частчное окрашивание волос до 40г LEBEL",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            }
+          ]
+        },
+        {
+          "name": "Осветление волос",
+          "items": [
+            {
+              "name": "Декапирование длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "6100 р.",
+              "price_rub_min": 6100,
+              "price_rub_max": 6100
+            },
+            {
+              "name": "Декапирование длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Декапирование короткий волос MATRIX",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Декапирование короткий волос Wella",
+              "duration": "01:00",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Декапирование очень длиный волос MATRIX",
+              "duration": "01:00",
+              "price_text": "6600 р.",
+              "price_rub_min": 6600,
+              "price_rub_max": 6600
+            },
+            {
+              "name": "Декапирование очень длиный волос Wella",
+              "duration": "01:00",
+              "price_text": "7000 р.",
+              "price_rub_min": 7000,
+              "price_rub_max": 7000
+            },
+            {
+              "name": "Декапирование средний волос MATRIX",
+              "duration": "01:00",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            },
+            {
+              "name": "Декапирование средний волос Wella",
+              "duration": "01:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Кислотная смывка Color off длиный волос",
+              "duration": "01:00",
+              "price_text": "6100 р.",
+              "price_rub_min": 6100,
+              "price_rub_max": 6100
+            },
+            {
+              "name": "Кислотная смывка Color off короткий волос",
+              "duration": "01:00",
+              "price_text": "4300 р.",
+              "price_rub_min": 4300,
+              "price_rub_max": 4300
+            },
+            {
+              "name": "Кислотная смывка Color off очень длиный волос",
+              "duration": "01:00",
+              "price_text": "6900 р.",
+              "price_rub_min": 6900,
+              "price_rub_max": 6900
+            },
+            {
+              "name": "Кислотная смывка Color off средний волос",
+              "duration": "01:00",
+              "price_text": "5800 р.",
+              "price_rub_min": 5800,
+              "price_rub_max": 5800
+            },
+            {
+              "name": "Осветление длинные волосы Wella",
+              "duration": "01:00",
+              "price_text": "5300 р.",
+              "price_rub_min": 5300,
+              "price_rub_max": 5300
+            },
+            {
+              "name": "Осветление длиные волосы MATRIX",
+              "duration": "01:00",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            },
+            {
+              "name": "Осветление длиные волосы LEBEL",
+              "duration": "01:00",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Осветление короткие волосы MATRIX",
+              "duration": "01:00",
+              "price_text": "3800 р.",
+              "price_rub_min": 3800,
+              "price_rub_max": 3800
+            },
+            {
+              "name": "Осветление короткие волосы Wella",
+              "duration": "01:00",
+              "price_text": "3300 р.",
+              "price_rub_min": 3300,
+              "price_rub_max": 3300
+            },
+            {
+              "name": "Осветление короткие волосы LEBEL",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Осветление очень длинные волосы Wella",
+              "duration": "01:00",
+              "price_text": "6400 р.",
+              "price_rub_min": 6400,
+              "price_rub_max": 6400
+            },
+            {
+              "name": "Осветление очень длиные волосы MATRIX",
+              "duration": "01:00",
+              "price_text": "6700 р.",
+              "price_rub_min": 6700,
+              "price_rub_max": 6700
+            },
+            {
+              "name": "Осветление очень длиные волосы LEBEL",
+              "duration": "01:00",
+              "price_text": "7600 р.",
+              "price_rub_min": 7600,
+              "price_rub_max": 7600
+            },
+            {
+              "name": "Осветление средние волосы MATRIX",
+              "duration": "01:00",
+              "price_text": "4900 р.",
+              "price_rub_min": 4900,
+              "price_rub_max": 4900
+            },
+            {
+              "name": "Осветление средние волосы Wella",
+              "duration": "01:00",
+              "price_text": "4300 р.",
+              "price_rub_min": 4300,
+              "price_rub_max": 4300
+            },
+            {
+              "name": "Осветление средние волосы LEBEL",
+              "duration": "01:00",
+              "price_text": "5400 р.",
+              "price_rub_min": 5400,
+              "price_rub_max": 5400
+            },
+            {
+              "name": "Частичное осветление волос до 40г LEBEL",
+              "duration": "01:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Частичное осветление волос до 40г MATRIX",
+              "duration": "01:00",
+              "price_text": "3300 р.",
+              "price_rub_min": 3300,
+              "price_rub_max": 3300
+            },
+            {
+              "name": "Частичное осветление волос до 40г Wella",
+              "duration": "01:00",
+              "price_text": "2900 р.",
+              "price_rub_min": 2900,
+              "price_rub_max": 2900
+            },
+            {
+              "name": "Щелочная смывка LTEX длиный волос Lebel",
+              "duration": "01:00",
+              "price_text": "7300 р.",
+              "price_rub_min": 7300,
+              "price_rub_max": 7300
+            },
+            {
+              "name": "Щелочная смывка LTEX короткий волос Lebel",
+              "duration": "01:00",
+              "price_text": "5100 р.",
+              "price_rub_min": 5100,
+              "price_rub_max": 5100
+            },
+            {
+              "name": "Щелочная смывка LTEX очень длиный волос Lebel",
+              "duration": "01:00",
+              "price_text": "8300 р.",
+              "price_rub_min": 8300,
+              "price_rub_max": 8300
+            },
+            {
+              "name": "Щелочная смывка LTEX средний волос Lebel",
+              "duration": "01:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            }
+          ]
+        },
+        {
+          "name": "СПА процедуры для волос",
+          "items": [
+            {
+              "name": "SPA-программа «Жизненная сила» rороткий волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» очень длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» средний волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "2300 р.",
+              "price_rub_min": 2300,
+              "price_rub_max": 2300
+            },
+            {
+              "name": "Абсолютное счастье длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "7700 р.",
+              "price_rub_min": 7700,
+              "price_rub_max": 7700
+            },
+            {
+              "name": "Абсолютное счастье короткий волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Абсолютное счастье очень длиный волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "10000 р.",
+              "price_rub_min": 10000,
+              "price_rub_max": 10000
+            },
+            {
+              "name": "Абсолютное счастье средний волос от LEBEL",
+              "duration": "01:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Экспресс реконструкция для волос BY FAMA",
+              "duration": "01:00",
+              "price_text": "800 р.",
+              "price_rub_min": 800,
+              "price_rub_max": 800
+            }
+          ]
+        },
+        {
+          "name": "Завивка для волос LEBEL",
+          "items": [
+            {
+              "name": "Завивка Lebel длиный волос",
+              "duration": "01:00",
+              "price_text": "7900 р.",
+              "price_rub_min": 7900,
+              "price_rub_max": 7900
+            },
+            {
+              "name": "Завивка Lebel короткий волос",
+              "duration": "01:00",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Завивка Lebel очень длиный волос",
+              "duration": "01:00",
+              "price_text": "10300 р.",
+              "price_rub_min": 10300,
+              "price_rub_max": 10300
+            },
+            {
+              "name": "Завивка Lebel средний волос",
+              "duration": "01:00",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-ru-parikmaherskie-uslugi_2-1-200x200.jpg",
+          "alt": "Парикмахерские услуги в NailsProfi"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-121x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-1-130x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-2-125x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-3-122x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-4-134x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-5-126x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-6-127x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-7-140x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-8-152x150.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/06/nailsprofi-ru-photogallery-25.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/06/nailsprofi-ru-photogallery-24.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/06/nailsprofi-ru-photogallery-28.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy/strizhka-volos",
+      "title": "Стрижка волос",
+      "description": "Мастера студии NailsProfi выполнят женскую, мужскую, детскую стрижку любой сложности, исходя из овала лица, структуры волос и индивидуальных пожеланий",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Стрижка",
+          "items": [
+            {
+              "name": "Стрижка в один срез (без мытья)",
+              "duration": "00:30",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "Стрижка Длинный волос с укладкой",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Стрижка Короткий волос с укладкой",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Стрижка оч.длинный волос с укладкой",
+              "duration": "01:30",
+              "price_text": "3600 р.",
+              "price_rub_min": 3600,
+              "price_rub_max": 3600
+            },
+            {
+              "name": "Стрижка Средний волос с укладкой",
+              "duration": "01:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            },
+            {
+              "name": "Стрижка Челка",
+              "duration": "00:15",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            }
+          ]
+        },
+        {
+          "name": "Стрижка / Горячие ножницы",
+          "items": [
+            {
+              "name": "Горячие ножницы длинный волос",
+              "duration": "02:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Горячие ножницы короткий волос",
+              "duration": "01:30",
+              "price_text": "2600 р.",
+              "price_rub_min": 2600,
+              "price_rub_max": 2600
+            },
+            {
+              "name": "Горячие ножницы оч.длинный волос",
+              "duration": "02:30",
+              "price_text": "4400 р.",
+              "price_rub_min": 4400,
+              "price_rub_max": 4400
+            },
+            {
+              "name": "Горячие ножницы средний волос",
+              "duration": "01:30",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-169x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-1-183x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-2-176x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-3-171x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-4-188x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-5-177x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-6-178x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-7-196x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-8-213x210.jpeg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy/ukladka-volos",
+      "title": "Укладка волос",
+      "description": "Красивая укладка поможет подчеркнуть форму стрижки, сделать прическу привлекательнее, создать эффектный образ для торжественного мероприятия, свидания и тп",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Вечерняя прическа простая",
+          "items": [
+            {
+              "name": "Вечерняя прическа простая",
+              "duration": "01:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            }
+          ]
+        },
+        {
+          "name": "Вечерняя",
+          "items": [
+            {
+              "name": "Вечерняя прическа сложная",
+              "duration": "01:30",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            }
+          ]
+        },
+        {
+          "name": "Мытье волос",
+          "items": [
+            {
+              "name": "Мытье Длинный волос",
+              "duration": "01:00",
+              "price_text": "1200 р.",
+              "price_rub_min": 1200,
+              "price_rub_max": 1200
+            },
+            {
+              "name": "Мытье Короткий волос",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Мытье оч. длииный волос",
+              "duration": "01:00",
+              "price_text": "1300 р.",
+              "price_rub_min": 1300,
+              "price_rub_max": 1300
+            },
+            {
+              "name": "Мытье Средний волос",
+              "duration": "01:00",
+              "price_text": "1100 р.",
+              "price_rub_min": 1100,
+              "price_rub_max": 1100
+            }
+          ]
+        },
+        {
+          "name": "Укладка",
+          "items": [
+            {
+              "name": "Укладка Длинный волос",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Укладка Короткий волос",
+              "duration": "01:00",
+              "price_text": "1600 р.",
+              "price_rub_min": 1600,
+              "price_rub_max": 1600
+            },
+            {
+              "name": "Укладка оч.длинный волос",
+              "duration": "01:30",
+              "price_text": "2400 р.",
+              "price_rub_min": 2400,
+              "price_rub_max": 2400
+            },
+            {
+              "name": "Укладка Средний волос",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            }
+          ]
+        },
+        {
+          "name": "Укладка на плойку",
+          "items": [
+            {
+              "name": "Укладка на плойку Длинный волос",
+              "duration": "01:00",
+              "price_text": "2400 р.",
+              "price_rub_min": 2400,
+              "price_rub_max": 2400
+            },
+            {
+              "name": "Укладка на плойку Короткий волос",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Укладка на плойку оч.Длинный волос",
+              "duration": "01:30",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Укладка на плойку Средний волос",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            }
+          ]
+        },
+        {
+          "name": "Укладка с плетением",
+          "items": [
+            {
+              "name": "Укладка волос с плетением Простая",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Укладка волос с плетением Сложная",
+              "duration": "01:00",
+              "price_text": "2400 р.",
+              "price_rub_min": 2400,
+              "price_rub_max": 2400
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-169x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-1-183x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-2-176x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-3-171x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-4-188x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-5-177x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-6-178x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-7-196x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-8-213x210.jpeg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy/okrashivanie-volos",
+      "title": "Окрашивание волос",
+      "description": "Полностью сменить имидж или добавить образу индивидуальности можно, воспользовавшись услугой окрашивания волос в салоне красоты NailsProfi",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Окрашивание Лейбел",
+          "items": [
+            {
+              "name": "Доплата за густоту до 40гр",
+              "duration": "01:00",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "Осветление длинный волос",
+              "duration": "02:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Осветление короткий волос",
+              "duration": "01:30",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "Осветление очень длинный волос",
+              "duration": "02:30",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Осветление средний волос",
+              "duration": "01:30",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Прикорневое окрашивание",
+              "duration": "01:30",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Растяжка цвета",
+              "duration": "00:30",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон длинный волос",
+              "duration": "02:00",
+              "price_text": "7000 р.",
+              "price_rub_min": 7000,
+              "price_rub_max": 7000
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон короткий",
+              "duration": "02:00",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон очень длинные волосы",
+              "duration": "02:30",
+              "price_text": "8000 р.",
+              "price_rub_min": 8000,
+              "price_rub_max": 8000
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон средний волос",
+              "duration": "02:00",
+              "price_text": "6000 р.",
+              "price_rub_min": 6000,
+              "price_rub_max": 6000
+            },
+            {
+              "name": "Частичное окрашивание волос до 40гр",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Частичное осветление волос до 40гр",
+              "duration": "01:30",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание Лейбел \\ Air Touch",
+          "items": [
+            {
+              "name": "Air Touch длинный волос",
+              "duration": "06:00",
+              "price_text": "13000 р.",
+              "price_rub_min": 13000,
+              "price_rub_max": 13000
+            },
+            {
+              "name": "Air Touch очень длинный волос",
+              "duration": "06:30",
+              "price_text": "14500 р.",
+              "price_rub_min": 14500,
+              "price_rub_max": 14500
+            },
+            {
+              "name": "Air Touch средний волос",
+              "duration": "05:00",
+              "price_text": "11000 р.",
+              "price_rub_min": 11000,
+              "price_rub_max": 11000
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание Лейбел \\ Щелочная смывка LTEX",
+          "items": [
+            {
+              "name": "Щелочная смывка LTEX длинный волос",
+              "duration": "02:00",
+              "price_text": "6000 р.",
+              "price_rub_min": 6000,
+              "price_rub_max": 6000
+            },
+            {
+              "name": "Щелочная смывка LTEX короткий волос",
+              "duration": "01:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Щелочная смывка LTEX очень длинный волос",
+              "duration": "02:30",
+              "price_text": "7000 р.",
+              "price_rub_min": 7000,
+              "price_rub_max": 7000
+            },
+            {
+              "name": "Щелочная смывка LTEX средний волос",
+              "duration": "01:30",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            }
+          ]
+        },
+        {
+          "name": "Фитоламинирование-завивка LEBEL \\ Фитоламинирование для окрашеных волос",
+          "items": [
+            {
+              "name": "Фитоламинирование+жизненная сила длинный волос",
+              "duration": "02:00",
+              "price_text": "6700 р.",
+              "price_rub_min": 6700,
+              "price_rub_max": 6700
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила короткий волос",
+              "duration": "01:30",
+              "price_text": "4100 р.",
+              "price_rub_min": 4100,
+              "price_rub_max": 4100
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила очень длинный волос",
+              "duration": "02:30",
+              "price_text": "8400 р.",
+              "price_rub_min": 8400,
+              "price_rub_max": 8400
+            },
+            {
+              "name": "Фитоламинирование+жизненная сила средний волос",
+              "duration": "02:00",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание MATRIX",
+          "items": [
+            {
+              "name": "Доплата за густоту расход до 40гр",
+              "duration": "00:30",
+              "price_text": "1200 р.",
+              "price_rub_min": 1200,
+              "price_rub_max": 1200
+            },
+            {
+              "name": "Осветление длинные волосы",
+              "duration": "02:00",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            },
+            {
+              "name": "Осветление короткие волосы",
+              "duration": "02:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            },
+            {
+              "name": "Осветление очень длинные волосы",
+              "duration": "02:00",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            },
+            {
+              "name": "Осветление средние волосы",
+              "duration": "02:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Прикорневое окрашивание",
+              "duration": "01:30",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Расстяжка цвета",
+              "duration": "00:30",
+              "price_text": "1300 р.",
+              "price_rub_min": 1300,
+              "price_rub_max": 1300
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон длинный волос",
+              "duration": "02:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон короткий волос",
+              "duration": "01:30",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон очень длинный волос",
+              "duration": "02:30",
+              "price_text": "7200 р.",
+              "price_rub_min": 7200,
+              "price_rub_max": 7200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон средний волос",
+              "duration": "02:00",
+              "price_text": "5200 р.",
+              "price_rub_min": 5200,
+              "price_rub_max": 5200
+            },
+            {
+              "name": "Частичное окрашивание волос до 40гр",
+              "duration": "01:00",
+              "price_text": "1700 р.",
+              "price_rub_min": 1700,
+              "price_rub_max": 1700
+            },
+            {
+              "name": "Частичное осветление волос до 40гр",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание MATRIX \\ Air Touch",
+          "items": [
+            {
+              "name": "Air Touch длинный волос",
+              "duration": "05:00",
+              "price_text": "12200 р.",
+              "price_rub_min": 12200,
+              "price_rub_max": 12200
+            },
+            {
+              "name": "Air Touch очень длинный волос",
+              "duration": "06:00",
+              "price_text": "13700 р.",
+              "price_rub_min": 13700,
+              "price_rub_max": 13700
+            },
+            {
+              "name": "Air Touch средний волос",
+              "duration": "04:30",
+              "price_text": "10200 р.",
+              "price_rub_min": 10200,
+              "price_rub_max": 10200
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание MATRIX \\ Декапирование волос",
+          "items": [
+            {
+              "name": "Декапирование длинный волос",
+              "duration": "02:00",
+              "price_text": "5200 р.",
+              "price_rub_min": 5200,
+              "price_rub_max": 5200
+            },
+            {
+              "name": "Декапирование короткий волос",
+              "duration": "01:30",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Декапирование очень длинный волос",
+              "duration": "02:30",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            },
+            {
+              "name": "Декапирование средний волос",
+              "duration": "01:30",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание Wella",
+          "items": [
+            {
+              "name": "Доплата за густоту расход до 40гр",
+              "duration": "00:30",
+              "price_text": "2100 р.",
+              "price_rub_min": 2100,
+              "price_rub_max": 2100
+            },
+            {
+              "name": "Осветление длинные волосы",
+              "duration": "02:00",
+              "price_text": "5200 р.",
+              "price_rub_min": 5200,
+              "price_rub_max": 5200
+            },
+            {
+              "name": "Осветление короткие волосы",
+              "duration": "02:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Осветление очень длинные волосы",
+              "duration": "02:00",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Осветление средние волосы",
+              "duration": "02:00",
+              "price_text": "4200 р.",
+              "price_rub_min": 4200,
+              "price_rub_max": 4200
+            },
+            {
+              "name": "Прикорневое окрашивание",
+              "duration": "01:30",
+              "price_text": "5800 р.",
+              "price_rub_min": 5800,
+              "price_rub_max": 5800
+            },
+            {
+              "name": "Расстяжка цвета",
+              "duration": "00:30",
+              "price_text": "1200 р.",
+              "price_rub_min": 1200,
+              "price_rub_max": 1200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон длинный волос",
+              "duration": "02:30",
+              "price_text": "8200 р.",
+              "price_rub_min": 8200,
+              "price_rub_max": 8200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон короткий волос",
+              "duration": "01:30",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон очень длинный волос",
+              "duration": "03:00",
+              "price_text": "9200 р.",
+              "price_rub_min": 9200,
+              "price_rub_max": 9200
+            },
+            {
+              "name": "Тонирование\\окрашивание в один тон средний волос",
+              "duration": "02:00",
+              "price_text": "7200 р.",
+              "price_rub_min": 7200,
+              "price_rub_max": 7200
+            },
+            {
+              "name": "Частичное окрашивание волос до 40гр",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Частичное осветление волос до 40гр",
+              "duration": "01:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание Wella \\ Air Touch",
+          "items": [
+            {
+              "name": "Air Touch длинный волос",
+              "duration": "05:00",
+              "price_text": "13700 р.",
+              "price_rub_min": 13700,
+              "price_rub_max": 13700
+            },
+            {
+              "name": "Air Touch очень длинный волос",
+              "duration": "06:00",
+              "price_text": "15200 р.",
+              "price_rub_min": 15200,
+              "price_rub_max": 15200
+            },
+            {
+              "name": "Air Touch средний волос",
+              "duration": "04:30",
+              "price_text": "11700 р.",
+              "price_rub_min": 11700,
+              "price_rub_max": 11700
+            }
+          ]
+        },
+        {
+          "name": "Окрашивание Wella \\ Декапирование волос",
+          "items": [
+            {
+              "name": "Декапирование длинный волос",
+              "duration": "02:00",
+              "price_text": "5700 р.",
+              "price_rub_min": 5700,
+              "price_rub_max": 5700
+            },
+            {
+              "name": "Декапирование короткий волос",
+              "duration": "01:30",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            },
+            {
+              "name": "Декапирование очень длинный волос",
+              "duration": "02:30",
+              "price_text": "6200 р.",
+              "price_rub_min": 6200,
+              "price_rub_max": 6200
+            },
+            {
+              "name": "Декапирование средний волос",
+              "duration": "01:30",
+              "price_text": "4700 р.",
+              "price_rub_min": 4700,
+              "price_rub_max": 4700
+            }
+          ]
+        },
+        {
+          "name": "Кислотная смывка Color off",
+          "items": [
+            {
+              "name": "Кислотная смывка Color off длинный волос",
+              "duration": "02:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Кислотная смывка Color off короткий волос",
+              "duration": "01:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "Кислотная смывка Color off очень длинный волос",
+              "duration": "02:30",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Кислотная смывка Color off средний волос",
+              "duration": "01:30",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-169x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-1-1-183x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-2-176x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-3-171x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-4-188x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-5-177x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-6-178x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-7-196x210.jpeg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2017/07/image-20-03-20-06-40-8-213x210.jpeg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy/spa-programmy-dlja-volos",
+      "title": "SPA-программы для волос",
+      "description": "SPA-уход поможет укрепить, оздоровить волосы и кожу головы, наши стилисты подберут оптимальный комплекс процедур для борьбы с различными проблемами",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Lebel \\ SPA \\ Блеск и сила",
+          "items": [
+            {
+              "name": "Блеск и сила длинный волос",
+              "duration": "00:30",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "Блеск и сила короткий волос",
+              "duration": "00:30",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Блеск и сила оч.длинный волос",
+              "duration": "01:30",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            },
+            {
+              "name": "Блеск и сила средний волос",
+              "duration": "00:30",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            }
+          ]
+        },
+        {
+          "name": "Greymy кератиновые уходы",
+          "items": [
+            {
+              "name": "Доплата за густоту",
+              "duration": "00:30",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Доплата за длинну",
+              "duration": "00:30",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            },
+            {
+              "name": "Кератин платинум-ботокс длинные волосы",
+              "duration": "02:00",
+              "price_text": "6000 р.",
+              "price_rub_min": 6000,
+              "price_rub_max": 6000
+            },
+            {
+              "name": "Кератин платинум-ботокс короткие волосы",
+              "duration": "02:00",
+              "price_text": "4000 р.",
+              "price_rub_min": 4000,
+              "price_rub_max": 4000
+            },
+            {
+              "name": "Кератин платинум-ботокс очень длинные волосы",
+              "duration": "02:30",
+              "price_text": "7000 р.",
+              "price_rub_min": 7000,
+              "price_rub_max": 7000
+            },
+            {
+              "name": "Кератин платинум-ботокс средние волосы",
+              "duration": "02:00",
+              "price_text": "5000 р.",
+              "price_rub_min": 5000,
+              "price_rub_max": 5000
+            },
+            {
+              "name": "Кератиновое выпрямление- очень длинные волосы",
+              "duration": "01:00",
+              "price_text": "10000 р.",
+              "price_rub_min": 10000,
+              "price_rub_max": 10000
+            },
+            {
+              "name": "Кератиновое выпрямление-длинные волосы",
+              "duration": "03:00",
+              "price_text": "9000 р.",
+              "price_rub_min": 9000,
+              "price_rub_max": 9000
+            },
+            {
+              "name": "Кератиновое выпрямление-короткие волосы",
+              "duration": "02:30",
+              "price_text": "7000 р.",
+              "price_rub_min": 7000,
+              "price_rub_max": 7000
+            },
+            {
+              "name": "Кератиновое выпрямление-средние волосы",
+              "duration": "02:30",
+              "price_text": "8000 р.",
+              "price_rub_min": 8000,
+              "price_rub_max": 8000
+            },
+            {
+              "name": "СПА-кератин длинные волосы",
+              "duration": "02:00",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "СПА-кератин короткий волос",
+              "duration": "01:30",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "СПА-кератин очень длинные волосы",
+              "duration": "01:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "СПА-кератин средние волосы",
+              "duration": "01:30",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            }
+          ]
+        },
+        {
+          "name": "Olaplex",
+          "items": [
+            {
+              "name": "Olaplex",
+              "duration": "00:20",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            }
+          ]
+        },
+        {
+          "name": "Lebel \\ SPA-программа «Жизненная сила»",
+          "items": [
+            {
+              "name": "SPA-программа «Жизненная сила» Длинный волос",
+              "duration": "00:35",
+              "price_text": "2500 р.",
+              "price_rub_min": 2500,
+              "price_rub_max": 2500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» Короткий волос",
+              "duration": "00:35",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» оч.длинны волос",
+              "duration": "00:40",
+              "price_text": "3500 р.",
+              "price_rub_min": 3500,
+              "price_rub_max": 3500
+            },
+            {
+              "name": "SPA-программа «Жизненная сила» Средний волос",
+              "duration": "00:35",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            }
+          ]
+        },
+        {
+          "name": "Lebel \\ Абсолютное счастье",
+          "items": [
+            {
+              "name": "Абсолютное счастье длинный волос",
+              "duration": "02:00",
+              "price_text": "5500 р.",
+              "price_rub_min": 5500,
+              "price_rub_max": 5500
+            },
+            {
+              "name": "Абсолютное счастье короткий волос",
+              "duration": "02:00",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "абсолютное счастье оч.длинный",
+              "duration": "02:30",
+              "price_text": "6500 р.",
+              "price_rub_min": 6500,
+              "price_rub_max": 6500
+            },
+            {
+              "name": "Абсолютное счастье средний волос",
+              "duration": "02:00",
+              "price_text": "4500 р.",
+              "price_rub_min": 4500,
+              "price_rub_max": 4500
+            }
+          ]
+        },
+        {
+          "name": "Matrix \\ Protopak 5+",
+          "items": [
+            {
+              "name": "Длинный волос",
+              "duration": "00:30",
+              "price_text": "900 р.",
+              "price_rub_min": 900,
+              "price_rub_max": 900
+            },
+            {
+              "name": "Короткий волос",
+              "duration": "00:30",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Оч. длинный волос",
+              "duration": "00:30",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Средний волос",
+              "duration": "00:30",
+              "price_text": "700 р.",
+              "price_rub_min": 700,
+              "price_rub_max": 700
+            }
+          ]
+        },
+        {
+          "name": "Экспресс уходы для волос",
+          "items": [
+            {
+              "name": "Экспресс реконструкция волос",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Экспресс уход ре бонд матрикс",
+              "duration": "00:20",
+              "price_text": "300 р.",
+              "price_rub_min": 300,
+              "price_rub_max": 300
+            }
+          ]
+        }
+      ],
+      "images": []
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/uslugi-brovista",
+      "title": "Услуги бровиста",
+      "description": "Брови всегда были одним из главных украшений женщины. Запишитесь на услуги бровиса/долговременного макияжа в студии NailsProfi",
+      "hero_image": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-ru-brovist-1-1.jpg",
+      "price_sections": [
+        {
+          "name": "Брови",
+          "items": [
+            {
+              "name": "Архитектура бровей (окрашивание+коррекция) пинцет/сахар",
+              "duration": "01:00",
+              "price_text": "1600 р.",
+              "price_rub_min": 1600,
+              "price_rub_max": 1600
+            },
+            {
+              "name": "Ботокс для бровей",
+              "duration": "00:20",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Коррекция бровей (пинцет/сахар)",
+              "duration": "00:30",
+              "price_text": "900 р.",
+              "price_rub_min": 900,
+              "price_rub_max": 900
+            },
+            {
+              "name": "Коррекция бровей (пинцет/сахар/нить)",
+              "duration": "01:00",
+              "price_text": "900 р.",
+              "price_rub_min": 900,
+              "price_rub_max": 900
+            },
+            {
+              "name": "Коррекция бровей мужская(пинцет/сахар)",
+              "duration": "00:30",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Ламинирование бровей + ботокс",
+              "duration": "01:00",
+              "price_text": "2000 р.",
+              "price_rub_min": 2000,
+              "price_rub_max": 2000
+            },
+            {
+              "name": "Ламинирование бровей (коррекция+окрашивание пинцет/сахар)",
+              "duration": "01:30",
+              "price_text": "3300 р.",
+              "price_rub_min": 3300,
+              "price_rub_max": 3300
+            },
+            {
+              "name": "Ламинирование нижних ресниц",
+              "duration": "01:30",
+              "price_text": "1300 р.",
+              "price_rub_min": 1300,
+              "price_rub_max": 1300
+            },
+            {
+              "name": "Ламинирование ресниц+ботокс",
+              "duration": "01:30",
+              "price_text": "3000 р.",
+              "price_rub_min": 3000,
+              "price_rub_max": 3000
+            },
+            {
+              "name": "Ламинирование+коррекция или окрашивание бровей",
+              "duration": "01:00",
+              "price_text": "2700 р.",
+              "price_rub_min": 2700,
+              "price_rub_max": 2700
+            },
+            {
+              "name": "Окрашивание Бровей",
+              "duration": "00:30",
+              "price_text": "900 р.",
+              "price_rub_min": 900,
+              "price_rub_max": 900
+            },
+            {
+              "name": "Окрашивание ресниц",
+              "duration": "00:20",
+              "price_text": "900 р.",
+              "price_rub_min": 900,
+              "price_rub_max": 900
+            },
+            {
+              "name": "Сахар (эпиляция любой зоны на лице)",
+              "duration": "00:10",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            },
+            {
+              "name": "Снятие наращенных ресниц",
+              "duration": "00:30",
+              "price_text": "500 р.",
+              "price_rub_min": 500,
+              "price_rub_max": 500
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/uslugi-brovista-nailsprofi-1-200x200.jpg",
+          "alt": "Услуги бровиста в NailsProfi"
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_600907100-198x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_762110056-224x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_791376631-218x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/brovi-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_481579738-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_481579741-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_541755337-225x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_564737872-267x150.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2016/01/nailsprofi-ru-brovist-1-1.jpg",
+          "alt": "Услуги бровиста"
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/parikmaherskie-uslugy/muzhskaja-strizhka",
+      "title": "Мужская стрижка",
+      "description": "Мужская стрижка в студии красоты NailsProfi. Стилисты предлагают множество модельных стрижек на разную длину волос. Мы подчеркнем вашу индвивидуальность.",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Услуги для мужчин",
+          "items": [
+            {
+              "name": "Бокс или полубокс",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Модельная стрижка мужская",
+              "duration": "01:00",
+              "price_text": "1500 р.",
+              "price_rub_min": 1500,
+              "price_rub_max": 1500
+            },
+            {
+              "name": "Оформление бороды/усов",
+              "duration": "01:00",
+              "price_text": "1000 р.",
+              "price_rub_min": 1000,
+              "price_rub_max": 1000
+            },
+            {
+              "name": "Стрижка машиинкой",
+              "duration": "01:00",
+              "price_text": "800 р.",
+              "price_rub_min": 800,
+              "price_rub_max": 800
+            },
+            {
+              "name": "Стрижка наголо",
+              "duration": "01:00",
+              "price_text": "600 р.",
+              "price_rub_min": 600,
+              "price_rub_max": 600
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_289392185-298x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_294556553-315x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_313676483-420x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_538654906-314x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_563112682-315x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_635260844-315x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/muzh-str-315x210.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://nailsprofi.ru/wp-content/uploads/2018/08/shutterstock_172210544-315x210.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/manikur/muzhskoj-manikjur-v-salone",
+      "title": "Мужской маникюр в салоне",
+      "description": "Ухоженные руки – визитная карточка не только современных женщин, но и представителей сильного пола. Мужской маниюр в NailsProfi сделает ногти ухоженными",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Услуги для мужчин",
+          "items": [
+            {
+              "name": "Аппаратный маникюр мужской",
+              "duration": "01:00",
+              "price_text": "1900 р.",
+              "price_rub_min": 1900,
+              "price_rub_max": 1900
+            },
+            {
+              "name": "Аппаратный маникюр мужской-топ мастер",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            },
+            {
+              "name": "Комбинированный маникюр мужской",
+              "duration": "01:00",
+              "price_text": "1900 р.",
+              "price_rub_min": 1900,
+              "price_rub_max": 1900
+            },
+            {
+              "name": "Комбинированный маникюр мужской-топ мастер",
+              "duration": "01:00",
+              "price_text": "2200 р.",
+              "price_rub_min": 2200,
+              "price_rub_max": 2200
+            }
+          ]
+        }
+      ],
+      "images": []
+    },
+    {
+      "url": "https://nailsprofi.ru/uslugi-ceny/pedikur/muzhskoj-pedikjur",
+      "title": "Мужской педикюр",
+      "description": "Здоровые ухоженные ступни – неотъемлемый признак современного мужчины. Записаться на профессиональный мужской педикюр можно в студии NailsProfi.",
+      "hero_image": null,
+      "price_sections": [
+        {
+          "name": "Услуги для мужчин",
+          "items": [
+            {
+              "name": "Мужской аппаратный педикюр",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Мужской аппаратный педикюр-топ мастер",
+              "duration": "01:00",
+              "price_text": "3900 р.",
+              "price_rub_min": 3900,
+              "price_rub_max": 3900
+            },
+            {
+              "name": "Мужской комбинированный педикюр",
+              "duration": "01:00",
+              "price_text": "2800 р.",
+              "price_rub_min": 2800,
+              "price_rub_max": 2800
+            },
+            {
+              "name": "Мужской комбинированный педикюр-топ мастер",
+              "duration": "01:00",
+              "price_text": "3100 р.",
+              "price_rub_min": 3100,
+              "price_rub_max": 3100
+            },
+            {
+              "name": "Мужской смарт педикюр",
+              "duration": "01:00",
+              "price_text": "3200 р.",
+              "price_rub_min": 3200,
+              "price_rub_max": 3200
+            },
+            {
+              "name": "Мужской смарт педикюр-топ мастер",
+              "duration": "01:00",
+              "price_text": "3700 р.",
+              "price_rub_min": 3700,
+              "price_rub_max": 3700
+            }
+          ]
+        }
+      ],
+      "images": []
+    }
+  ],
+  "promotions": {
+    "url": "https://nailsprofi.ru/skidki",
+    "headings": [
+      "Скидки и бонусы",
+      "Студия красоты «NailsProfi» (м. Парк Культуры)"
+    ],
+    "offers": [
+      "в день рождения постоянным клиентам скидка -20%;",
+      "в продаже имеются подарочные сертификаты от 1000 рублей;",
+      "скидка -5% для сотрудников Яндекс;",
+      "-10% парикмахерские услуги для постоянных клиентов.",
+      "500руб в подарок за рекомендацию другу"
+    ],
+    "paragraphs": [],
+    "images": [
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2021/10/img_2522.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "portfolio": {
+    "url": "https://nailsprofi.ru/nashi-raboty",
+    "title": "Наши работы",
+    "images": [
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/45966393_203183267268820_3157266227532327805_n-625x469.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/44686729_1787872998002412_4628232877856535679_n-625x625.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/44808286_1112272445607847_340314903169652672-625x781.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/43173293_2251497315131160_1608437680897557226_n-625x645.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/45751991_122189678680076_7592169244898440464_n-625x618.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/46034004_299663833980681_4310882484574065596_n.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/44849173_556714804754473_5748263595282639119_n-625x489.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/45804416_2077653542302776_6463303638607930958_n-625x625.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/44444534_328857544579866_2961256615667407866_n-625x625.jpg",
+        "alt": ""
+      },
+      {
+        "url": "https://nailsprofi.ru/wp-content/uploads/2018/11/44869483_307075176566123_221865732-625x781.jpg",
+        "alt": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+---
+import Hero from "../components/Hero.astro";
+import HomeSections from "../components/HomeSections.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+const page = {
+	title: "Профессиональный уход в атмосфере спокойствия",
+	description:
+		"NailsProfi — салон ухода за волосами и ногтями. Опытные мастера, качественные материалы и внимание к деталям.",
+	phrase: "Красота начинается с внимания к себе",
+};
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Профессиональный уход за волосами и ногтями в NailsProfi."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:title" content="NailsProfi — салон красоты" />
+		<meta
+			property="og:description"
+			content="Профессиональный уход за волосами и ногтями в NailsProfi."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>NailsProfi — салон красоты</title>
+	</head>
+	<body id="top">
+		<a class="skip-link" href="#main-content">Перейти к содержимому</a>
+		<SiteHeader />
+		<main id="main-content">
+			<Hero {...page} />
+			<HomeSections />
+		</main>
+	</body>
+</html>
+
+<style>
+	main {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		min-width: 0;
+		row-gap: clamp(1.25rem, 2.4vw, 3rem);
+		padding: clamp(0.9rem, 1.7vw, 1.8rem) var(--page-gutter) clamp(1.75rem, 3.6vw, 3.8rem);
+	}
+
+	@media (max-width: 767px) {
+		main {
+			row-gap: 1.35rem;
+			padding-top: 0.9rem;
+			padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+		}
+	}
+</style>
