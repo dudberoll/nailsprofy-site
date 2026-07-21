@@ -2,6 +2,7 @@
 interface Contacts {
 	address: string;
 	hours: string;
+	phones: string[];
 	emails: string[];
 	social_urls?: string[];
 }
@@ -14,6 +15,10 @@ interface Props {
 
 const { contacts, primaryPhone, phoneHref } = Astro.props;
 const telegramUrl = contacts.social_urls?.find((url) => url.includes("t.me"));
+const additionalPhones = contacts.phones.slice(1).map((phone) => ({
+	label: phone,
+	href: `tel:${phone.replace(/[^\d+]/g, "")}`,
+}));
 const formattedHours = contacts.hours
 	.replace(/^С/, "с")
 	.replace("10-00", "10:00")
@@ -44,7 +49,7 @@ const mapUrl =
 
 		<article class="studio-card">
 			<header>
-				<h2 id="contacts-title">Студия у<br />Парка Культуры</h2>
+				<h2 id="contacts-title">Студия красоты<br />на парке культуры</h2>
 				<p>{contacts.address}</p>
 			</header>
 
@@ -66,7 +71,10 @@ const mapUrl =
 						</svg>
 					</span>
 					<div class="studio-phone">
-						<a href={phoneHref}>{primaryPhone}</a>
+						<div class="studio-phone__numbers">
+							<a href={phoneHref}>{primaryPhone}</a>
+							{additionalPhones.map((phone) => <a href={phone.href}>{phone.label}</a>)}
+						</div>
 						{
 							telegramUrl && (
 								<a
@@ -167,7 +175,7 @@ const mapUrl =
 	.studio-section .studio-card h2 {
 		margin: 0;
 		color: var(--color-text);
-		font-size: clamp(3.25rem, 4.3vw, 4.5rem);
+		font-size: clamp(2.75rem, 3.5vw, 3.5rem);
 		font-weight: 400;
 		line-height: 0.98;
 		letter-spacing: -0.055em;
@@ -237,6 +245,12 @@ const mapUrl =
 		display: flex;
 		align-items: center;
 		gap: 0.8rem;
+	}
+
+	.studio-section .studio-phone__numbers {
+		display: grid;
+		gap: 0.15rem;
+		min-width: 0;
 	}
 
 	.studio-section .studio-telegram {
