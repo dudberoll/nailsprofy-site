@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { group, categoryId, bookingUrl } = Astro.props;
-const headingId = `price-${categoryId}-${group.title.toLowerCase().replaceAll(" ", "-")}`;
+const headingId = `price-heading-${categoryId}-${group.id}`;
 ---
 
 <section class="price-group" aria-labelledby={headingId}>

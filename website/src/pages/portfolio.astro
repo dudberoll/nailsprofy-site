@@ -1,0 +1,33 @@
+---
+import PortfolioGallery from "../components/PortfolioGallery.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Портфолио NailsProfi: фотографии работ мастеров с датами и описанием процедур."
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:title" content="Портфолио — NailsProfi" />
+		<meta
+			property="og:description"
+			content="Работы мастеров NailsProfi: фотографии, даты и выполненные процедуры."
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>Портфолио — NailsProfi</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">Перейти к содержимому</a>
+		<SiteHeader />
+		<PortfolioGallery />
+	</body>
+</html>

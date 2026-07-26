@@ -107,22 +107,9 @@
 	max-width: 514px;
 	margin-top: 20px;
 	overflow: hidden;
-	appearance: none;
-	border: 0;
 	border-radius: 999px;
 	background: rgb(255 255 255 / 38%);
 	box-shadow: 0 0 0 1px rgb(255 255 255 / 50%);
-}
-
-.progress-line::-webkit-progress-bar {
-	border-radius: inherit;
-	background: rgb(255 255 255 / 38%);
-}
-
-.progress-line::-webkit-progress-value,
-.progress-line::-moz-progress-bar {
-	border-radius: inherit;
-	background: #6d5c5c;
 }
 
 .wizard-panel {
@@ -309,9 +296,10 @@
 
 .product-paper strong {
 	color: #2d2d2d;
-	font-size: clamp(26px, 4vw, 42px);
+	font-size: clamp(18px, 3vw, 40px);
 	font-weight: 300;
 	line-height: 1.1;
+	white-space: nowrap;
 }
 
 .product-paper div {

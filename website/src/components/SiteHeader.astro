@@ -4,19 +4,25 @@ import data from "../data/nailsprofi.json";
 import { serviceCategories } from "../data/servicesCatalog";
 
 const navigation = [
-	{ label: "Сертификаты и абонементы", href: "/sertifikaty_abonementy" },
-	{ label: "Мастера", href: "/#masters" },
-	{ label: "Отзывы", href: "/#reviews" },
-	{ label: "О салоне", href: "/#about" },
-	{ label: "Блог", href: "/blog" },
-	{ label: "Контакты", href: "/#contacts" },
+	{ label: "Портфолио", href: "/portfolio", hideOnCompact: false },
+	{ label: "Сертификаты", href: "/sertifikaty_abonementy", hideOnCompact: false },
+	{ label: "Мастера", href: "/#masters", hideOnCompact: false },
+	{ label: "Отзывы", href: "/#reviews", hideOnCompact: true },
+	{ label: "О салоне", href: "/#about", hideOnCompact: true },
+	{ label: "Блог", href: "/blog", hideOnCompact: true },
+	{ label: "Контакты", href: "/#contacts", hideOnCompact: false },
 ];
 
 const isServicesPage = Astro.url.pathname.startsWith("/services");
 const isBlogPage = Astro.url.pathname.startsWith("/blog");
+const isPortfolioPage = Astro.url.pathname.startsWith("/portfolio");
 const isCertificatesPage = Astro.url.pathname.startsWith("/sertifikaty_abonementy");
 const bookingUrl = data.contacts.booking_url;
 const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }));
+const isNavigationItemActive = (href: string) =>
+	(isBlogPage && href === "/blog") ||
+	(isPortfolioPage && href === "/portfolio") ||
+	(isCertificatesPage && href === "/sertifikaty_abonementy");
 ---
 
 <header class="site-header" data-site-header>
@@ -36,15 +42,10 @@ const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }
 				</li>
 				{
 					navigation.map((item) => (
-						<li>
+						<li class={item.hideOnCompact ? "site-header__nav-item--compact-hidden" : undefined}>
 							<a
 								href={item.href}
-								aria-current={
-									(isBlogPage && item.href === "/blog") ||
-									(isCertificatesPage && item.href === "/sertifikaty_abonementy")
-										? "page"
-										: undefined
-								}
+								aria-current={isNavigationItemActive(item.href) ? "page" : undefined}
 							>
 								{item.label}
 							</a>
@@ -91,7 +92,12 @@ const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }
 			{
 				navigation.map((item) => (
 					<li>
-						<a href={item.href}>{item.label}</a>
+						<a
+							href={item.href}
+							aria-current={isNavigationItemActive(item.href) ? "page" : undefined}
+						>
+							{item.label}
+						</a>
 					</li>
 				))
 			}
@@ -114,10 +120,7 @@ const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }
 		rel="noopener noreferrer"
 		aria-label="Записаться онлайн"
 	>
-		<svg viewBox="0 0 24 24" aria-hidden="true">
-			<rect x="3.5" y="5.5" width="17" height="15" rx="2.5"></rect>
-			<path d="M7.5 3.5v4M16.5 3.5v4M3.5 10h17M8.5 14h7"></path>
-		</svg>
+		Записаться
 	</a>
 </header>
 
@@ -289,23 +292,16 @@ const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 52px;
-		height: 52px;
+		min-height: 52px;
+		padding: 0 1.25rem;
 		border: 1px solid var(--shader-booking-border);
-		border-radius: 50%;
+		border-radius: 999px;
 		box-shadow: 0 12px 30px rgb(77 48 62 / 18%);
 		text-decoration: none;
+		font-size: 0.875rem;
+		line-height: 1;
+		white-space: nowrap;
 		transition: transform 120ms var(--ease-out), box-shadow 160ms var(--ease-out);
-	}
-
-	.mobile-booking svg {
-		width: 22px;
-		height: 22px;
-		fill: none;
-		stroke: currentColor;
-		stroke-linecap: round;
-		stroke-linejoin: round;
-		stroke-width: 1.65;
 	}
 
 	.mobile-booking:active {
@@ -389,8 +385,7 @@ const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }
 			gap: 1.5rem;
 		}
 
-		.site-header__nav li:nth-child(4),
-		.site-header__nav li:nth-child(5) {
+		.site-header__nav-item--compact-hidden {
 			display: none;
 		}
 	}

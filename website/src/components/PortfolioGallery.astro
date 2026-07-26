@@ -1,0 +1,171 @@
+---
+import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
+---
+
+<main id="main-content" class="portfolio-page">
+	<header class="portfolio-hero">
+		<div>
+			<p class="portfolio-eyebrow">Портфолио · {portfolioItems.length} работ</p>
+			<h1>Работы наших мастеров</h1>
+		</div>
+	</header>
+
+	<section class="portfolio-grid" aria-label="Работы мастеров NailsProfi">
+		{
+			portfolioItems.map((item, index) => (
+				<article class="portfolio-card">
+					<div class="portfolio-card__image">
+						<img
+							src={item.image}
+							width={item.width}
+							height={item.height}
+							alt={item.alt}
+							loading={index === 0 ? "eager" : "lazy"}
+							decoding="async"
+						/>
+					</div>
+					<div class="portfolio-card__meta">
+						<time datetime={item.date}>{formatPortfolioDate(item.date)}</time>
+						<h2>{item.procedure}</h2>
+					</div>
+				</article>
+			))
+		}
+	</section>
+</main>
+
+<style>
+	.portfolio-page {
+		width: min(100%, calc(var(--content-width) + 2 * var(--page-gutter)));
+		margin-inline: auto;
+		padding: clamp(2rem, 4.25vw, 5.25rem) var(--page-gutter) clamp(3rem, 6vw, 7rem);
+	}
+
+	.portfolio-hero {
+		margin-bottom: clamp(2.4rem, 5vw, 5.5rem);
+	}
+
+	.portfolio-eyebrow {
+		margin: 0 0 clamp(0.9rem, 1.5vw, 1.5rem);
+		color: var(--color-muted);
+		font-size: 0.76rem;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.portfolio-hero h1 {
+		margin: 0;
+		font-size: clamp(3rem, 5.5vw, 6.5rem);
+		font-weight: 400;
+		line-height: 0.98;
+		letter-spacing: -0.045em;
+		white-space: nowrap;
+	}
+
+	.portfolio-grid {
+		columns: 4;
+		column-gap: clamp(1rem, 1.7vw, 2rem);
+	}
+
+	.portfolio-card {
+		break-inside: avoid;
+		min-width: 0;
+		margin-bottom: clamp(2rem, 3.2vw, 4rem);
+	}
+
+	.portfolio-card__image {
+		overflow: hidden;
+		border-radius: clamp(1.2rem, 1.6vw, 1.85rem);
+		background: var(--color-surface);
+	}
+
+	.portfolio-card img {
+		display: block;
+		width: 100%;
+		height: auto;
+		transition:
+			filter 240ms var(--ease-out),
+			transform 240ms var(--ease-out);
+	}
+
+	.portfolio-card__meta {
+		display: grid;
+		gap: 0.55rem;
+		padding-top: clamp(0.85rem, 1.2vw, 1.25rem);
+	}
+
+	.portfolio-card time {
+		color: var(--color-accent-muted);
+		font-size: 0.76rem;
+		line-height: 1.2;
+	}
+
+	.portfolio-card h2 {
+		max-width: 31rem;
+		margin: 0;
+		font-size: clamp(0.95rem, 1.05vw, 1.12rem);
+		font-weight: 400;
+		line-height: 1.42;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.portfolio-card:hover img {
+			filter: brightness(0.96);
+			transform: scale(1.015);
+		}
+	}
+
+	@media (max-width: 1250px) {
+		.portfolio-grid {
+			columns: 3;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.portfolio-hero h1 {
+			white-space: normal;
+		}
+
+		.portfolio-grid {
+			columns: 2;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.portfolio-page {
+			padding-top: 2.25rem;
+			padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+		}
+
+		.portfolio-hero {
+			margin-bottom: 2.5rem;
+		}
+
+		.portfolio-hero h1 {
+			font-size: clamp(2.85rem, 14vw, 4.4rem);
+			line-height: 1;
+		}
+
+		.portfolio-grid {
+			columns: 1;
+		}
+
+		.portfolio-card {
+			margin-bottom: 2.4rem;
+		}
+
+		.portfolio-card__image {
+			border-radius: 1.5rem;
+		}
+
+		.portfolio-card time {
+			font-size: 0.8rem;
+		}
+
+		.portfolio-card h2 {
+			font-size: 1.05rem;
+		}
+	}
+</style>

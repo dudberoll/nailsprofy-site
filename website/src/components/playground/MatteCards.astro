@@ -44,57 +44,70 @@ const masterCards = [
 		level: "Топ мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный, пилочный. Наращивание ногтей акрил/гель/полигель.",
 		experience: "14 лет",
-		photo: "/images/master-anna.png",
+		photo: "/images/masters/anna-aleshina.webp",
 	},
 	{
 		title: "Екатерина Ускова",
 		level: "Топ мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей акрил/гель/полигель.",
 		experience: "15 лет",
+		photo: "/images/masters/ekaterina-uskova.webp",
 	},
 	{
-		title: "Сокол Оксана",
+		title: "Оксана Сокол",
 		level: "Топ мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель. Подология.",
 		experience: "13 лет",
-		photo: "/images/master-oksana.png",
+		photo: "/images/masters/oksana-sokol.webp",
 	},
 	{
 		title: "Индира Абдуллаева",
 		level: "Стилист-колорист",
 		text: "Стрижки, укладки, окрашивание волос, спа уходы. Кератин.",
 		experience: "15 лет",
+		photo: "/images/masters/indira-abdullaeva.webp",
 	},
 	{
 		title: "Василиса Сергеева",
 		level: "Бровист",
 		text: "Архитектура бровей, ламинирование бровей и ресниц, окрашивание бровей и ресниц, уходовые услуги.",
 		experience: "4 года",
-		photo: "/images/master-vasilisa.png",
+		photo: "/images/masters/vasilisa-sergeeva.webp",
 	},
 	{
-		title: "Квадракова Юлия",
+		title: "Юлия Квардакова",
 		level: "Топ мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
 		experience: "10 лет",
+		photo: "/images/masters/yulia-kvardakova.webp",
 	},
 	{
 		title: "София Забелкина",
 		level: "Мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
 		experience: "6 лет",
+		photo: "/images/masters/sofia-zabelkina.webp",
 	},
 	{
 		title: "Яна Сальникова",
 		level: "Мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
 		experience: "8 лет",
+		photo: "/images/masters/yana-salnikova.webp",
 	},
 	{
 		title: "Эмма Сафина",
 		level: "Мастер ногтевого сервиса",
 		text: "Маникюр комби, аппаратный, пилочный. Педикюр смарт, комби, аппаратный. Наращивание ногтей гель/полигель.",
 		experience: "8 лет",
+		photo: "/images/masters/emma-safina.webp",
+	},
+	{
+		title: "Татьяна Каретникова",
+		level: "Мастер ногтевого сервиса",
+		text: "Маникюр, педикюр, гель, полигель, коррекция, укрепление.",
+		experience: "4 года",
+		photo: "/images/masters/tatyana-karetnikova.webp",
 	},
 ];
 ---
@@ -203,7 +216,11 @@ const masterCards = [
 }
 
 {showMasters && (
-<section class="matte-cards-demo matte-cards-demo--carousel" aria-labelledby="matte-masters-title">
+<section
+  class="matte-cards-demo matte-cards-demo--carousel"
+  id="masters"
+  aria-labelledby="matte-masters-title"
+>
 	<div class="matte-cards-demo__intro">
 		<h2 id="matte-masters-title">Мастера, которым можно доверить детали</h2>
 	</div>
@@ -406,7 +423,7 @@ const masterCards = [
 	.matte-cards-demo__intro h2 {
 		margin: 0;
 		font-size: clamp(2rem, 4vw, 4.5rem);
-		font-weight: 400;
+		font-weight: 300;
 		line-height: 0.98;
 		letter-spacing: -0.055em;
 	}
@@ -431,7 +448,9 @@ const masterCards = [
 
 	.matte-cards-demo__stage--masters {
 		align-items: start;
-		background: url("/images/masters-pink-bg.png") 0 0 / 100% 100% no-repeat #eeebe6;
+		background:
+			linear-gradient(rgb(255 255 255 / 12%), rgb(255 255 255 / 12%)),
+			url("/images/masters-background.webp") center / cover no-repeat #f3dfdc;
 	}
 
 	.matte-cards-demo__stage--masters .matte-cards-demo__branch {
@@ -439,7 +458,7 @@ const masterCards = [
 	}
 
 	.matte-cards-demo__stage--masters .matte-card {
-		background: rgb(238 235 230 / 50%);
+		background: rgb(238 235 230 / 72%);
 		box-shadow: inset 0 1px 0 rgb(255 255 255 / 50%);
 		backdrop-filter: none;
 	}

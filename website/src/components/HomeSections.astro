@@ -17,6 +17,7 @@ import ReviewsSection from "./ReviewsSection.astro";
 const contacts = data.contacts;
 const primaryPhone = contacts.phones[0];
 const phoneHref = `tel:${primaryPhone.replace(/[^\d+]/g, "")}`;
+const telegramUrl = contacts.social_urls.find((url) => url.includes("t.me"));
 const journalCards = blogPageArticles(1).slice(0, 4);
 ---
 
@@ -31,7 +32,7 @@ const journalCards = blogPageArticles(1).slice(0, 4);
 	<ValuesSection values={values} />
 	<JournalSection cards={journalCards} />
 	<FaqSection />
-	<CallbackSection bookingUrl={contacts.booking_url} />
+	<CallbackSection phones={contacts.phones} telegramUrl={telegramUrl} />
 </div>
 
 <style>

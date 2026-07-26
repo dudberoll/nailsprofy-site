@@ -12,6 +12,10 @@ import "./ServiceCategoryNav.css";
 type ServiceCategoryNavItem = {
 	id: string;
 	label: string;
+	subcategories: {
+		id: string;
+		label: string;
+	}[];
 };
 
 type Indicator = {
@@ -29,6 +33,9 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 	const fallbackId = ids[0] ?? "";
 	const initialId = ids.includes(activeCategoryId) ? activeCategoryId : fallbackId;
 	const [currentId, setCurrentId] = useState(initialId);
+	const [currentSubcategoryId, setCurrentSubcategoryId] = useState(
+		categories.find((category) => category.id === initialId)?.subcategories[0]?.id ?? "",
+	);
 	const [indicator, setIndicator] = useState<Indicator>({ left: 0, width: 0 });
 	const buttonRefs = useRef(new Map<string, HTMLButtonElement>());
 
@@ -42,9 +49,21 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 		});
 	}, []);
 
+	const activateSubcategory = useCallback((categoryId: string, subcategoryId: string) => {
+		const category = categories.find((item) => item.id === categoryId);
+		if (!category?.subcategories.some((subcategory) => subcategory.id === subcategoryId)) return;
+
+		setCurrentSubcategoryId(subcategoryId);
+		document.querySelectorAll<HTMLElement>("[data-price-group]").forEach((group) => {
+			group.hidden = group.dataset.priceGroup !== subcategoryId;
+		});
+	}, [categories]);
+
 	const activateService = useCallback(
 		(id: string, options: { updateHash?: boolean; focus?: boolean } = {}) => {
 			if (!ids.includes(id)) return;
+			const initialSubcategoryId =
+				categories.find((category) => category.id === id)?.subcategories[0]?.id ?? "";
 
 			setCurrentId(id);
 			window.requestAnimationFrame(() => {
@@ -52,7 +71,7 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 				buttonRefs.current.get(id)?.scrollIntoView({
 					block: "nearest",
 					inline: "center",
-					behavior: "smooth",
+					behavior: options.focus ? "auto" : "smooth",
 				});
 			});
 
@@ -63,12 +82,13 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 			document.querySelectorAll<HTMLElement>("[data-service-panel]").forEach((panel) => {
 				panel.hidden = panel.dataset.servicePanel !== id;
 			});
+			activateSubcategory(id, initialSubcategoryId);
 
 			if (options.updateHash ?? true) {
 				history.replaceState(null, "", `#${id}`);
 			}
 		},
-		[ids, measure],
+		[activateSubcategory, categories, ids, measure],
 	);
 
 	useEffect(() => {
@@ -107,6 +127,27 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 		activateService(ids[nextIndex], { focus: true });
 	};
 
+	const currentCategory = categories.find((category) => category.id === currentId);
+	const subcategoryIds = currentCategory?.subcategories.map((subcategory) => subcategory.id) ?? [];
+
+	const handleSubcategoryKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+		const currentIndex = Math.max(subcategoryIds.indexOf(currentSubcategoryId), 0);
+		let nextIndex = currentIndex;
+
+		if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % subcategoryIds.length;
+		else if (event.key === "ArrowLeft") {
+			nextIndex = (currentIndex - 1 + subcategoryIds.length) % subcategoryIds.length;
+		} else if (event.key === "Home") nextIndex = 0;
+		else if (event.key === "End") nextIndex = subcategoryIds.length - 1;
+		else return;
+
+		event.preventDefault();
+		const nextId = subcategoryIds[nextIndex];
+		if (!nextId) return;
+		activateSubcategory(currentId, nextId);
+		window.requestAnimationFrame(() => document.getElementById(`price-tab-${currentId}-${nextId}`)?.focus());
+	};
+
 	const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
 		if (event.key === "ArrowRight") {
 			event.preventDefault();
@@ -137,9 +178,10 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 	} as CSSProperties;
 
 	return (
-		<div className="service-category-nav-scroll" aria-label="Категории услуг">
-			<div className="service-category-nav" role="tablist" aria-label="Категории услуг" style={style}>
-				{categories.map((category) => {
+		<div className="service-navigation">
+			<div className="service-category-nav-scroll" aria-label="Категории услуг">
+				<div className="service-category-nav" role="tablist" aria-label="Категории услуг" style={style}>
+					{categories.map((category) => {
 					const active = category.id === currentId;
 
 					return (
@@ -170,11 +212,45 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 							{category.label}
 						</button>
 					);
-				})}
-				<div className="service-category-nav__indicator-layer" aria-hidden="true">
-					<div className="service-category-nav__indicator-track">
-						<div className="service-category-nav__indicator" />
+					})}
+					<div className="service-category-nav__indicator-layer" aria-hidden="true">
+						<div className="service-category-nav__indicator-track">
+							<div className="service-category-nav__indicator" />
+						</div>
 					</div>
+				</div>
+			</div>
+			<div className="service-subcategory-nav-scroll">
+				<div
+					className="service-subcategory-nav"
+					role="tablist"
+					aria-label={`Подкатегории: ${currentCategory?.label ?? ""}`}
+				>
+					{currentCategory?.subcategories.map((subcategory) => {
+						const active = subcategory.id === currentSubcategoryId;
+
+						return (
+							<button
+								key={subcategory.id}
+								id={`price-tab-${currentId}-${subcategory.id}`}
+								className={[
+									"service-subcategory-nav__button",
+									active ? "service-subcategory-nav__button--active" : "",
+								]
+									.filter(Boolean)
+									.join(" ")}
+								type="button"
+								role="tab"
+								aria-selected={active ? "true" : "false"}
+								aria-controls={`price-${currentId}-${subcategory.id}`}
+								tabIndex={active ? 0 : -1}
+								onClick={() => activateSubcategory(currentId, subcategory.id)}
+								onKeyDown={handleSubcategoryKeyDown}
+							>
+								{subcategory.label}
+							</button>
+						);
+					})}
 				</div>
 			</div>
 		</div>

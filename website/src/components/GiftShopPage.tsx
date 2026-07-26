@@ -19,14 +19,7 @@ type Step = {
 
 type Mode = "cards" | "certificate" | "abonement";
 
-type CertificateStepKey =
-	| "recipient"
-	| "amount"
-	| "design"
-	| "holder"
-	| "buyer"
-	| "pin"
-	| "review";
+type CertificateStepKey = "amount" | "review";
 
 type CertificateStep = {
 	key: CertificateStepKey;
@@ -63,25 +56,11 @@ const abonementStepsGift: Step[] = [
 ];
 
 const certificateAmounts = ["10000", "5000", "3000", "2000"];
-const certificateDesigns = Array.from({ length: 10 }, (_, index) => `design-${index + 1}`);
+const physicalCertificateAmounts = ["10000", "5000"];
 const certificateValidUntil = "до 30 июня 2027 г";
 
-const certificateStepsSelf: CertificateStep[] = [
-	{ key: "recipient", title: "Кому предназначен сертификат" },
+const certificateSteps: CertificateStep[] = [
 	{ key: "amount", title: "Выберите номинал" },
-	{ key: "design", title: "Выберите дизайн" },
-	{ key: "buyer", title: "Ваши данные" },
-	{ key: "pin", title: "Подтверждение телефона" },
-	{ key: "review", title: "Проверьте данные перед оплатой" },
-];
-
-const certificateStepsGift: CertificateStep[] = [
-	{ key: "recipient", title: "Кому предназначен сертификат" },
-	{ key: "amount", title: "Выберите номинал" },
-	{ key: "design", title: "Выберите дизайн" },
-	{ key: "buyer", title: "Данные покупателя" },
-	{ key: "holder", title: "Данные обладателя" },
-	{ key: "pin", title: "Подтверждение телефона" },
 	{ key: "review", title: "Проверьте данные перед оплатой" },
 ];
 
@@ -127,15 +106,8 @@ export default function GiftShopPage() {
 	const [stepIndex, setStepIndex] = useState(0);
 	const [certificateStepIndex, setCertificateStepIndex] = useState(0);
 	const [recipient, setRecipient] = useState("");
-	const [certificateRecipient, setCertificateRecipient] = useState("");
 	const [certificateAmount, setCertificateAmount] = useState("");
-	const [certificateDesign, setCertificateDesign] = useState("");
-	const [certificateHolderName, setCertificateHolderName] = useState("");
-	const [certificateHolderPhone, setCertificateHolderPhone] = useState("");
-	const [certificateBuyerName, setCertificateBuyerName] = useState("");
-	const [certificateBuyerPhone, setCertificateBuyerPhone] = useState("");
-	const [certificateBuyerEmail, setCertificateBuyerEmail] = useState("");
-	const [certificatePin, setCertificatePin] = useState("");
+	const [isPhysicalCertificate, setIsPhysicalCertificate] = useState(false);
 	const [service, setService] = useState("");
 	const [quantity, setQuantity] = useState("");
 	const [master, setMaster] = useState("");
@@ -150,8 +122,6 @@ export default function GiftShopPage() {
 
 	const abonementSteps = recipient === "Себе" ? abonementStepsSelf : abonementStepsGift;
 	const currentStep = abonementSteps[stepIndex];
-	const certificateSteps =
-		certificateRecipient === "Себе" ? certificateStepsSelf : certificateStepsGift;
 	const currentCertificateStep = certificateSteps[certificateStepIndex];
 	const amount = useMemo(() => {
 		const base = quantity === "10" ? 26600 : 13300;
@@ -171,19 +141,7 @@ export default function GiftShopPage() {
 		(currentStep.key === "review" && accepted) ||
 		currentStep.key === "payment";
 	const canContinueCertificate =
-		!currentCertificateStep ||
-		(currentCertificateStep.key === "recipient" && certificateRecipient) ||
-		(currentCertificateStep.key === "amount" && certificateAmount) ||
-		(currentCertificateStep.key === "design" && certificateDesign) ||
-		(currentCertificateStep.key === "holder" &&
-			certificateHolderName &&
-			certificateHolderPhone) ||
-		(currentCertificateStep.key === "buyer" &&
-			certificateBuyerName &&
-			certificateBuyerPhone &&
-			certificateBuyerEmail) ||
-		(currentCertificateStep.key === "pin" && certificatePin.length >= 4) ||
-		currentCertificateStep.key === "review";
+		currentCertificateStep.key === "amount" ? Boolean(certificateAmount) : true;
 
 	const goNext = () => {
 		if (!canContinue) return;
@@ -201,12 +159,13 @@ export default function GiftShopPage() {
 
 	const goCertificateNext = () => {
 		if (!canContinueCertificate) return;
-		setCertificateStepIndex((value) => Math.min(value + 1, certificateSteps.length));
+		setCertificateStepIndex((value) => Math.min(value + 1, certificateSteps.length - 1));
 	};
 
 	const goCertificateBack = () => {
 		if (certificateStepIndex === 0) {
 			setMode("cards");
+			setIsPhysicalCertificate(false);
 			return;
 		}
 
@@ -223,20 +182,24 @@ export default function GiftShopPage() {
 							type="button"
 							onClick={() => {
 								setMode("certificate");
+								setIsPhysicalCertificate(false);
+								setCertificateAmount("");
 								setCertificateStepIndex(0);
 							}}
 						>
-							<span>Сертификат</span>
+							<span>Электронный сертификат</span>
 						</button>
 						<button
 							className={cx("photo-card", "abonement")}
 							type="button"
 							onClick={() => {
-								setMode("abonement");
-								setStepIndex(0);
+								setMode("certificate");
+								setIsPhysicalCertificate(true);
+								setCertificateAmount("");
+								setCertificateStepIndex(0);
 							}}
 						>
-							<span>Абонемент</span>
+							<span>Физический сертификат</span>
 						</button>
 					</div>
 				) : (
@@ -245,69 +208,38 @@ export default function GiftShopPage() {
 							<>
 								<div className={cx("wizard-preview", "certificate-preview")}>
 									<p>
-										{currentCertificateStep
-											? `${certificateRecipient === "В подарок" ? "ПОДАРОЧНЫЙ" : "ЛИЧНЫЙ"} СЕРТИФИКАТ`
-											: "СЕРТИФИКАТ"}
+										{isPhysicalCertificate
+											? "ФИЗИЧЕСКИЙ СЕРТИФИКАТ"
+											: "ЭЛЕКТРОННЫЙ СЕРТИФИКАТ"}
 									</p>
-									{currentCertificateStep ? (
-										<>
-											<span>
-												{certificateStepIndex + 1}/{certificateSteps.length}{" "}
-												{currentCertificateStep.title}
-											</span>
-											<ProgressLine
-												value={certificateStepIndex + 1}
-												max={certificateSteps.length}
-											/>
-										</>
-									) : (
-										<span>Сертификат оформлен</span>
-									)}
+									<span>
+										{isPhysicalCertificate ? 1 : certificateStepIndex + 1}/
+										{isPhysicalCertificate ? 1 : certificateSteps.length} {currentCertificateStep.title}
+									</span>
+									<ProgressLine
+										value={isPhysicalCertificate ? 1 : certificateStepIndex + 1}
+										max={isPhysicalCertificate ? 1 : certificateSteps.length}
+									/>
 								</div>
 								<div className={cx("wizard-panel")}>
 									<CertificateBody
 										amount={certificateAmount}
-										buyerEmail={certificateBuyerEmail}
-										buyerName={certificateBuyerName}
-										buyerPhone={certificateBuyerPhone}
+										amounts={isPhysicalCertificate ? physicalCertificateAmounts : certificateAmounts}
 										currentStep={currentCertificateStep}
-										design={certificateDesign}
-										holderName={certificateHolderName}
-										holderPhone={certificateHolderPhone}
-										pin={certificatePin}
-										recipient={certificateRecipient}
 										setAmount={setCertificateAmount}
-										setBuyerEmail={setCertificateBuyerEmail}
-										setBuyerName={setCertificateBuyerName}
-										setBuyerPhone={setCertificateBuyerPhone}
-										setDesign={setCertificateDesign}
-										setHolderName={setCertificateHolderName}
-										setHolderPhone={setCertificateHolderPhone}
-										setPin={setCertificatePin}
-										setRecipient={setCertificateRecipient}
 									/>
 									<div className={cx("wizard-actions")}>
 										<button className={cx("back-button")} type="button" onClick={goCertificateBack}>
 											Назад
 										</button>
-										{currentCertificateStep ? (
-											<button
-												className={cx("continue-button")}
-												disabled={!canContinueCertificate}
-												type="button"
-												onClick={goCertificateNext}
-											>
-												{currentCertificateStep.key === "review" ? "Перейти к оплате" : "Продолжить"}
-											</button>
-										) : (
-											<button
-												className={cx("continue-button")}
-												type="button"
-												onClick={() => setMode("cards")}
-											>
-												Вернуться к выбору
-											</button>
-										)}
+										<button
+											className={cx("continue-button")}
+											disabled={!canContinueCertificate}
+											type="button"
+											onClick={goCertificateNext}
+										>
+											{currentCertificateStep.key === "review" ? "Перейти к оплате" : "Продолжить"}
+										</button>
 									</div>
 								</div>
 							</>
@@ -404,57 +336,15 @@ export default function GiftShopPage() {
 
 function CertificateBody(props: {
 	amount: string;
-	buyerEmail: string;
-	buyerName: string;
-	buyerPhone: string;
-	currentStep: CertificateStep | undefined;
-	design: string;
-	holderName: string;
-	holderPhone: string;
-	pin: string;
-	recipient: string;
+	amounts: string[];
+	currentStep: CertificateStep;
 	setAmount: (value: string) => void;
-	setBuyerEmail: (value: string) => void;
-	setBuyerName: (value: string) => void;
-	setBuyerPhone: (value: string) => void;
-	setDesign: (value: string) => void;
-	setHolderName: (value: string) => void;
-	setHolderPhone: (value: string) => void;
-	setPin: (value: string) => void;
-	setRecipient: (value: string) => void;
 }) {
-	const ownerName = props.recipient === "В подарок" ? props.holderName : props.buyerName;
-
-	if (!props.currentStep) {
-		return (
-			<div className={cx("payment")}>
-				<p>Сертификат оформлен</p>
-				<ProductCard amount={formatRubles(props.amount)} label="Сертификат" ownerName={ownerName} />
-				<span>После оплаты сертификат отправляется на {props.buyerEmail || "email покупателя"}.</span>
-			</div>
-		);
-	}
-
-	if (props.currentStep.key === "recipient") {
-		return (
-			<div className={cx("button-stack")}>
-				{["В подарок", "Себе"].map((item) => (
-					<ChoiceButton
-						active={props.recipient === item}
-						key={item}
-						label={item}
-						onClick={() => props.setRecipient(item)}
-					/>
-				))}
-			</div>
-		);
-	}
-
 	if (props.currentStep.key === "amount") {
 		return (
 			<div>
 				<div className={cx("button-stack", "certificate-amounts")}>
-					{certificateAmounts.map((item) => (
+					{props.amounts.map((item) => (
 						<ChoiceButton
 							active={props.amount === item}
 							key={item}
@@ -468,104 +358,14 @@ function CertificateBody(props: {
 		);
 	}
 
-	if (props.currentStep.key === "design") {
-		return (
-			<div className={cx("design-grid", "certificate-designs")}>
-				{certificateDesigns.map((item, index) => (
-					<button
-						className={cx("design-card", props.design === item && "active")}
-						key={item}
-						type="button"
-						onClick={() => props.setDesign(item)}
-					>
-						<span>Дизайн {index + 1}</span>
-					</button>
-				))}
-			</div>
-		);
-	}
-
-	if (props.currentStep.key === "holder") {
-		return (
-			<FormStep>
-				<p className={cx("form-head")}>Введите данные будущего обладателя</p>
-				<input
-					placeholder="Имя Фамилия"
-					value={props.holderName}
-					onChange={(event) => props.setHolderName(event.target.value)}
-				/>
-				<input
-					inputMode="tel"
-					placeholder="+7 999 999 99 99"
-					value={props.holderPhone}
-					onChange={(event) => props.setHolderPhone(event.target.value)}
-				/>
-				<CertificateMeta amount={formatRubles(props.amount)} />
-			</FormStep>
-		);
-	}
-
-	if (props.currentStep.key === "buyer") {
-		return (
-			<FormStep>
-				<p className={cx("form-head")}>Введите ваши данные</p>
-				<input
-					placeholder="Имя Фамилия"
-					value={props.buyerName}
-					onChange={(event) => props.setBuyerName(event.target.value)}
-				/>
-				<input
-					inputMode="tel"
-					placeholder="+7 999 999 99 99"
-					value={props.buyerPhone}
-					onChange={(event) => props.setBuyerPhone(event.target.value)}
-				/>
-				<input
-					inputMode="email"
-					placeholder="name@email.com"
-					value={props.buyerEmail}
-					onChange={(event) => props.setBuyerEmail(event.target.value)}
-				/>
-				<CertificateMeta amount={formatRubles(props.amount)} />
-			</FormStep>
-		);
-	}
-
-	if (props.currentStep.key === "pin") {
-		return (
-			<FormStep>
-				<p className={cx("form-head")}>Мы отправили вам код в SMS и WhatsApp</p>
-				<input
-					className={cx("pin-field")}
-					inputMode="numeric"
-					maxLength={4}
-					placeholder="****"
-					value={props.pin}
-					onChange={(event) => props.setPin(event.target.value.replace(/\D/g, "").slice(0, 4))}
-				/>
-				<p className={cx("hint")}>Запросить код повторно</p>
-			</FormStep>
-		);
-	}
-
 	return (
 		<div className={cx("review")}>
-			<div className={cx("ownerinformation", props.recipient === "Себе" && "single")}>
-				<div className={cx("ownerinfo")}>
-					<div className={cx("abonementinfohead")}>Покупатель:</div>
-					<span>{props.buyerName}</span>
-					<span>{props.buyerPhone}</span>
-					<span>{props.buyerEmail}</span>
-				</div>
-				{props.recipient === "В подарок" ? (
-					<div className={cx("ownerinfo")}>
-						<div className={cx("abonementinfohead")}>Обладатель:</div>
-						<span>{props.holderName}</span>
-						<span>{props.holderPhone}</span>
-					</div>
-				) : null}
-			</div>
-			<ProductCard amount={formatRubles(props.amount)} label="Сертификат" ownerName={ownerName} />
+			<ProductCard
+				amount={formatRubles(props.amount)}
+				label="Сертификат"
+				ownerName=""
+				showOwnerName={false}
+			/>
 			<p className={cx("underline")}>
 				Нажимая кнопку «Перейти к оплате», вы принимаете оферту и предоставляете
 				согласие на обработку персональных данных
@@ -799,7 +599,21 @@ function ChoiceButton({
 }
 
 function ProgressLine({ value, max }: { value: number; max: number }) {
-	return <progress className={cx("progress-line")} max={max} value={value} />;
+	const percentage = Math.min(100, Math.max(0, (value / max) * 100));
+
+	return (
+		<div
+			aria-label="Индикатор шага"
+			aria-valuemax={max}
+			aria-valuemin={0}
+			aria-valuenow={value}
+			className={cx("progress-line")}
+			role="progressbar"
+			style={{
+				background: `linear-gradient(90deg, #78635d 0 ${percentage}%, rgb(255 255 255 / 38%) ${percentage}% 100%)`,
+			}}
+		/>
+	);
 }
 
 function formatRubles(value: string) {
@@ -823,10 +637,12 @@ function ProductCard({
 	amount,
 	label,
 	ownerName,
+	showOwnerName = true,
 }: {
 	amount: string;
 	label: "Абонемент" | "Сертификат";
 	ownerName: string;
+	showOwnerName?: boolean;
 }) {
 	return (
 		<div className={cx("product-paper")}>
@@ -834,7 +650,7 @@ function ProductCard({
 				{label} на {amount} ₽
 			</strong>
 			<div>
-				<span>{ownerName || "Имя получателя"}</span>
+				{showOwnerName ? <span>{ownerName || "Имя получателя"}</span> : null}
 				<small>{certificateValidUntil}</small>
 			</div>
 		</div>

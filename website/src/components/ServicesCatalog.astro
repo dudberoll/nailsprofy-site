@@ -5,9 +5,13 @@ import ServiceCategoryNav from "./ServiceCategoryNav";
 import { initialServiceCategory, serviceCategories } from "../data/servicesCatalog";
 
 const bookingUrl = data.contacts.booking_url;
-const categoryNavItems = serviceCategories.map(({ id, label }) => ({
+const categoryNavItems = serviceCategories.map(({ id, label, priceGroups }) => ({
 	id,
 	label,
+	subcategories: priceGroups.map(({ id: subcategoryId, title }) => ({
+		id: subcategoryId,
+		label: title,
+	})),
 }));
 ---
 
@@ -31,8 +35,17 @@ const categoryNavItems = serviceCategories.map(({ id, label }) => ({
 				data-service-panel={category.id}
 				hidden={category.id !== initialServiceCategory.id}
 			>
-				{category.priceGroups.map((group) => (
-					<PriceGroup group={group} categoryId={category.id} bookingUrl={bookingUrl} />
+				{category.priceGroups.map((group, index) => (
+					<div
+						class="price-group-panel"
+						id={`price-${category.id}-${group.id}`}
+						role="tabpanel"
+						aria-labelledby={`price-tab-${category.id}-${group.id}`}
+						data-price-group={group.id}
+						hidden={index !== 0}
+					>
+						<PriceGroup group={group} categoryId={category.id} bookingUrl={bookingUrl} />
+					</div>
 				))}
 			</div>
 		))
@@ -49,7 +62,7 @@ const categoryNavItems = serviceCategories.map(({ id, label }) => ({
 
 	.services-intro {
 		display: grid;
-		gap: clamp(1.25rem, 2.5vw, 2.8rem);
+		gap: clamp(0.75rem, 1.25vw, 1.5rem);
 		padding-top: clamp(1.25rem, 2.8vw, 3rem);
 	}
 
@@ -88,6 +101,10 @@ const categoryNavItems = serviceCategories.map(({ id, label }) => ({
 	}
 
 	.service-panel[hidden] {
+		display: none;
+	}
+
+	.price-group-panel[hidden] {
 		display: none;
 	}
 </style>

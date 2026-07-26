@@ -1,45 +1,54 @@
 ---
 interface Props {
-	bookingUrl: string;
+	phones: string[];
+	telegramUrl?: string;
 }
 
-const { bookingUrl } = Astro.props;
+const { phones, telegramUrl } = Astro.props;
+const phoneLinks = phones.map((phone) => ({
+	label: phone,
+	href: `tel:${phone.replace(/[^\d+]/g, "")}`,
+}));
 ---
 
 <section class="callback-section" aria-labelledby="callback-title">
 	<div>
 		<h2 id="callback-title">Остались вопросы?</h2>
 		<p>
-			Мы свяжемся с вами в течение 15 минут, поможем подобрать услугу и удобное время
+			Позвоните нам или напишите в Telegram — ответим на вопросы и поможем подобрать
+			услугу.
 		</p>
 	</div>
-	<div class="callback-form" role="group" aria-label="Переход к онлайн-записи">
-		<label>
-			<input type="text" name="name" placeholder="Введите имя" autocomplete="name" aria-label="Имя" />
-		</label>
-		<label>
-			<input type="tel" name="phone" placeholder="Введите телефон" autocomplete="tel" aria-label="Телефон" />
-		</label>
-		<a
-			class="callback-booking shader-booking-button"
-			href={bookingUrl}
-			target="_blank"
-			rel="noopener noreferrer"
-		>
-			Оставить заявку
-		</a>
+	<div class="callback-contacts" aria-label="Контакты салона">
+		{
+			phoneLinks.map((phone) => (
+				<a class="callback-contact" href={phone.href}>{phone.label}</a>
+			))
+		}
+		{
+			telegramUrl && (
+				<a
+					class="callback-contact callback-contact--telegram"
+					href={telegramUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Написать в Telegram
+				</a>
+			)
+		}
 	</div>
 </section>
 
 <style>
 	.callback-section { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: 34.539px; width: min(100%, 1400.922px); margin: clamp(1rem, 2.4vw, 2.75rem) auto 0; padding: 39px 37px 36px; border-radius: 29.4px; background: var(--color-surface); }
-	.callback-section h2 { margin: 0; color: var(--color-text); font-size: 52.9px; font-weight: 400; line-height: 1.02; letter-spacing: -2.9px; }
+	.callback-section h2 { margin: 0; color: var(--color-text); font-size: 52.9px; font-weight: 300; line-height: 1.02; letter-spacing: -2.9px; }
 	.callback-section p { max-width: 560px; margin: 20px 0 0; color: var(--color-muted); font-size: 18px; line-height: 1.5; }
-	.callback-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-	.callback-form label { min-width: 0; }
-	.callback-form input { width: 100%; min-height: 50px; padding: 0 18px; border: 1px solid transparent; border-radius: 999px; background: #fffdf9; color: var(--color-text); font: inherit; font-size: 14px; }
-	.callback-form input::placeholder { color: #9b9691; }
-	.callback-booking { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: .75rem 1.25rem; border: 1px solid var(--shader-booking-border); border-radius: 999px; text-decoration: none; font-size: 16px; line-height: 1; }
-	@media (max-width: 1119px) { .callback-section, .callback-form { grid-template-columns: 1fr; } }
-	@media (max-width: 767px) { .callback-section { min-height: auto; padding: 1.5rem; border-radius: 1.35rem; } .callback-section h2 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; letter-spacing: 0; } .callback-section p { font-size: 1rem; line-height: 1.45; } }
+	.callback-contacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+	.callback-contact { display: inline-flex; align-items: center; justify-content: center; min-width: 0; min-height: 50px; padding: .75rem 1rem; border: 1px solid var(--color-border); border-radius: 999px; background: #fffdf9; color: var(--color-text); text-align: center; text-decoration: none; font-size: 15px; line-height: 1; white-space: nowrap; transition: border-color 160ms var(--ease-out), transform 120ms var(--ease-out); }
+	.callback-contact--telegram { border-color: var(--shader-booking-border); background: var(--shader-booking-background); color: var(--shader-booking-text); }
+	.callback-contact:active { transform: scale(.97); }
+	@media (hover: hover) and (pointer: fine) { .callback-contact:hover { border-color: var(--shader-booking-border-strong); } }
+	@media (max-width: 1119px) { .callback-section { grid-template-columns: 1fr; } }
+	@media (max-width: 767px) { .callback-section { min-height: auto; padding: 1.5rem; border-radius: 1.35rem; } .callback-section h2 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; letter-spacing: 0; } .callback-section p { font-size: 1rem; line-height: 1.45; } .callback-contacts { grid-template-columns: 1fr; gap: 10px; } }
 </style>
