@@ -18,6 +18,8 @@ const contacts = data.contacts;
 const primaryPhone = contacts.phones[0];
 const phoneHref = `tel:${primaryPhone.replace(/[^\d+]/g, "")}`;
 const telegramUrl = contacts.social_urls.find((url) => url.includes("t.me"));
+const whatsappUrl = "https://whatsapp.com";
+const maxUrl = "https://max.ru";
 const journalCards = blogPageArticles(1).slice(0, 4);
 ---
 
@@ -32,7 +34,12 @@ const journalCards = blogPageArticles(1).slice(0, 4);
 	<ValuesSection values={values} />
 	<JournalSection cards={journalCards} />
 	<FaqSection />
-	<CallbackSection phones={contacts.phones} telegramUrl={telegramUrl} />
+	<CallbackSection
+		phones={contacts.phones}
+		telegramUrl={telegramUrl}
+		whatsappUrl={whatsappUrl}
+		maxUrl={maxUrl}
+	/>
 </div>
 
 <style>

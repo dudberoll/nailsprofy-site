@@ -209,7 +209,7 @@ export const serviceCategories: ServiceCategory[] = [
 	},
 	{
 		id: "brows",
-		label: "Брови",
+		label: "Брови/Ресницы",
 		image: "/images/services/brows-portrait.png",
 		heroImage: "/images/services/brows-portrait.png",
 		heroAlt: "Портрет с аккуратными натуральными бровями",

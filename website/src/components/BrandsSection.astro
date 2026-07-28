@@ -1,36 +1,27 @@
 ---
 const brands = [
-	["ARAVIA", "/images/brands/aravia.webp"],
-	["BINACIL", "/images/brands/binacil.webp"],
-	["Botanix", "/images/brands/botanix.webp"],
-	["BRONSUN", "/images/brands/bron.webp"],
-	["BrowXenna", "/images/brands/browxenna.webp"],
-	["CHRISTINA FITZGERALD", "/images/brands/christina-fitzgerald.webp"],
-	["davines", "/images/brands/davines.webp"],
-	["Depilflax", "/images/brands/depiflax.webp"],
-	["ESTEL", "/images/brands/estel.webp"],
-	["i do", "/images/brands/i-do.webp"],
-	["IQ Beauty", "/images/brands/iq-beauty.webp"],
-	["ItalWax", "/images/brands/italwax.webp"],
-	["KM", "/images/brands/km.webp"],
 	["Lebel", "/images/brands/lebel.webp"],
+	["Matrix", "/images/brands/matrix.webp"],
+	["Wella Professionals", "/images/brands/wella.webp"],
 	["Luxio", "/images/brands/luxio.webp"],
-	["Lycon", "/images/brands/lycon.webp"],
-	["Nashi Argan", "/images/brands/nashi-argan.webp"],
-	["P.Shine", "/images/brands/p-shine.webp"],
-	["RC", "/images/brands/rc.webp"],
-	["SHIK", "/images/brands/shik.webp"],
-	["Smart", "/images/brands/smart.webp"],
-	["Straderm", "/images/brands/straderm.webp"],
-	["TOKIO INKARAMI", "/images/brands/tokio-inkarami.webp"],
+	["NailsProfi", "/images/nailsprofi-logo.png"],
+	["Klio Professional", "/images/brands/klio.webp"],
+	["UNO Beauty", "/images/brands/uno-beauty.webp"],
+	["IQ Beauty", "/images/brands/iq-beauty.webp"],
+	["Bouticlé", "/images/brands/bouticle.webp"],
+	["Чистовье", "/images/brands/chistovie.webp"],
 ];
 ---
 
 <section class="brands-standalone" id="brands" aria-label="Бренды, на которых мы работаем">
 	<h2>Бренды, на которых мы работаем</h2>
 	<div class="brands-marquee" data-auto-scroll="1">
-		{[...brands, ...brands].map(([name, src]) => (
-			<span class="brand-logo" aria-label={name}>
+		{[...brands, ...brands].map(([name, src], index) => (
+			<span
+				class="brand-logo"
+				aria-label={name}
+				data-brand-loop-start={index === brands.length ? "" : undefined}
+			>
 				<img src={src} alt="" loading="lazy" decoding="async" />
 			</span>
 		))}
@@ -47,11 +38,19 @@ const brands = [
 		let startX = 0;
 		let startLeft = 0;
 		const speed = Number(scroller.dataset.autoScroll ?? 1);
+		const firstBrand = scroller.firstElementChild as HTMLElement | null;
+		const secondSet = scroller.querySelector<HTMLElement>("[data-brand-loop-start]");
 
 		window.setInterval(() => {
 			if (dragging || scroller.querySelector("details[open]")) return;
-			const halfway = scroller.scrollWidth / 2;
-			scroller.scrollLeft = scroller.scrollLeft >= halfway ? 0 : scroller.scrollLeft + speed;
+			const loopWidth =
+				firstBrand && secondSet
+					? secondSet.offsetLeft - firstBrand.offsetLeft
+					: scroller.scrollWidth / 2;
+			scroller.scrollLeft =
+				scroller.scrollLeft >= loopWidth
+					? scroller.scrollLeft - loopWidth
+					: scroller.scrollLeft + speed;
 		}, 18);
 
 		scroller.addEventListener("pointerdown", (event) => {
@@ -108,7 +107,7 @@ const brands = [
 
 	.brands-marquee {
 		display: flex;
-		gap: 0;
+		gap: clamp(112px, 8vw, 200px);
 		margin-top: 64px;
 		overflow-x: auto;
 		overflow-y: hidden;
@@ -148,7 +147,7 @@ const brands = [
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
-		filter: grayscale(1) contrast(1.08);
+		filter: brightness(0);
 	}
 
 	@media (max-width: 900px) {
@@ -162,6 +161,7 @@ const brands = [
 		}
 
 		.brands-marquee {
+			gap: 72px;
 			margin-top: 48px;
 		}
 
@@ -182,6 +182,7 @@ const brands = [
 		}
 
 		.brands-marquee {
+			gap: 48px;
 			margin-top: 24px;
 			padding-left: 16px;
 		}
