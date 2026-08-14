@@ -27,59 +27,65 @@ const phoneLinks = phones.map((phone) => ({
 				<a class="callback-contact callback-contact--phone" href={phone.href}>{phone.label}</a>
 			))
 		}
-		{
-			telegramUrl && (
-				<a
-					class="callback-contact callback-contact--messenger"
-					href={telegramUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="Telegram"
-				>
-					<img
-						class="callback-contact__brand-icon"
-						src="/icons/telegram.svg"
-						alt=""
-						width="28"
-						height="28"
-					/>
-				</a>
-			)
-		}
-		{
-			whatsappUrl && (
-				<a
-					class="callback-contact callback-contact--messenger"
-					href={whatsappUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="WhatsApp"
-				>
-					<img
-						class="callback-contact__brand-icon"
-						src="/icons/whatsapp.svg"
-						alt=""
-						width="28"
-						height="28"
-					/>
-				</a>
-			)
-		}
-		{
-			maxUrl && (
-				<a
-					class="callback-contact callback-contact--messenger"
-					href={maxUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="MAX"
-				>
-					<span class="callback-contact__icon callback-contact__icon--max" aria-hidden="true">
-						<span>М</span>
-					</span>
-				</a>
-			)
-		}
+		<div class="callback-messengers">
+			{
+				telegramUrl && (
+					<a
+						class="callback-contact callback-contact--messenger"
+						href={telegramUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Telegram"
+					>
+						<img
+							class="callback-contact__brand-icon"
+							src="/icons/telegram.svg"
+							alt=""
+							width="28"
+							height="28"
+						/>
+					</a>
+				)
+			}
+			{
+				whatsappUrl && (
+					<a
+						class="callback-contact callback-contact--messenger"
+						href={whatsappUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="WhatsApp"
+					>
+						<img
+							class="callback-contact__brand-icon"
+							src="/icons/whatsapp.svg"
+							alt=""
+							width="28"
+							height="28"
+						/>
+					</a>
+				)
+			}
+			{
+				maxUrl && (
+					<a
+						class="callback-contact callback-contact--messenger"
+						href={maxUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="MAX"
+					>
+						<img
+							class="callback-contact__brand-icon"
+							src="/icons/max.svg"
+							alt=""
+							width="28"
+							height="28"
+						/>
+					</a>
+				)
+			}
+		</div>
 	</div>
 </section>
 
@@ -166,17 +172,11 @@ const phoneLinks = phones.map((phone) => ({
 		padding: 0;
 	}
 
-	.callback-contact__icon {
-		display: grid;
-		flex: 0 0 auto;
-		width: 2rem;
-		height: 2rem;
-		place-items: center;
-		border-radius: 50%;
+	.callback-messengers {
+		display: contents;
 	}
 
-	.callback-contact__brand-icon,
-	.callback-contact--messenger .callback-contact__icon {
+	.callback-contact__brand-icon {
 		display: block;
 		flex: 0 0 auto;
 		width: 1.7rem;
@@ -185,14 +185,6 @@ const phoneLinks = phones.map((phone) => ({
 
 	.callback-contact__brand-icon {
 		object-fit: contain;
-	}
-
-	.callback-contact__icon--max {
-		background: #1f6fe5;
-		color: #fff;
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 1;
 	}
 
 	.callback-contact:active {
@@ -221,6 +213,13 @@ const phoneLinks = phones.map((phone) => ({
 		.callback-contacts {
 			flex-wrap: wrap;
 			justify-content: flex-start;
+		}
+
+		.callback-messengers {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			gap: inherit;
 		}
 	}
 
