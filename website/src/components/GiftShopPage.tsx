@@ -94,11 +94,6 @@ const faqs = [
 		"Как приобрести сертификат?",
 		"Физический сертификат можно приобрести в салоне. Онлайн-покупку и детали оформления уточните у администратора.",
 	],
-	[
-		"Как приобрести абонемент?",
-		"Абонемент можно оформить через администратора. Он закрепляется за клиентом и используется по мере посещений.",
-	],
-	["Срок действия абонемента", "Абонемент действует 12 месяцев со дня покупки."],
 ];
 
 export default function GiftShopPage() {
@@ -174,33 +169,45 @@ export default function GiftShopPage() {
 
 	return (
 		<div className={cx("site-shell")}>
-			<section className={cx("hero")} aria-label="Сертификаты и абонементы">
+			<section className={cx("intro")}>
+				<h1>Подарочные сертификаты NailsProfi</h1>
+				<p>
+					Сертификат NailsProfi - спокойный и красивый подарок для тех, кому хочется
+					подарить уход, выбор и время для себя.
+				</p>
+			</section>
+
+			<section className={cx("hero")} aria-label="Подарочные сертификаты">
 				{mode === "cards" ? (
 					<div className={cx("choice-grid")}>
-						<button
-							className={cx("photo-card", "certificate")}
-							type="button"
-							onClick={() => {
-								setMode("certificate");
-								setIsPhysicalCertificate(false);
-								setCertificateAmount("");
-								setCertificateStepIndex(0);
-							}}
-						>
-							<span>Электронный сертификат</span>
-						</button>
-						<button
-							className={cx("photo-card", "abonement")}
-							type="button"
-							onClick={() => {
-								setMode("certificate");
-								setIsPhysicalCertificate(true);
-								setCertificateAmount("");
-								setCertificateStepIndex(0);
-							}}
-						>
-							<span>Физический сертификат</span>
-						</button>
+						<div className={cx("choice-item")}>
+							<button
+								aria-label="Электронный сертификат"
+								className={cx("photo-card", "certificate")}
+								type="button"
+								onClick={() => {
+									setMode("certificate");
+									setIsPhysicalCertificate(false);
+									setCertificateAmount("");
+									setCertificateStepIndex(0);
+								}}
+							/>
+							<p className={cx("choice-caption")}>Электронный сертификат</p>
+						</div>
+						<div className={cx("choice-item")}>
+							<button
+								aria-label="Физический сертификат"
+								className={cx("photo-card", "abonement")}
+								type="button"
+								onClick={() => {
+									setMode("certificate");
+									setIsPhysicalCertificate(true);
+									setCertificateAmount("");
+									setCertificateStepIndex(0);
+								}}
+							/>
+							<p className={cx("choice-caption")}>Физический сертификат</p>
+						</div>
 					</div>
 				) : (
 					<div className={cx("wizard-grid")}>
@@ -305,18 +312,6 @@ export default function GiftShopPage() {
 						)}
 					</div>
 				)}
-			</section>
-
-			<section className={cx("intro")}>
-				<h1>Подарочные сертификаты и абонементы NailsProfi</h1>
-				<p>
-					Сертификат NailsProfi - спокойный и красивый подарок для тех, кому хочется
-					подарить уход, выбор и время для себя.
-				</p>
-				<p>
-					Абонемент подойдет для регулярных процедур: можно заранее оплатить курс любимых
-					услуг и приходить в удобном ритме в течение года.
-				</p>
 			</section>
 
 			<section className={cx("faq")}>
