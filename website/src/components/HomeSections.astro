@@ -1,7 +1,7 @@
 ---
 import data from "../data/nailsprofi.json";
 import { blogPageArticles } from "../data/blog";
-import { serviceCards, values } from "../data/homeContent";
+import { serviceCards } from "../data/homeContent";
 import BrandsSection from "./BrandsSection.astro";
 import CallbackSection from "./home/CallbackSection.astro";
 import FaqSection from "./home/FaqSection.astro";
@@ -9,7 +9,6 @@ import JournalSection from "./home/JournalSection.astro";
 import PromoSection from "./home/PromoSection.astro";
 import ServicesSection from "./home/ServicesSection.astro";
 import StudioSection from "./home/StudioSection.astro";
-import ValuesSection from "./home/ValuesSection.astro";
 import AboutSection from "./home/AboutSection.astro";
 import MatteCards from "./playground/MatteCards.astro";
 import ReviewsSection from "./ReviewsSection.astro";
@@ -29,9 +28,15 @@ const journalCards = blogPageArticles(1).slice(0, 4);
 	<AboutSection />
 	<MatteCards variant="masters" />
 	<ReviewsSection />
-	<StudioSection contacts={contacts} primaryPhone={primaryPhone} phoneHref={phoneHref} />
+	<StudioSection
+		contacts={contacts}
+		primaryPhone={primaryPhone}
+		phoneHref={phoneHref}
+		telegramUrl={telegramUrl}
+		whatsappUrl={whatsappUrl}
+		maxUrl={maxUrl}
+	/>
 	<BrandsSection />
-	<ValuesSection values={values} />
 	<JournalSection cards={journalCards} />
 	<FaqSection />
 	<CallbackSection
