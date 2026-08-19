@@ -1,0 +1,38 @@
+# Initial HTTP configuration. Certbot will add HTTPS after DNS points here.
+server {
+	listen 80;
+	listen [::]:80;
+	server_name __DOMAIN__ www.__DOMAIN__;
+
+	root /var/www/nailsprofi/current;
+	index index.html;
+	charset utf-8;
+	server_tokens off;
+
+	access_log /var/log/nginx/nailsprofi.access.log;
+	error_log /var/log/nginx/nailsprofi.error.log;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	# Astro gives these files content hashes, so they can be cached permanently.
+	location ^~ /_astro/ {
+		try_files $uri =404;
+		add_header Cache-Control "public, max-age=31536000, immutable" always;
+	}
+
+	# Public media are not always fingerprinted and therefore use a short cache.
+	location ~* \.(?:avif|gif|ico|jpe?g|png|svg|webp|mp4|webm|woff2?)$ {
+		try_files $uri =404;
+		expires 7d;
+	}
+
+	gzip on;
+	gzip_vary on;
+	gzip_min_length 1024;
+	gzip_types text/css application/javascript application/json image/svg+xml;
+
+	add_header X-Content-Type-Options "nosniff" always;
+	add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}

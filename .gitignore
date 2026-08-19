@@ -19,6 +19,7 @@ scraper/.venv/
 
 # Logs and temporary validation artifacts
 *.log
+~$*.xlsx
 .scratch/
 screenshots/
 website/screenshots/

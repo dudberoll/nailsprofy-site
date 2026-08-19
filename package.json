@@ -9,7 +9,8 @@
     "build": "bun run --cwd website build",
     "typecheck": "bun run --cwd website typecheck",
     "check:assets": "bun run scripts/verify-assets.mjs",
-    "check": "bun run typecheck && bun run check:assets && bun run build",
+    "check:deploy": "bash deploy/check.sh",
+    "check": "bun run typecheck && bun run check:assets && bun run check:deploy && bun run build",
     "preview": "bun run --cwd website preview"
   }
 }
