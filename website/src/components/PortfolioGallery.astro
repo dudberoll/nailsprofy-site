@@ -1,5 +1,5 @@
 ---
-import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
+import { portfolioItems } from "../data/portfolio";
 ---
 
 <main id="main-content" class="portfolio-page">
@@ -13,8 +13,13 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 	<section class="portfolio-grid" aria-label="Работы мастеров NailsProfi">
 		{
 			portfolioItems.map((item, index) => (
-				<article class="portfolio-card">
-					<div class="portfolio-card__image">
+				<button
+					class="portfolio-card"
+					type="button"
+					data-portfolio-open
+					aria-label={`Увеличить фотографию: ${item.alt}`}
+				>
+					<span class="portfolio-card__image">
 						<img
 							src={item.image}
 							width={item.width}
@@ -23,16 +28,59 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 							loading={index === 0 ? "eager" : "lazy"}
 							decoding="async"
 						/>
-					</div>
-					<div class="portfolio-card__meta">
-						<time datetime={item.date}>{formatPortfolioDate(item.date)}</time>
-						<h2>{item.procedure}</h2>
-					</div>
-				</article>
+					</span>
+				</button>
 			))
 		}
 	</section>
 </main>
+
+<dialog class="portfolio-lightbox" data-portfolio-lightbox aria-label="Просмотр работы">
+	<div class="portfolio-lightbox__content">
+		<img class="portfolio-lightbox__image" data-portfolio-lightbox-image alt="" />
+		<button
+			class="portfolio-lightbox__close"
+			type="button"
+			data-portfolio-lightbox-close
+			aria-label="Закрыть фотографию"
+		>
+			<span aria-hidden="true">×</span>
+		</button>
+	</div>
+</dialog>
+
+<script>
+	const gallery = document.querySelector<HTMLElement>(".portfolio-grid");
+	const lightbox = document.querySelector<HTMLDialogElement>("[data-portfolio-lightbox]");
+	const lightboxImage = lightbox?.querySelector<HTMLImageElement>(
+		"[data-portfolio-lightbox-image]",
+	);
+	const closeButton = lightbox?.querySelector<HTMLButtonElement>(
+		"[data-portfolio-lightbox-close]",
+	);
+
+	gallery?.addEventListener("click", (event) => {
+		const opener = (event.target as HTMLElement).closest<HTMLButtonElement>(
+			"[data-portfolio-open]",
+		);
+		const source = opener?.querySelector<HTMLImageElement>("img");
+
+		if (!source || !lightbox || !lightboxImage) return;
+
+		lightboxImage.src = source.currentSrc || source.src;
+		lightboxImage.alt = source.alt;
+		lightbox.showModal();
+	});
+
+	closeButton?.addEventListener("click", () => lightbox?.close());
+	lightbox?.addEventListener("click", (event) => {
+		if (event.target === lightbox) lightbox.close();
+	});
+
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape" && lightbox?.open) lightbox.close();
+	});
+</script>
 
 <style>
 	.portfolio-page {
@@ -42,7 +90,7 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 	}
 
 	.portfolio-hero {
-		margin-bottom: clamp(2.4rem, 5vw, 5.5rem);
+		margin-bottom: clamp(0.9rem, 1.5vw, 1.5rem);
 	}
 
 	.portfolio-eyebrow {
@@ -57,10 +105,10 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 
 	.portfolio-hero h1 {
 		margin: 0;
-		font-size: clamp(3rem, 5.5vw, 6.5rem);
-		font-weight: 400;
-		line-height: 0.98;
-		letter-spacing: -0.045em;
+		font-size: clamp(2.25rem, 3.7vw, 3.3rem);
+		font-weight: 300;
+		line-height: 1.02;
+		letter-spacing: -0.055em;
 		white-space: nowrap;
 	}
 
@@ -70,12 +118,19 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 	}
 
 	.portfolio-card {
+		display: block;
 		break-inside: avoid;
+		width: 100%;
 		min-width: 0;
-		margin-bottom: clamp(2rem, 3.2vw, 4rem);
+		margin: 0 0 clamp(1rem, 1.7vw, 2rem);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: zoom-in;
 	}
 
 	.portfolio-card__image {
+		display: block;
 		overflow: hidden;
 		border-radius: clamp(1.2rem, 1.6vw, 1.85rem);
 		background: var(--color-surface);
@@ -90,24 +145,69 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 			transform 240ms var(--ease-out);
 	}
 
-	.portfolio-card__meta {
-		display: grid;
-		gap: 0.55rem;
-		padding-top: clamp(0.85rem, 1.2vw, 1.25rem);
-	}
-
-	.portfolio-card time {
-		color: var(--color-accent-muted);
-		font-size: 0.76rem;
-		line-height: 1.2;
-	}
-
-	.portfolio-card h2 {
-		max-width: 31rem;
+	.portfolio-lightbox {
+		position: fixed;
+		inset: 0;
+		display: none;
+		place-items: center;
+		width: 100vw;
+		height: 100dvh;
+		max-width: none;
+		max-height: none;
 		margin: 0;
-		font-size: clamp(0.95rem, 1.05vw, 1.12rem);
-		font-weight: 400;
-		line-height: 1.42;
+		padding: clamp(1.25rem, 4vw, 3rem);
+		border: 0;
+		background: transparent;
+		overflow: hidden;
+	}
+
+	.portfolio-lightbox[open] {
+		display: grid;
+	}
+
+	.portfolio-lightbox::backdrop {
+		background: rgb(22 20 18 / 78%);
+		backdrop-filter: blur(6px);
+	}
+
+	.portfolio-lightbox__content {
+		position: relative;
+		width: fit-content;
+		max-width: 100%;
+	}
+
+	.portfolio-lightbox__image {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: min(90vw, 1100px);
+		max-height: min(85dvh, 900px);
+		border-radius: clamp(1rem, 1.5vw, 1.5rem);
+		box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 30%);
+		object-fit: contain;
+	}
+
+	.portfolio-lightbox__close {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		display: grid;
+		place-items: center;
+		width: 2.75rem;
+		height: 2.75rem;
+		padding: 0;
+		border: 1px solid rgb(255 255 255 / 35%);
+		border-radius: 50%;
+		background: rgb(20 18 16 / 65%);
+		color: white;
+		font-size: 1.75rem;
+		line-height: 1;
+		cursor: pointer;
+		backdrop-filter: blur(8px);
+	}
+
+	.portfolio-lightbox__close span {
+		transform: translateY(-0.08em);
 	}
 
 	@media (hover: hover) and (pointer: fine) {
@@ -124,10 +224,6 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 	}
 
 	@media (max-width: 900px) {
-		.portfolio-hero h1 {
-			white-space: normal;
-		}
-
 		.portfolio-grid {
 			columns: 2;
 		}
@@ -139,33 +235,25 @@ import { formatPortfolioDate, portfolioItems } from "../data/portfolio";
 			padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 		}
 
-		.portfolio-hero {
-			margin-bottom: 2.5rem;
-		}
-
 		.portfolio-hero h1 {
-			font-size: clamp(2.85rem, 14vw, 4.4rem);
-			line-height: 1;
+			font-size: clamp(1.4rem, 6vw, 1.65rem);
 		}
 
 		.portfolio-grid {
-			columns: 1;
+			columns: 2;
 		}
 
 		.portfolio-card {
-			margin-bottom: 2.4rem;
+			margin-bottom: 1rem;
 		}
 
 		.portfolio-card__image {
 			border-radius: 1.5rem;
 		}
 
-		.portfolio-card time {
-			font-size: 0.8rem;
-		}
-
-		.portfolio-card h2 {
-			font-size: 1.05rem;
+		.portfolio-lightbox__image {
+			max-width: 92vw;
+			max-height: 82dvh;
 		}
 	}
 </style>
