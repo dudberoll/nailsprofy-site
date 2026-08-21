@@ -2,10 +2,8 @@
 import type { BlogArticle } from "../data/blog";
 import {
 	articlePath,
-	blogCardImages,
 	blogCategories,
 	blogCategoryPath,
-	formatBlogDate,
 	type BlogCategorySlug,
 } from "../data/blog";
 
@@ -40,15 +38,16 @@ const { articles, currentPage, totalPages, activeCategory } = Astro.props;
 		</div>
 		<div class="blog-list">
 			{
-				articles.map((article, index) => (
+				articles.map((article) => (
 					<article class="blog-card">
-						<a class="blog-card-link" href={articlePath(article)}>
-							<img src={blogCardImages[index % blogCardImages.length]} alt="" loading={index < 4 ? "eager" : "lazy"} />
-							<div class="blog-card-content">
-								<h2>{article.title}</h2>
-								<time datetime={article.date}>{formatBlogDate(article.date)}</time>
-								<p>{article.text}</p>
-							</div>
+						<p>{article.category}</p>
+						<h2>{article.title}</h2>
+						<span>{article.text}</span>
+						<a class="blog-read-button" href={articlePath(article)}>
+							<span>Читать далее</span>
+							<svg aria-hidden="true" viewBox="0 0 24 10" focusable="false">
+								<path d="M1 5h20m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
 						</a>
 					</article>
 				))
@@ -148,66 +147,80 @@ const { articles, currentPage, totalPages, activeCategory } = Astro.props;
 
 	.blog-list {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: var(--page-gutter);
 	}
 
 	.blog-card {
-		min-width: 0;
-	}
-
-	.blog-card-link {
-		display: grid;
-		gap: clamp(0.85rem, 1.25vw, 1.3rem);
-		height: 100%;
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.blog-card-link > img {
-		display: block;
-		width: 100%;
-		aspect-ratio: 0.8;
-		border-radius: clamp(1.25rem, 1.75vw, 2rem);
-		object-fit: cover;
-		background: var(--color-surface);
-		transition: transform 240ms var(--ease-out), filter 240ms var(--ease-out);
-	}
-
-	.blog-card-content {
 		display: grid;
 		align-content: start;
-		gap: 0.58rem;
-	}
-
-	.blog-card h2 {
-		margin: 0;
-		color: var(--color-text);
-		font-size: clamp(1.22rem, 1.63vw, 1.85rem);
-		font-weight: 400;
-		line-height: 1.18;
-		letter-spacing: 0;
-	}
-
-	.blog-card time {
-		color: #8c8379;
-		font-size: clamp(0.78rem, 0.94vw, 0.96rem);
-		font-weight: 400;
-		line-height: 1.2;
+		min-height: 225px;
+		padding: clamp(1.25rem, 1.7vw, 1.9rem);
+		border: 1px solid rgb(255 255 255 / 56%);
+		border-radius: clamp(1rem, 1.4vw, 1.45rem);
+		background:
+			linear-gradient(145deg, rgb(255 255 255 / 86%), rgb(239 236 230 / 66%)),
+			radial-gradient(circle at 88% 14%, rgb(112 124 101 / 10%), transparent 34%);
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 76%),
+			0 16px 42px rgb(55 45 38 / 7%);
 	}
 
 	.blog-card p {
-		display: block;
-		margin: 0.5rem 0 0;
-		color: var(--color-muted);
-		font-size: clamp(0.78rem, 0.92vw, 0.94rem);
-		line-height: 1.38;
+		margin: 0;
+		color: #7d7468;
+		font-size: 0.78rem;
+		font-weight: 600;
+		line-height: 1;
+		letter-spacing: 0;
+		text-transform: uppercase;
 	}
 
-	.blog-card-link:hover > img,
-	.blog-card-link:focus-visible > img {
-		filter: brightness(0.96);
-		transform: translateY(-0.2rem);
+	.blog-card h2 {
+		margin: 1.2rem 0 0;
+		color: var(--color-text);
+		font-size: clamp(1.32rem, 1.7vw, 2rem);
+		font-weight: 400;
+		line-height: 1.14;
+		letter-spacing: 0;
+	}
+
+	.blog-card > span {
+		display: block;
+		max-width: 34ch;
+		margin-top: 1.25rem;
+		color: var(--color-muted);
+		font-size: clamp(0.93rem, 1vw, 1rem);
+		line-height: 1.45;
+	}
+
+	.blog-read-button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		width: fit-content;
+		margin-top: auto;
+		padding-top: clamp(1.5rem, 3vw, 2.5rem);
+		color: #7d7468;
+		font-size: 0.88rem;
+		line-height: 1.15;
+		text-decoration: none;
+	}
+
+	.blog-read-button svg {
+		width: 1.35rem;
+		height: auto;
+		transition: transform 160ms var(--ease-out);
+	}
+
+	.blog-read-button:hover,
+	.blog-read-button:focus-visible {
+		color: #4f5946;
+	}
+
+	.blog-read-button:hover svg,
+	.blog-read-button:focus-visible svg {
+		transform: translateX(0.16rem);
 	}
 
 	.blog-pagination {
@@ -236,13 +249,7 @@ const { articles, currentPage, totalPages, activeCategory } = Astro.props;
 		opacity: 0.42;
 	}
 
-	@media (max-width: 1250px) {
-		.blog-list {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-	}
-
-	@media (max-width: 900px) {
+	@media (max-width: 1100px) {
 		.blog-list {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
