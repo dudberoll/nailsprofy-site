@@ -1,4 +1,5 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
+import data from "../data/nailsprofi.json";
 import styles from "./GiftShopPage.module.css";
 
 type StepKey =
@@ -31,6 +32,31 @@ const cx = (...names: Array<string | false | null | undefined>) =>
 		.filter(Boolean)
 		.map((name) => styles[name as keyof typeof styles])
 		.join(" ");
+
+const publicAsset = (path: string) =>
+	`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}${path.replace(/^\/+/, "")}`;
+
+const contactPhones = data.contacts.phones.map((phone) => ({
+	label: phone,
+	href: `tel:${phone.replace(/[^\d+]/g, "")}`,
+}));
+const contactMessengers = [
+	{
+		label: "Telegram",
+		href: data.contacts.social_urls.find((url) => url.includes("t.me")) ?? "https://t.me/nailsprofisalon",
+		icon: publicAsset("icons/telegram.svg"),
+	},
+	{
+		label: "WhatsApp",
+		href: "https://wa.me/79258816886",
+		icon: publicAsset("icons/whatsapp.svg"),
+	},
+	{
+		label: "MAX",
+		href: "https://max.ru/u/f9LHodD0cOK3kMd5x1hZThcVGMcFBsnv7oPHD113S5S_GjKpYBSPzf8joNo",
+		icon: publicAsset("icons/max.svg"),
+	},
+] as const;
 
 const abonementStepsSelf: Step[] = [
 	{ key: "recipient", title: "Кому предназначен абонемент" },
@@ -67,7 +93,7 @@ const certificatePaymentLinks: Record<string, string> = {
 
 const certificateSteps: CertificateStep[] = [
 	{ key: "amount", title: "Выберите номинал" },
-	{ key: "review", title: "Проверьте данные перед оплатой" },
+	{ key: "review", title: "Проверьте выбранный сертификат" },
 ];
 
 const services = [
@@ -116,6 +142,24 @@ export default function GiftShopPage() {
 	const [buyerEmail, setBuyerEmail] = useState("");
 	const [pin, setPin] = useState("");
 	const [accepted, setAccepted] = useState(false);
+	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+	useEffect(() => {
+		if (!isContactModalOpen) return undefined;
+
+		const previousOverflow = document.body.style.overflow;
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setIsContactModalOpen(false);
+		};
+
+		document.body.style.overflow = "hidden";
+		document.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isContactModalOpen]);
 
 	const abonementSteps = recipient === "Себе" ? abonementStepsSelf : abonementStepsGift;
 	const currentStep = abonementSteps[stepIndex];
@@ -156,6 +200,11 @@ export default function GiftShopPage() {
 
 	const goCertificateNext = () => {
 		if (!canContinueCertificate) return;
+		if (isPhysicalCertificate) {
+			setIsContactModalOpen(true);
+			return;
+		}
+
 		if (currentCertificateStep.key === "review") {
 			const paymentUrl = certificatePaymentLinks[certificateAmount];
 			if (paymentUrl) window.location.assign(paymentUrl);
@@ -169,6 +218,7 @@ export default function GiftShopPage() {
 		if (certificateStepIndex === 0) {
 			setMode("cards");
 			setIsPhysicalCertificate(false);
+			setIsContactModalOpen(false);
 			return;
 		}
 
@@ -198,6 +248,7 @@ export default function GiftShopPage() {
 									setIsPhysicalCertificate(false);
 									setCertificateAmount("");
 									setCertificateStepIndex(0);
+									setIsContactModalOpen(false);
 								}}
 							/>
 							<p className={cx("choice-caption")}>Электронный сертификат</p>
@@ -212,6 +263,7 @@ export default function GiftShopPage() {
 									setIsPhysicalCertificate(true);
 									setCertificateAmount("");
 									setCertificateStepIndex(0);
+									setIsContactModalOpen(false);
 								}}
 							/>
 							<p className={cx("choice-caption")}>Физический сертификат</p>
@@ -229,7 +281,8 @@ export default function GiftShopPage() {
 									</p>
 									<span>
 										{isPhysicalCertificate ? 1 : certificateStepIndex + 1}/
-										{isPhysicalCertificate ? 1 : certificateSteps.length} {currentCertificateStep.title}
+										{isPhysicalCertificate ? 1 : certificateSteps.length}{" "}
+										{currentCertificateStep.title}
 									</span>
 									<ProgressLine
 										value={isPhysicalCertificate ? 1 : certificateStepIndex + 1}
@@ -241,6 +294,7 @@ export default function GiftShopPage() {
 										amount={certificateAmount}
 										amounts={isPhysicalCertificate ? physicalCertificateAmounts : certificateAmounts}
 										currentStep={currentCertificateStep}
+										isPhysicalCertificate={isPhysicalCertificate}
 										setAmount={setCertificateAmount}
 									/>
 									<div className={cx("wizard-actions")}>
@@ -253,7 +307,11 @@ export default function GiftShopPage() {
 											type="button"
 											onClick={goCertificateNext}
 										>
-											{currentCertificateStep.key === "review" ? "Перейти к оплате" : "Продолжить"}
+											{isPhysicalCertificate
+												? "Связаться с администратором"
+												: currentCertificateStep.key === "review"
+													? "Перейти к оплате"
+													: "Продолжить"}
 										</button>
 									</div>
 								</div>
@@ -322,6 +380,60 @@ export default function GiftShopPage() {
 				)}
 			</section>
 
+			{isContactModalOpen ? (
+				<div
+					className={cx("contact-modal-backdrop")}
+					onClick={(event) => {
+						if (event.target === event.currentTarget) setIsContactModalOpen(false);
+					}}
+				>
+					<div
+						aria-labelledby="physical-contact-title"
+						aria-modal="true"
+						className={cx("contact-modal")}
+						role="dialog"
+					>
+						<button
+							aria-label="Закрыть окно связи"
+							autoFocus
+							className={cx("contact-modal__close")}
+							type="button"
+							onClick={() => setIsContactModalOpen(false)}
+						>
+							<span aria-hidden="true">×</span>
+						</button>
+						<p className={cx("contact-modal__eyebrow")}>Физический сертификат</p>
+						<h2 id="physical-contact-title">Связаться с администратором</h2>
+						<p className={cx("contact-modal__text")}>Выберите удобный способ связи.</p>
+						<div className={cx("contact-modal__phones")}>
+							{contactPhones.map((phone) => (
+								<a className={cx("contact-modal__phone")} href={phone.href} key={phone.href}>
+									{phone.label}
+								</a>
+							))}
+						</div>
+						<div className={cx("contact-modal__divider")}>
+							<span>или напишите</span>
+						</div>
+						<div className={cx("contact-modal__messengers")} aria-label="Написать в мессенджере">
+							{contactMessengers.map((messenger) => (
+								<a
+									aria-label={`Написать в ${messenger.label}`}
+									className={cx("contact-modal__messenger")}
+									href={messenger.href}
+									key={messenger.label}
+									rel="noopener noreferrer"
+									target="_blank"
+									onClick={() => setIsContactModalOpen(false)}
+								>
+									<img src={messenger.icon} alt="" width="24" height="24" />
+								</a>
+							))}
+						</div>
+					</div>
+				</div>
+			) : null}
+
 			<section className={cx("faq")}>
 				<h2>Ответы на частые вопросы</h2>
 				<div className={cx("faq-list")}>
@@ -341,6 +453,7 @@ function CertificateBody(props: {
 	amount: string;
 	amounts: string[];
 	currentStep: CertificateStep;
+	isPhysicalCertificate: boolean;
 	setAmount: (value: string) => void;
 }) {
 	if (props.currentStep.key === "amount") {
@@ -357,6 +470,11 @@ function CertificateBody(props: {
 					))}
 				</div>
 				{props.amount ? <CertificateMeta amount={formatRubles(props.amount)} /> : null}
+				{props.isPhysicalCertificate && props.amount ? (
+					<p className={cx("physical-certificate-note")}>
+						Физический сертификат можно приобрести только в салоне. Онлайн-покупка недоступна.
+					</p>
+				) : null}
 			</div>
 		);
 	}
