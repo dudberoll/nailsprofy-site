@@ -1,9 +1,9 @@
 ---
 interface Props {
-	phoneHref: string;
+	bookingHref: string;
 }
 
-const { phoneHref } = Astro.props;
+const { bookingHref } = Astro.props;
 ---
 
 <section class="promo-grid" aria-label="Специальные предложения">
@@ -11,11 +11,12 @@ const { phoneHref } = Astro.props;
 		<div>
 			<h2>Попробуйте пилочный маникюр</h2>
 			<p>
-				Соберём удобное окно и подберём мастеров так, чтобы уход занял меньше
-				времени без ощущения спешки.
+				Он особенно комфортен для тонкой, сухой и чувствительной кутикулы.
+				Работаем пилками Japure с японским абразивом. На первую процедуру скидка
+				500 ₽.
 			</p>
 		</div>
-		<a class="shader-booking-button" href={phoneHref}>Выбрать удобное время</a>
+		<a class="shader-booking-button" href={bookingHref}>Выбрать удобное время</a>
 	</article>
 
 	<article class="promo-card promo-card--gift">
@@ -23,7 +24,7 @@ const { phoneHref } = Astro.props;
 			<h2>Подарочный сертификат</h2>
 			<p>Тёплый способ подарить близкому человеку время для себя.</p>
 		</div>
-		<a href="/services">Выбрать номинал</a>
+		<a href="/sertifikaty_abonementy">Выбрать номинал</a>
 	</article>
 </section>
 

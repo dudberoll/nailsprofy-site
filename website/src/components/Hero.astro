@@ -47,15 +47,12 @@ const bookingUrl = data.contacts.booking_url;
 			</h1>
 			<p class="hero__description">{description}</p>
 			<div class="hero__actions">
-				<div class="hero__booking-wrap">
-						<span class="hero__discount">Дарим 800 ₽ на первый визит</span>
-					<BookingShaderButton
-						href={bookingUrl}
-						client:idle
-					>
-						Записаться
-					</BookingShaderButton>
-				</div>
+				<BookingShaderButton
+					href={bookingUrl}
+					client:idle
+				>
+					Записаться
+				</BookingShaderButton>
 				<a class="button button--secondary" href="/services">Посмотреть услуги</a>
 			</div>
 		</div>
@@ -180,34 +177,6 @@ const bookingUrl = data.contacts.booking_url;
 		margin-top: clamp(1.85rem, calc(1.85rem + (100vw - 80rem) * 0.12), 5rem);
 	}
 
-	.hero__booking-wrap {
-		position: relative;
-		display: grid;
-		min-width: 0;
-	}
-
-	.hero__discount {
-		position: relative;
-		z-index: 2;
-		justify-self: end;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 38px;
-		margin-right: -0.45rem;
-		margin-bottom: -0.55rem;
-		padding: 0.45rem 1.75rem;
-		border: 1px solid rgb(58 36 48 / 58%);
-		border-radius: 999px;
-		background: rgb(244 241 237 / 84%);
-		color: rgb(58 36 48 / 72%);
-		font-size: 0.827rem;
-		line-height: 1;
-		white-space: nowrap;
-		backdrop-filter: blur(16px) saturate(112%);
-		box-shadow: 0 10px 28px rgb(58 36 48 / 8%);
-	}
-
 	.button {
 		display: inline-flex;
 		align-items: center;
@@ -295,9 +264,6 @@ const bookingUrl = data.contacts.booking_url;
 			max-width: 610px;
 		}
 
-		.hero__discount {
-			margin-right: 0.5rem;
-		}
 	}
 
 	@media (min-width: 768px) and (max-width: 1119px) {
@@ -335,13 +301,6 @@ const bookingUrl = data.contacts.booking_url;
 			margin-top: 2rem;
 		}
 
-		.hero__discount {
-			min-height: 34px;
-			margin-bottom: -0.4rem;
-			padding-inline: 1rem;
-			font-size: 0.74rem;
-		}
-
 		.button {
 			min-height: 48px;
 			padding-inline: 0.8rem;
@@ -377,9 +336,6 @@ const bookingUrl = data.contacts.booking_url;
 			grid-template-columns: 1fr;
 		}
 
-		.hero__discount {
-			margin-bottom: -0.35rem;
-		}
 	}
 
 	@media (min-width: 861px) and (max-width: 1119px) {
@@ -443,20 +399,6 @@ const bookingUrl = data.contacts.booking_url;
 			margin-top: 2rem;
 		}
 
-		.hero__booking-wrap {
-			gap: 0.6rem;
-		}
-
-		.hero__discount {
-			justify-self: end;
-			max-width: 100%;
-			min-height: 34px;
-			margin: 0;
-			padding-inline: 0.95rem;
-			font-size: 0.78rem;
-			text-align: center;
-			white-space: normal;
-		}
 	}
 
 </style>
