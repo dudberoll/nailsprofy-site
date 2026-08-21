@@ -6,9 +6,11 @@ interface Props {
 	title: string;
 	description: string;
 	phrase: string;
+	mobileTitleLines: string[];
+	mobilePhraseLines: string[];
 }
 
-const { title, description, phrase } = Astro.props;
+const { title, description, phrase, mobileTitleLines, mobilePhraseLines } = Astro.props;
 const bookingUrl = data.contacts.booking_url;
 ---
 
@@ -26,13 +28,23 @@ const bookingUrl = data.contacts.booking_url;
 				aria-label="Женщина улыбается у зеркала в салоне"
 			></video>
 		</div>
-		<p class="hero__phrase">{phrase}</p>
+		<p class="hero__phrase">
+			<span class="hero__desktop-text">{phrase}</span>
+			<span class="hero__mobile-text">
+				{mobilePhraseLines.map((line) => <span>{line}</span>)}
+			</span>
+		</p>
 	</div>
 
 	<div class="hero__panel">
 		<div class="hero__copy">
 			<p class="hero__eyebrow">Салон красоты NailsProfi</p>
-			<h1 id="page-title">{title}</h1>
+			<h1 id="page-title">
+				<span class="hero__desktop-text">{title}</span>
+				<span class="hero__mobile-text">
+					{mobileTitleLines.map((line) => <span>{line}</span>)}
+				</span>
+			</h1>
 			<p class="hero__description">{description}</p>
 			<div class="hero__actions">
 				<div class="hero__booking-wrap">
@@ -115,6 +127,10 @@ const bookingUrl = data.contacts.booking_url;
 		text-align: center;
 		text-shadow: 0 2px 18px rgb(17 13 10 / 34%);
 		transform: translateX(-50%);
+	}
+
+	.hero__mobile-text {
+		display: none;
 	}
 
 	.hero__panel {
@@ -373,6 +389,15 @@ const bookingUrl = data.contacts.booking_url;
 	}
 
 	@media (max-width: 767px) {
+		.hero__desktop-text {
+			display: none;
+		}
+
+		.hero__mobile-text,
+		.hero__mobile-text > span {
+			display: block;
+		}
+
 		.hero {
 			border-radius: 1.5rem;
 		}
@@ -388,8 +413,9 @@ const bookingUrl = data.contacts.booking_url;
 		.hero__phrase {
 			bottom: 1.5rem;
 			left: 1.5rem;
-			width: min(78%, 360px);
-			font-size: clamp(1.4rem, 7vw, 2rem);
+			width: calc(100% - 3rem);
+			font-size: clamp(1.25rem, 5.8vw, 1.5rem);
+			line-height: 1.02;
 			text-align: left;
 			transform: none;
 		}
@@ -403,8 +429,9 @@ const bookingUrl = data.contacts.booking_url;
 		}
 
 		h1 {
-			font-size: clamp(1.75rem, 8vw, 3rem);
+			font-size: clamp(1.45rem, 6.4vw, 1.75rem);
 			hyphens: auto;
+			line-height: 1.04;
 		}
 
 		.hero__description {

@@ -12,7 +12,9 @@ const { cards } = Astro.props;
 <section class="journal-section" aria-labelledby="journal-title">
 	<div class="journal-head">
 		<div class="section-heading">
-			<h2 id="journal-title">Коротко об уходе и трендах</h2>
+			<h2 id="journal-title">
+				<span>Коротко об уходе</span>{" "}<span>и трендах</span>
+			</h2>
 		</div>
 		<a href="/blog">К блогу</a>
 	</div>
@@ -49,5 +51,5 @@ const { cards } = Astro.props;
 	.journal-grid p { margin: 8px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.38; }
 	.journal-card-link:hover > img, .journal-card-link:focus-visible > img { filter: brightness(.96); transform: translateY(-.2rem); }
 	@media (min-width: 768px) and (max-width: 1439px) { .journal-head h2 { font-size: clamp(2.25rem, 4.3vw, 3.3rem); letter-spacing: -.05em; } .journal-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 1.4vw, 1.25rem); margin-top: clamp(1.25rem, 2.5vw, 2rem); } .journal-card-link { gap: clamp(.65rem, 1.2vw, 1rem); } .journal-card-link > img { border-radius: clamp(1rem, 2vw, 1.6rem); } .journal-grid h3 { font-size: clamp(1.05rem, 1.75vw, 1.45rem); letter-spacing: -.04em; } .journal-grid time, .journal-grid p { font-size: clamp(.76rem, 1.1vw, .9rem); } }
-	@media (max-width: 767px) { .journal-section { overflow: visible; } .journal-head { align-items: center; gap: 1rem; } .journal-head h2 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.05; letter-spacing: 0; } .journal-head a { flex: 0 0 auto; min-height: 40px; padding-inline: 15px; font-size: 14px; } .journal-grid { display: flex; gap: 12px; margin-top: 20px; margin-right: calc(-1 * var(--page-gutter)); overflow-x: auto; padding: 0 var(--page-gutter) 6px 0; scroll-snap-type: x mandatory; } .journal-grid article { flex: 0 0 min(80vw, 310px); scroll-snap-align: start; } .journal-card-link > img { aspect-ratio: 1 / .86; border-radius: 1.35rem; } .journal-grid h3 { font-size: 1.65rem; letter-spacing: 0; } .journal-grid p { font-size: 1rem; line-height: 1.45; } }
+	@media (max-width: 767px) { .journal-section { overflow: visible; } .journal-head { align-items: center; gap: 1rem; } .journal-head h2 { font-size: clamp(1.55rem, 6.6vw, 1.8rem); line-height: 1.05; letter-spacing: 0; } .journal-head h2 span { display: block; white-space: nowrap; } .journal-head a { flex: 0 0 auto; min-height: 40px; padding-inline: 15px; font-size: 14px; } .journal-grid { display: flex; gap: 12px; margin-top: 20px; margin-right: calc(-1 * var(--page-gutter)); overflow-x: auto; padding: 0 var(--page-gutter) 6px 0; scroll-snap-type: x mandatory; } .journal-grid article { flex: 0 0 min(80vw, 310px); scroll-snap-align: start; } .journal-card-link > img { aspect-ratio: 1 / .86; border-radius: 1.35rem; } .journal-grid h3 { font-size: 1.65rem; letter-spacing: 0; } .journal-grid p { font-size: 1rem; line-height: 1.45; } }
 </style>

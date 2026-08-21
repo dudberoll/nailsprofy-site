@@ -14,7 +14,7 @@ const brands = [
 ---
 
 <section class="brands-standalone" id="brands" aria-label="Бренды, на которых мы работаем">
-	<h2>Бренды, на которых мы работаем</h2>
+	<h2><span>Бренды, на которых</span>{" "}<span>мы работаем</span></h2>
 	<div class="brands-marquee" data-auto-scroll="1">
 		{[...brands, ...brands].map(([name, src], index) => (
 			<span
@@ -178,7 +178,12 @@ const brands = [
 
 		.brands-standalone h2 {
 			width: calc(100% - 32px);
-			font-size: clamp(2rem, 9vw, 2.5rem);
+			font-size: clamp(1.5rem, 6.6vw, 1.8rem);
+		}
+
+		.brands-standalone h2 span {
+			display: block;
+			white-space: nowrap;
 		}
 
 		.brands-marquee {

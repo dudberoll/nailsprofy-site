@@ -236,7 +236,9 @@ const masterCards = [
   aria-labelledby="matte-masters-title"
 >
 	<div class="matte-cards-demo__intro">
-		<h2 id="matte-masters-title">Мастера, которым можно доверить детали</h2>
+		<h2 id="matte-masters-title">
+			<span>Мастера, которым</span>{" "}<span>можно доверить детали</span>
+		</h2>
 	</div>
 
 	<div class="matte-cards-demo__stage matte-cards-demo__stage--carousel matte-cards-demo__stage--masters">
@@ -780,9 +782,14 @@ const masterCards = [
 		}
 
 		.matte-cards-demo--carousel .matte-cards-demo__intro h2 {
-			font-size: clamp(2rem, 9vw, 2.75rem);
+			font-size: clamp(1.65rem, 7vw, 1.9rem);
 			line-height: 1.04;
 			letter-spacing: -0.045em;
+		}
+
+		.matte-cards-demo--carousel .matte-cards-demo__intro h2 span {
+			display: block;
+			white-space: nowrap;
 		}
 
 		.matte-cards-demo--carousel .matte-carousel {
