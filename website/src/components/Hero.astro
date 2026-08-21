@@ -307,6 +307,12 @@ const bookingUrl = data.contacts.booking_url;
 		}
 	}
 
+	@media (min-width: 1120px) {
+		.hero__description {
+			margin-top: 1.25rem;
+		}
+	}
+
 	@media (min-width: 1120px) and (max-width: 1439px) {
 		.hero {
 			min-height: 480px;
@@ -367,12 +373,12 @@ const bookingUrl = data.contacts.booking_url;
 
 		.hero__phrase {
 			bottom: 1.5rem;
-			left: 1.5rem;
+			left: 50%;
 			width: calc(100% - 3rem);
 			font-size: clamp(1.25rem, 5.8vw, 1.5rem);
 			line-height: 1.02;
-			text-align: left;
-			transform: none;
+			text-align: center;
+			transform: translateX(-50%);
 		}
 
 		.hero__panel {

@@ -58,6 +58,12 @@ const abonementStepsGift: Step[] = [
 const certificateAmounts = ["10000", "5000", "3000", "2000"];
 const physicalCertificateAmounts = ["10000", "5000"];
 const certificateValidUntil = "до 30 июня 2027 г";
+const certificatePaymentLinks: Record<string, string> = {
+	"2000": "https://o7828.yclients.com/certificates/441579",
+	"3000": "https://o7828.yclients.com/certificates/441558",
+	"5000": "https://o7828.yclients.com/certificates/441558",
+	"10000": "https://o7828.yclients.com/certificates/441587",
+};
 
 const certificateSteps: CertificateStep[] = [
 	{ key: "amount", title: "Выберите номинал" },
@@ -83,16 +89,12 @@ const faqs = [
 		"Сертификаты доступны на фиксированные номиналы: 10 000, 5 000, 3 000 и 2 000 рублей.",
 	],
 	[
-		"Можно ли купить продукцию по сертификату?",
-		"Да, сертификатом можно оплатить продукцию, которая представлена в салоне.",
-	],
-	[
 		"Можно ли использовать сертификат частично?",
 		"Да. Если сумма услуги меньше номинала, остаток сохраняется и может быть использован при следующем визите.",
 	],
 	[
 		"Как приобрести сертификат?",
-		"Физический сертификат можно приобрести в салоне. Онлайн-покупку и детали оформления уточните у администратора.",
+		"Физический сертификат можно приобрести только в салоне. Электронный сертификат можно заказать онлайн — он придёт на вашу электронную почту.",
 	],
 ];
 
@@ -154,6 +156,12 @@ export default function GiftShopPage() {
 
 	const goCertificateNext = () => {
 		if (!canContinueCertificate) return;
+		if (currentCertificateStep.key === "review") {
+			const paymentUrl = certificatePaymentLinks[certificateAmount];
+			if (paymentUrl) window.location.assign(paymentUrl);
+			return;
+		}
+
 		setCertificateStepIndex((value) => Math.min(value + 1, certificateSteps.length - 1));
 	};
 

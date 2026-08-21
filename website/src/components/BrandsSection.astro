@@ -22,7 +22,13 @@ const brands = [
 				aria-label={name}
 				data-brand-loop-start={index === brands.length ? "" : undefined}
 			>
-				<img src={src} alt="" loading="lazy" decoding="async" />
+				<img
+					src={src}
+					alt=""
+					loading="lazy"
+					decoding="async"
+					class:list={{ "brand-logo--color": name === "NailsProfi" }}
+				/>
 			</span>
 		))}
 	</div>
@@ -146,8 +152,14 @@ const brands = [
 		display: block;
 		width: 100%;
 		height: 100%;
+		min-height: 0;
+		max-height: 100%;
 		object-fit: contain;
 		filter: brightness(0);
+	}
+
+	.brand-logo img.brand-logo--color {
+		filter: none;
 	}
 
 	@media (max-width: 900px) {
