@@ -82,7 +82,15 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 			document.querySelectorAll<HTMLElement>("[data-service-panel]").forEach((panel) => {
 				panel.hidden = panel.dataset.servicePanel !== id;
 			});
-			activateSubcategory(id, initialSubcategoryId);
+			if (initialSubcategoryId) {
+				activateSubcategory(id, initialSubcategoryId);
+			} else {
+				setCurrentSubcategoryId("");
+				const panel = document.querySelector<HTMLElement>(`[data-service-panel="${id}"]`);
+				panel?.querySelectorAll<HTMLElement>("[data-price-group]").forEach((group, index) => {
+					group.hidden = index !== 0;
+				});
+			}
 
 			if (options.updateHash ?? true) {
 				history.replaceState(null, "", `#${id}`);
@@ -220,39 +228,41 @@ export default function ServiceCategoryNav({ categories, activeCategoryId }: Pro
 					</div>
 				</div>
 			</div>
-			<div className="service-subcategory-nav-scroll">
-				<div
-					className="service-subcategory-nav"
-					role="tablist"
-					aria-label={`Подкатегории: ${currentCategory?.label ?? ""}`}
-				>
-					{currentCategory?.subcategories.map((subcategory) => {
-						const active = subcategory.id === currentSubcategoryId;
+			{subcategoryIds.length > 0 ? (
+				<div className="service-subcategory-nav-scroll">
+					<div
+						className="service-subcategory-nav"
+						role="tablist"
+						aria-label={`Подкатегории: ${currentCategory?.label ?? ""}`}
+					>
+						{currentCategory?.subcategories.map((subcategory) => {
+							const active = subcategory.id === currentSubcategoryId;
 
-						return (
-							<button
-								key={subcategory.id}
-								id={`price-tab-${currentId}-${subcategory.id}`}
-								className={[
-									"service-subcategory-nav__button",
-									active ? "service-subcategory-nav__button--active" : "",
-								]
-									.filter(Boolean)
-									.join(" ")}
-								type="button"
-								role="tab"
-								aria-selected={active ? "true" : "false"}
-								aria-controls={`price-${currentId}-${subcategory.id}`}
-								tabIndex={active ? 0 : -1}
-								onClick={() => activateSubcategory(currentId, subcategory.id)}
-								onKeyDown={handleSubcategoryKeyDown}
-							>
-								{subcategory.label}
-							</button>
-						);
-					})}
+							return (
+								<button
+									key={subcategory.id}
+									id={`price-tab-${currentId}-${subcategory.id}`}
+									className={[
+										"service-subcategory-nav__button",
+										active ? "service-subcategory-nav__button--active" : "",
+									]
+										.filter(Boolean)
+										.join(" ")}
+									type="button"
+									role="tab"
+									aria-selected={active ? "true" : "false"}
+									aria-controls={`price-${currentId}-${subcategory.id}`}
+									tabIndex={active ? 0 : -1}
+									onClick={() => activateSubcategory(currentId, subcategory.id)}
+									onKeyDown={handleSubcategoryKeyDown}
+								>
+									{subcategory.label}
+								</button>
+							);
+						})}
+					</div>
 				</div>
-			</div>
+			) : null}
 		</div>
 	);
 }

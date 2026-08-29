@@ -1,7 +1,6 @@
 ---
 import HeaderServicesDropdown from "./HeaderServicesDropdown";
 import data from "../data/nailsprofi.json";
-import { serviceCategories } from "../data/servicesCatalog";
 
 const navigation = [
 	{ label: "Портфолио", href: "/portfolio", hideOnCompact: false },
@@ -18,7 +17,12 @@ const isBlogPage = Astro.url.pathname.startsWith("/blog");
 const isPortfolioPage = Astro.url.pathname.startsWith("/portfolio");
 const isCertificatesPage = Astro.url.pathname.startsWith("/sertifikaty_abonementy");
 const bookingUrl = data.contacts.booking_url;
-const serviceMenuItems = serviceCategories.map(({ id, label }) => ({ id, label }));
+const serviceMenuItems = [
+	{ id: "manicure", label: "Маникюр" },
+	{ id: "pedicure", label: "Педикюр" },
+	{ id: "hair", label: "Волосы" },
+	{ id: "brows", label: "Брови/Ресницы" },
+];
 const isNavigationItemActive = (href: string) =>
 	(isBlogPage && href === "/blog") ||
 	(isPortfolioPage && href === "/portfolio") ||

@@ -8,10 +8,12 @@ const bookingUrl = data.contacts.booking_url;
 const categoryNavItems = serviceCategories.map(({ id, label, priceGroups }) => ({
 	id,
 	label,
-	subcategories: priceGroups.map(({ id: subcategoryId, title }) => ({
+	subcategories: priceGroups
+		.filter(({ showInSubcategoryNav }) => showInSubcategoryNav !== false)
+		.map(({ id: subcategoryId, title }) => ({
 		id: subcategoryId,
 		label: title,
-	})),
+		})),
 }));
 ---
 

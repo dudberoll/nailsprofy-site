@@ -22,6 +22,7 @@ export type PriceGroup = {
 	id: string;
 	title: string;
 	note?: string;
+	showInSubcategoryNav?: boolean;
 	items: PriceItem[];
 };
 
@@ -36,7 +37,15 @@ export type ServiceCategory = {
 
 const sourceSections = data.price_sections as SourcePriceSection[];
 
-const normalizeServiceName = (name: string) => name.replace(/\s*\+\s*(?=\p{L})/gu, " + ");
+const normalizeServiceName = (name: string) =>
+	name
+		.replace(/\s*\+\s*(?=\p{L})/gu, " + ")
+		.replace(/машиинкой/giu, "машинкой")
+		.replace(/длинна/giu, "длина")
+		.replace(/востанавливающие покрытие/giu, "восстанавливающее покрытие")
+		.replace(/бондироавние/giu, "бондирование")
+		.replace(/[ \t]{2,}/g, " ")
+		.trim();
 
 const sectionItems = (...sectionNames: string[]) =>
 	sectionNames.flatMap(
@@ -46,195 +55,206 @@ const sectionItems = (...sectionNames: string[]) =>
 const matchingItems = (sectionNames: string[], pattern: RegExp) =>
 	sectionItems(...sectionNames).filter((item) => pattern.test(item.name));
 
-const priceGroup = (id: string, title: string, items: SourcePriceItem[]): PriceGroup => ({
+const liveItem = (id: string, name: string, price_text: string | null): SourcePriceItem => ({
+	id,
+	name,
+	price_text,
+});
+
+const liveBrowCompliment = liveItem("30675354", "Коррекция бровей - комплимент от мастера", "В подарок");
+const liveMaleBrow = liveItem("12955329", "Коррекция бровей мужская", "1 400 ₽");
+const liveBrowLightening = liveItem("12955338", "Осветление бровей", "1 200 ₽");
+
+const liveBondingItems = [
+	liveItem("31123020", "Маникюр + бондирование натуральных ногтей", "3 100 ₽"),
+	liveItem("31123182", "Маникюр + бондироавние натуральных ногтей - топ мастер", "3 600 ₽"),
+	liveItem("31183956", "Смарт педикюр + бондирование - топ мастер", "5 250 ₽"),
+];
+
+const liveManicureItems = [
+	liveItem("31197960", "Классический маникюр + гель лак", "3 100 ₽"),
+	liveItem("31198380", "Классический маникюр + гель лак френч", "3 900 ₽"),
+	liveItem("31198419", "Классический маникюр + лак", "2 500 ₽"),
+	liveItem("31203780", "Опил искусственных + маникюр + гель - лак", "3 800 ₽"),
+];
+
+const liveTopManicureItem = liveItem(
+	"31203852",
+	"Опил искусственных + маникюр + гель - лак - топ мастер",
+	"4 500 ₽",
+);
+const liveClassicManicureItem = liveItem("31197909", "Классический маникюр", "2 300 ₽");
+const liveIbxItem = liveItem("12955983", "Укрепление ногтей IBX", "700 ₽");
+
+const liveMaleItems = [
+	liveMaleBrow,
+	liveItem("31198632", "Классический мужской маникюр", "2 500 ₽"),
+	liveItem("31183167", "Пилочный маникюр мужской", "3 000 ₽"),
+];
+
+const shortServiceDescriptions: Record<string, string> = {
+	"30675354": "Коррекция бровей в подарок при записи на любую услугу NailsProfi.",
+	"15371415": "В будни в обеденное время снятие старого покрытия — в подарок.",
+	"15371759": "Комплекс для бровей: ламинирование, окрашивание, коррекция и ботокс. В обеденное время — на 400 ₽ выгоднее.",
+	"30056808": "Пилочный маникюр без ножниц и фрез. Для новых гостей — подарок 500 ₽; покрытие оплачивается отдельно.",
+	"15443402": "Скидка 15% на все услуги действует 7 дней до и 7 дней после дня рождения.",
+	"23495742": "Порекомендуйте NailsProfi другу — получите 1000 бонусных рублей. Бонусами можно оплачивать по 500 ₽ за услугу.",
+};
+
+const priceGroup = (
+	id: string,
+	title: string,
+	items: SourcePriceItem[],
+	options: { showInSubcategoryNav?: boolean } = {},
+): PriceGroup => ({
 	id,
 	title,
+	showInSubcategoryNav: options.showInSubcategoryNav,
 	note: items.length === 0 ? "Сейчас в YCLIENTS нет услуг в этой подкатегории." : undefined,
 	items: items.map((item) => ({
 		sourceId: item.id,
 		name: normalizeServiceName(item.name),
-		prices: [["Цена", item.price_text ?? "—"]],
+		description: shortServiceDescriptions[item.id],
+		prices: item.price_text ? [["Цена", item.price_text]] : [],
 	})),
 });
 
-const manicureGroups: PriceGroup[] = [
-	priceGroup("manicure-complex", "Комплексные услуги", [
-		...sectionItems(
-			"Маникюр с покрытием",
-			"Маникюр с покрытием ТОП-мастер",
-			"ЭКСПРЕСС маникюр",
-			"ЭКСПРЕСС маникюр ТОП-мастер",
-			"Пилочный маникюр",
-		),
-		...matchingItems(["Счастливые часы"], /маникюр/iu),
-		...sectionItems("Дарим подарки!"),
+const bonusGroups: PriceGroup[] = [
+	priceGroup("bonus-happy-hours", "Счастливые часы", [
+		...sectionItems("Счастливые часы"),
+		liveBrowCompliment,
 	]),
-	priceGroup("manicure-basic", "Маникюр", sectionItems("Маникюр без покрытия")),
+	priceGroup("bonus-gifts", "Дарим подарки!", sectionItems("Дарим подарки!")),
+];
+
+const browGroups: PriceGroup[] = [
 	priceGroup(
-		"manicure-coverage-design",
-		"Покрытие и дизайн",
-		sectionItems("Покрытие\\Дизайн"),
+		"brows-services",
+		"Брови",
+		[
+			...sectionItems("Брови").filter(
+				(item) => item.id !== liveBrowCompliment.id && item.id !== liveMaleBrow.id,
+			),
+			liveBrowLightening,
+		],
+		{ showInSubcategoryNav: false },
 	),
+];
+
+const lashGroups: PriceGroup[] = [
+	priceGroup("lashes-services", "Ресницы", sectionItems("Ресницы"), {
+		showInSubcategoryNav: false,
+	}),
+];
+
+const manicureWithoutCoverageItems = sectionItems("Маникюр без покрытия");
+const manicureWithoutCoverageTopItems = manicureWithoutCoverageItems.filter((item) => /- топ мастер$/iu.test(item.name));
+
+const manicureGroups: PriceGroup[] = [
+	priceGroup("manicure-bonding", "Бондирование ногтей", liveBondingItems),
+	priceGroup("manicure-coverage", "Маникюр с покрытием", [
+		...sectionItems("Маникюр с покрытием"),
+		...liveManicureItems,
+	]),
+	priceGroup("manicure-coverage-top", "Маникюр с покрытием ТОП-мастер", [
+		...sectionItems("Маникюр с покрытием ТОП-мастер"),
+		liveTopManicureItem,
+	]),
+	priceGroup("manicure-file", "Пилочный маникюр", sectionItems("Пилочный маникюр")),
+	priceGroup("manicure-express", "ЭКСПРЕСС маникюр", sectionItems("ЭКСПРЕСС маникюр")),
 	priceGroup(
-		"manicure-acrylic-polygel",
-		"Акрил и полигель",
-		sectionItems("Наращивание ногтей АКРИЛ", "Наращивание ногтей ПОЛИГЕЛЬ"),
+		"manicure-express-top",
+		"ЭКСПРЕСС маникюр ТОП-мастер",
+		sectionItems("ЭКСПРЕСС маникюр ТОП-мастер"),
 	),
-	priceGroup("manicure-gel", "Наращивание гелем", sectionItems("Наращивание ногтей ГЕЛЬ")),
-	priceGroup(
-		"manicure-men",
-		"Мужской маникюр",
-		matchingItems(["Услуги для МУЖЧИН"], /маникюр/iu),
-	),
+	priceGroup("manicure-without-coverage", "Маникюр без покрытия", [
+		...manicureWithoutCoverageItems.filter((item) => !/- топ мастер$/iu.test(item.name)),
+		liveClassicManicureItem,
+	]),
+	priceGroup("manicure-without-coverage-top", "Маникюр без покрытия ТОП-мастер", manicureWithoutCoverageTopItems),
 ];
 
 const pedicureGroups: PriceGroup[] = [
+	priceGroup("pedicure-coverage", "Педикюр с покрытием", sectionItems("Педикюр с покрытием")),
 	priceGroup(
-		"pedicure-complex",
-		"Комплексные услуги",
-		sectionItems(
-			"Педикюр с покрытием",
-			"Педикюр с покрытием ТОП-мастер",
-			"ЭКСПРЕСС педикюр",
-			"ЭКСПРЕСС педикюр ТОП-мастер",
-		),
+		"pedicure-coverage-top",
+		"Педикюр с покрытием ТОП-мастер",
+		sectionItems("Педикюр с покрытием ТОП-мастер"),
 	),
-	priceGroup("pedicure-basic", "Педикюр", sectionItems("Педикюр без покрытия")),
-	priceGroup("pedicure-coverage", "Покрытие", sectionItems("Покрытие\\Дизайн")),
-	priceGroup("pedicure-podology", "Подология", sectionItems("Подология")),
+	priceGroup("pedicure-express", "ЭКСПРЕСС педикюр", sectionItems("ЭКСПРЕСС педикюр")),
 	priceGroup(
-		"pedicure-men",
-		"Мужской педикюр",
-		matchingItems(["Услуги для МУЖЧИН"], /педикюр/iu),
+		"pedicure-express-top",
+		"ЭКСПРЕСС педикюр ТОП-мастер",
+		sectionItems("ЭКСПРЕСС педикюр ТОП-мастер"),
+	),
+	priceGroup("pedicure-without-coverage", "Педикюр без покрытия", sectionItems("Педикюр без покрытия")),
+	priceGroup("pedicure-podology", "Подология", sectionItems("Подология")),
+];
+
+const coverageGroups: PriceGroup[] = [
+	priceGroup(
+		"coverage-design-services",
+		"Покрытие\\Дизайн",
+		[...sectionItems("Покрытие\\Дизайн"), liveIbxItem],
+		{ showInSubcategoryNav: false },
 	),
 ];
 
-const hairCutAndStyleItems = sectionItems("Стрижки и укладки");
-const hairColorItems = sectionItems("Окрашивание волос");
-const hairSpaItems = sectionItems("СПА процедуры для волос");
+const extensionGroups: PriceGroup[] = [
+	priceGroup("extension-gel", "Наращивание гель", sectionItems("Наращивание ногтей ГЕЛЬ")),
+	priceGroup("extension-acrylic", "Наращивание акрил", sectionItems("Наращивание ногтей АКРИЛ")),
+	priceGroup("extension-polygel", "Наращивание полигель", sectionItems("Наращивание ногтей ПОЛИГЕЛЬ")),
+];
 
 const hairGroups: PriceGroup[] = [
-	priceGroup("hair-1", "Стрижки и укладки", hairCutAndStyleItems),
-	priceGroup("hair-2", "Окрашивание волос", hairColorItems),
-	priceGroup("hair-3", "Осветление волос", sectionItems("Осветление волос")),
-	priceGroup(
-		"hair-4",
-		"СПА процедуры для волос",
-		sectionItems("СПА процедуры для волос", "Кератин BBone"),
-	),
-	priceGroup("hair-5", "Завивка для волос LEBEL", []),
-	priceGroup(
-		"hair-cut-1",
-		"Стрижка",
-		hairCutAndStyleItems.filter((item) => /^Стрижка(?!.*горячими ножницами)/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-cut-2",
-		"Стрижка / Горячие ножницы",
-		hairCutAndStyleItems.filter((item) => /горячими ножницами/iu.test(item.name)),
-	),
-	priceGroup("hair-style-1", "Вечерняя прическа простая", []),
-	priceGroup("hair-style-2", "Вечерняя", []),
-	priceGroup(
-		"hair-style-3",
-		"Мытье волос",
-		hairCutAndStyleItems.filter((item) => /^Мытье/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-style-4",
-		"Укладка",
-		hairCutAndStyleItems.filter((item) => /брашинг/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-style-5",
-		"Укладка на плойку",
-		hairCutAndStyleItems.filter((item) => /плойку/iu.test(item.name)),
-	),
-	priceGroup("hair-style-6", "Укладка с плетением", []),
-	priceGroup(
-		"hair-color-1",
-		"Окрашивание Лейбел",
-		hairColorItems.filter(
-			(item) => /Lebel/iu.test(item.name) && !/Air Touch|Фитоламинирование/iu.test(item.name),
-		),
-	),
-	priceGroup(
-		"hair-color-2",
-		"Окрашивание Лейбел \\ Air Touch",
-		hairColorItems.filter((item) => /Air Touch.*Lebel/iu.test(item.name)),
-	),
-	priceGroup("hair-color-3", "Окрашивание Лейбел \\ Щелочная смывка LTEX", []),
-	priceGroup(
-		"hair-color-4",
-		"Фитоламинирование-завивка LEBEL \\ Фитоламинирование для окрашеных волос",
-		hairColorItems.filter((item) => /Фитоламинирование/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-color-5",
-		"Окрашивание MATRIX",
-		hairColorItems.filter((item) => /MATRIX/iu.test(item.name) && !/Air Touch/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-color-6",
-		"Окрашивание MATRIX \\ Air Touch",
-		hairColorItems.filter((item) => /Air Touch.*MATRIX/iu.test(item.name)),
-	),
-	priceGroup("hair-color-7", "Окрашивание MATRIX \\ Декапирование волос", []),
-	priceGroup(
-		"hair-color-8",
-		"Окрашивание Wella",
-		hairColorItems.filter((item) => /Wella/iu.test(item.name) && !/Air Touch/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-color-9",
-		"Окрашивание Wella \\ Air Touch",
-		hairColorItems.filter((item) => /Air Touch.*Wella/iu.test(item.name)),
-	),
-	priceGroup("hair-color-10", "Окрашивание Wella \\ Декапирование волос", []),
-	priceGroup("hair-color-11", "Кислотная смывка Color off", []),
-	priceGroup("hair-spa-1", "Lebel \\ SPA \\ Блеск и сила", []),
-	priceGroup("hair-spa-2", "Greymy кератиновые уходы", []),
-	priceGroup("hair-spa-3", "Olaplex", []),
-	priceGroup(
-		"hair-spa-4",
-		"Lebel \\ SPA-программа «Жизненная сила»",
-		hairSpaItems.filter((item) => /Жизненная сила/iu.test(item.name)),
-	),
-	priceGroup(
-		"hair-spa-5",
-		"Lebel \\ Абсолютное счастье",
-		hairSpaItems.filter((item) => /Абсолютное счастье/iu.test(item.name)),
-	),
-	priceGroup("hair-spa-6", "Matrix \\ Protopak 5+", []),
-	priceGroup("hair-spa-7", "Экспресс уходы для волос", []),
-	priceGroup(
-		"hair-men",
-		"Мужские услуги",
-		matchingItems(["Услуги для МУЖЧИН"], /стрижк/iu),
-	),
+	priceGroup("hair-cuts", "Стрижки и укладки", sectionItems("Стрижки и укладки")),
+	priceGroup("hair-color", "Окрашивание волос", sectionItems("Окрашивание волос")),
+	priceGroup("hair-lightening", "Осветление волос", sectionItems("Осветление волос")),
+	priceGroup("hair-spa", "СПА процедуры для волос", sectionItems("СПА процедуры для волос")),
+	priceGroup("hair-keratin", "Кератин BBone", sectionItems("Кератин BBone")),
 ];
 
-const browItems = sectionItems("Брови");
-const browsGroups: PriceGroup[] = [
-	priceGroup("brows-brows", "Брови", [
-		...browItems.filter((item) => !/эпиляц/iu.test(item.name)),
-		...matchingItems(["Счастливые часы"], /бров/iu),
+const maleGroups: PriceGroup[] = [
+	priceGroup("men-cuts", "Стрижки", matchingItems(["Услуги для МУЖЧИН"], /стрижк/iu)),
+	priceGroup("men-brows", "Брови", [liveMaleBrow]),
+	priceGroup("men-manicure", "Маникюр", [
+		...matchingItems(["Услуги для МУЖЧИН"], /маникюр/iu),
+		...liveMaleItems.filter((item) => /маникюр/iu.test(item.name)),
 	]),
-	priceGroup("brows-lashes", "Ресницы", sectionItems("Ресницы")),
-	priceGroup(
-		"brows-face-epilation",
-		"Эпиляция лица",
-		browItems.filter((item) => /эпиляц/iu.test(item.name)),
-	),
+	priceGroup("men-pedicure", "Педикюр", matchingItems(["Услуги для МУЖЧИН"], /педикюр/iu)),
 ];
 
 export const serviceCategories: ServiceCategory[] = [
+	{
+		id: "bonuses",
+		label: "Бонусы и подарки",
+		image: "/images/services/manicure.jpg",
+		heroImage: "/images/services/manicure.jpg",
+		heroAlt: "Уход за ногтями",
+		priceGroups: bonusGroups,
+	},
+	{
+		id: "brows",
+		label: "Брови",
+		image: "/images/services/brows-portrait.png",
+		heroImage: "/images/services/brows-portrait.png",
+		heroAlt: "Аккуратные брови",
+		priceGroups: browGroups,
+	},
+	{
+		id: "lashes",
+		label: "Ресницы",
+		image: "/images/services/lashes.jpg",
+		heroImage: "/images/services/lashes.jpg",
+		heroAlt: "Ухоженные ресницы",
+		priceGroups: lashGroups,
+	},
 	{
 		id: "manicure",
 		label: "Маникюр",
 		image: "/images/services/manicure-closeup.png",
 		heroImage: "/images/services/manicure-closeup.png",
-		heroAlt: "Нежный нюдовый маникюр с розой и лепестками",
+		heroAlt: "Нежный маникюр",
 		priceGroups: manicureGroups,
 	},
 	{
@@ -242,24 +262,40 @@ export const serviceCategories: ServiceCategory[] = [
 		label: "Педикюр",
 		image: "/images/services/pedicure-spa.png",
 		heroImage: "/images/services/pedicure-spa.png",
-		heroAlt: "Аккуратный педикюр в розовой спа-зоне",
+		heroAlt: "Аккуратный педикюр",
 		priceGroups: pedicureGroups,
+	},
+	{
+		id: "coverage-design",
+		label: "Покрытие\\Дизайн",
+		image: "/images/services/manicure.jpg",
+		heroImage: "/images/services/manicure.jpg",
+		heroAlt: "Покрытие и дизайн ногтей",
+		priceGroups: coverageGroups,
+	},
+	{
+		id: "extensions",
+		label: "Наращивание ногтей",
+		image: "/images/services/manicure-closeup.png",
+		heroImage: "/images/services/manicure-closeup.png",
+		heroAlt: "Наращивание ногтей",
+		priceGroups: extensionGroups,
 	},
 	{
 		id: "hair",
 		label: "Волосы",
 		image: "/images/services/hair-care.png",
 		heroImage: "/images/services/hair-care.png",
-		heroAlt: "Мягкая укладка длинных волос на свету",
+		heroAlt: "Уход за волосами",
 		priceGroups: hairGroups,
 	},
 	{
-		id: "brows",
-		label: "Брови/Ресницы",
-		image: "/images/services/brows-portrait.png",
-		heroImage: "/images/services/brows-portrait.png",
-		heroAlt: "Портрет с аккуратными натуральными бровями",
-		priceGroups: browsGroups,
+		id: "men",
+		label: "Услуги для мужчин",
+		image: "/images/services/manicure.jpg",
+		heroImage: "/images/services/manicure.jpg",
+		heroAlt: "Услуги для мужчин",
+		priceGroups: maleGroups,
 	},
 ];
 
