@@ -3,6 +3,7 @@ import data from "./yclientsServices.json";
 export type SourcePriceItem = {
 	id: string;
 	name: string;
+	duration?: string | null;
 	price_text: string | null;
 };
 
@@ -14,6 +15,7 @@ export type SourcePriceSection = {
 export type PriceItem = {
 	sourceId: string;
 	name: string;
+	duration?: string;
 	description?: string;
 	prices: [string, string][];
 };
@@ -55,41 +57,48 @@ const sectionItems = (...sectionNames: string[]) =>
 const matchingItems = (sectionNames: string[], pattern: RegExp) =>
 	sectionItems(...sectionNames).filter((item) => pattern.test(item.name));
 
-const liveItem = (id: string, name: string, price_text: string | null): SourcePriceItem => ({
+const liveItem = (
+	id: string,
+	name: string,
+	price_text: string | null,
+	duration: string | null,
+): SourcePriceItem => ({
 	id,
 	name,
 	price_text,
+	duration,
 });
 
-const liveBrowCompliment = liveItem("30675354", "Коррекция бровей - комплимент от мастера", "В подарок");
-const liveMaleBrow = liveItem("12955329", "Коррекция бровей мужская", "1 400 ₽");
-const liveBrowLightening = liveItem("12955338", "Осветление бровей", "1 200 ₽");
+const liveBrowCompliment = liveItem("30675354", "Коррекция бровей - комплимент от мастера", "В подарок", "1 ч");
+const liveMaleBrow = liveItem("12955329", "Коррекция бровей мужская", "1 400 ₽", "1 ч");
+const liveBrowLightening = liveItem("12955338", "Осветление бровей", "1 200 ₽", "30 мин");
 
 const liveBondingItems = [
-	liveItem("31123020", "Маникюр + бондирование натуральных ногтей", "3 100 ₽"),
-	liveItem("31123182", "Маникюр + бондироавние натуральных ногтей - топ мастер", "3 600 ₽"),
-	liveItem("31183956", "Смарт педикюр + бондирование - топ мастер", "5 250 ₽"),
+	liveItem("31123020", "Маникюр + бондирование натуральных ногтей", "3 100 ₽", "1 ч"),
+	liveItem("31123182", "Маникюр + бондироавние натуральных ногтей - топ мастер", "3 600 ₽", "1 ч"),
+	liveItem("31183956", "Смарт педикюр + бондирование - топ мастер", "5 250 ₽", "1 ч"),
 ];
 
 const liveManicureItems = [
-	liveItem("31197960", "Классический маникюр + гель лак", "3 100 ₽"),
-	liveItem("31198380", "Классический маникюр + гель лак френч", "3 900 ₽"),
-	liveItem("31198419", "Классический маникюр + лак", "2 500 ₽"),
-	liveItem("31203780", "Опил искусственных + маникюр + гель - лак", "3 800 ₽"),
+	liveItem("31197960", "Классический маникюр + гель лак", "3 100 ₽", "1 ч 30 мин"),
+	liveItem("31198380", "Классический маникюр + гель лак френч", "3 900 ₽", "2 ч"),
+	liveItem("31198419", "Классический маникюр + лак", "2 500 ₽", "1 ч 30 мин"),
+	liveItem("31203780", "Опил искусственных + маникюр + гель - лак", "3 800 ₽", "1 ч 30 мин"),
 ];
 
 const liveTopManicureItem = liveItem(
 	"31203852",
 	"Опил искусственных + маникюр + гель - лак - топ мастер",
 	"4 500 ₽",
+	"1 ч 30 мин",
 );
-const liveClassicManicureItem = liveItem("31197909", "Классический маникюр", "2 300 ₽");
-const liveIbxItem = liveItem("12955983", "Укрепление ногтей IBX", "700 ₽");
+const liveClassicManicureItem = liveItem("31197909", "Классический маникюр", "2 300 ₽", "1 ч");
+const liveIbxItem = liveItem("12955983", "Укрепление ногтей IBX", "700 ₽", "30 мин");
 
 const liveMaleItems = [
 	liveMaleBrow,
-	liveItem("31198632", "Классический мужской маникюр", "2 500 ₽"),
-	liveItem("31183167", "Пилочный маникюр мужской", "3 000 ₽"),
+	liveItem("31198632", "Классический мужской маникюр", "2 500 ₽", "1 ч"),
+	liveItem("31183167", "Пилочный маникюр мужской", "3 000 ₽", "1 ч"),
 ];
 
 const shortServiceDescriptions: Record<string, string> = {
@@ -114,6 +123,7 @@ const priceGroup = (
 	items: items.map((item) => ({
 		sourceId: item.id,
 		name: normalizeServiceName(item.name),
+		duration: item.duration ?? undefined,
 		description: shortServiceDescriptions[item.id],
 		prices: item.price_text ? [["Цена", item.price_text]] : [],
 	})),

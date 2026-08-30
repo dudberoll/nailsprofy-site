@@ -35,12 +35,17 @@ const headingId = `price-heading-${categoryId}-${group.id}`;
 							{item.description ? <p>{item.description}</p> : null}
 						</div>
 						<dl class="price-card__prices">
-							{item.prices.map(([role, price]) => (
-								<div>
-									<dt>{role}:</dt>
-									<dd>{price}</dd>
-								</div>
-							))}
+							{item.prices.length > 0
+								? item.prices.map(([role, price], index) => (
+										<div>
+											{item.duration && index === 0 ? <span>{item.duration} ·</span> : null}
+											<dt>{role}:</dt>
+											<dd>{price}</dd>
+										</div>
+									))
+								: item.duration
+									? <div><span>{item.duration}</span></div>
+									: null}
 						</dl>
 					</li>
 				))}
