@@ -669,3 +669,19 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+@media (max-width: 600px) {
+	.wizard-preview {
+		padding: 40px 24px;
+	}
+
+	.wizard-preview p {
+		max-width: none;
+		font-size: clamp(36px, 10vw, 42px);
+	}
+
+	.wizard-preview span {
+		margin-top: 20px;
+		font-size: 20px;
+	}
+}

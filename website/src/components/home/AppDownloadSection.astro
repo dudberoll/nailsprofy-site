@@ -1,0 +1,548 @@
+---
+interface Props {
+	eyebrow: string;
+	title: string;
+	description: string;
+	downloadUrl?: string;
+	appStoreUrl?: string;
+	googlePlayUrl?: string;
+	appStoreQr?: string;
+	googlePlayQr?: string;
+}
+
+const {
+	eyebrow,
+	title,
+	description,
+	downloadUrl,
+	appStoreUrl,
+	googlePlayUrl,
+	appStoreQr,
+	googlePlayQr,
+} = Astro.props;
+---
+
+<section class="app-download" aria-labelledby="app-download-title">
+	<picture class="app-download__backdrop" aria-hidden="true">
+		<source media="(max-width: 767px)" srcset="/images/app/app-phone-scene-mobile.webp" />
+		<img
+			src="/images/app/app-phone-scene-desktop.webp"
+			alt=""
+			width="3344"
+			height="1882"
+			loading="lazy"
+			decoding="async"
+		/>
+	</picture>
+
+	<div class="app-download__copy">
+		<p class="app-download__eyebrow">{eyebrow}</p>
+		<h2 id="app-download-title">{title}</h2>
+		<p class="app-download__description">{description}</p>
+		<a
+			class:list={["app-download__cta", !downloadUrl && "app-download__cta--placeholder"]}
+			href={downloadUrl || undefined}
+			aria-disabled={downloadUrl ? undefined : "true"}
+		>
+			Скачать приложение
+		</a>
+
+		<div class="app-download__stores" aria-label="Ссылки на магазины приложений">
+			<a
+				class:list={["store-badge", !appStoreUrl && "store-badge--placeholder"]}
+				href={appStoreUrl || undefined}
+				aria-disabled={appStoreUrl ? undefined : "true"}
+			>
+				<span class="store-badge__icon store-badge__icon--apple" aria-hidden="true"></span>
+				<span class="store-badge__copy">
+					<span>Загрузите в</span>
+					<strong>App Store</strong>
+				</span>
+			</a>
+			<a
+				class:list={["store-badge", !googlePlayUrl && "store-badge--placeholder"]}
+				href={googlePlayUrl || undefined}
+				aria-disabled={googlePlayUrl ? undefined : "true"}
+			>
+				<span class="store-badge__icon store-badge__icon--play" aria-hidden="true"></span>
+				<span class="store-badge__copy">
+					<span>Доступно в</span>
+					<strong>Google Play</strong>
+				</span>
+			</a>
+		</div>
+	</div>
+
+	<div class="app-download__qr" aria-label="QR-коды для скачивания приложения">
+		<div class="app-download__qr-grid">
+			<a
+				class:list={["qr-card", !appStoreUrl && "qr-card--placeholder"]}
+				href={appStoreUrl || undefined}
+				aria-disabled={appStoreUrl ? undefined : "true"}
+				aria-label="QR-код для App Store"
+			>
+				{appStoreQr ? (
+					<img src={appStoreQr} alt="" width="150" height="150" />
+				) : (
+					<span class="qr-placeholder" aria-hidden="true"><span>QR</span></span>
+				)}
+				<strong><span class="qr-card__apple" aria-hidden="true"></span> iOS</strong>
+			</a>
+			<a
+				class:list={["qr-card", !googlePlayUrl && "qr-card--placeholder"]}
+				href={googlePlayUrl || undefined}
+				aria-disabled={googlePlayUrl ? undefined : "true"}
+				aria-label="QR-код для Google Play"
+			>
+				{googlePlayQr ? (
+					<img src={googlePlayQr} alt="" width="150" height="150" />
+				) : (
+					<span class="qr-placeholder" aria-hidden="true"><span>QR</span></span>
+				)}
+				<strong><span class="qr-card__play" aria-hidden="true"></span> Android</strong>
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.app-download {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1.12fr) minmax(310px, 0.78fr) minmax(250px, 0.62fr);
+		align-items: stretch;
+		width: min(100%, 1400.922px);
+		min-width: 0;
+		aspect-ratio: 3344 / 1882;
+		margin-inline: auto;
+		overflow: hidden;
+		border-radius: 29.4px;
+		background: #f7f2ee;
+	}
+
+	.app-download__backdrop {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		display: block;
+	}
+
+	.app-download__backdrop img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.app-download__copy {
+		position: relative;
+		z-index: 1;
+		grid-column: 1;
+		grid-row: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+		padding: clamp(2.5rem, 4.5vw, 4.5rem) clamp(1.6rem, 4vw, 4.25rem);
+	}
+
+	.app-download__eyebrow {
+		margin: 0 0 2rem;
+		color: #6f6d6a;
+		font-size: 12.5px;
+		font-weight: 500;
+		letter-spacing: 0.16em;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+
+	.app-download h2 {
+		max-width: 650px;
+		margin: 0;
+		color: #2f2b28;
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 1.08;
+		letter-spacing: -2px;
+		text-wrap: balance;
+	}
+
+	.app-download__description {
+		max-width: 650px;
+		margin: 1.6rem 0 0;
+		color: #6b6966;
+		font-size: 17.3px;
+		line-height: 1.38;
+	}
+
+	.app-download__cta {
+		display: none;
+	}
+
+	.app-download__stores {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+		max-width: 500px;
+		margin-top: 2rem;
+	}
+
+	.store-badge {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		min-width: 0;
+		min-height: 76px;
+		padding: 0.75rem 1rem;
+		border: 1px solid rgb(106 99 94 / 28%);
+		border-radius: 18px;
+		background: rgb(255 253 249 / 65%);
+		color: #272421;
+		text-decoration: none;
+		transition:
+			border-color 160ms var(--ease-out),
+			box-shadow 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.store-badge:active,
+	.qr-card:active {
+		transform: scale(0.97);
+	}
+
+	.store-badge--placeholder,
+	.qr-card--placeholder {
+		cursor: default;
+	}
+
+	.store-badge__icon {
+		position: relative;
+		flex: 0 0 auto;
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		color: #171916;
+	}
+
+	.store-badge__icon--apple {
+		font-family: Arial, sans-serif;
+		font-size: 38px;
+		line-height: 1;
+	}
+
+	.store-badge__icon--play,
+	.qr-card__play {
+		clip-path: polygon(8% 0, 100% 50%, 8% 100%, 23% 50%);
+		background: linear-gradient(145deg, #20c978 0 35%, #ffd23f 35% 54%, #4a90e2 54% 74%, #ee4b5a 74%);
+	}
+
+	.store-badge__icon--play {
+		width: 32px;
+		height: 36px;
+	}
+
+	.store-badge__copy {
+		display: grid;
+		min-width: 0;
+		line-height: 1.05;
+	}
+
+	.store-badge__copy span {
+		font-size: 12px;
+		font-weight: 400;
+	}
+
+	.store-badge__copy strong {
+		margin-top: 4px;
+		font-size: 21px;
+		font-weight: 500;
+		letter-spacing: -0.04em;
+		white-space: nowrap;
+	}
+
+	.app-download__qr {
+		position: relative;
+		z-index: 1;
+		grid-column: 3;
+		grid-row: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+		padding: 2rem clamp(1.25rem, 3vw, 2.75rem) 2rem 1rem;
+	}
+
+	.app-download__qr-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	.qr-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		min-width: 0;
+		min-height: 198px;
+		padding: 12px 10px 14px;
+		border: 1px solid rgb(106 99 94 / 24%);
+		border-radius: 18px;
+		background: rgb(255 253 249 / 76%);
+		color: #272421;
+		text-decoration: none;
+		transition:
+			border-color 160ms var(--ease-out),
+			box-shadow 160ms var(--ease-out),
+			transform 120ms var(--ease-out);
+	}
+
+	.qr-card img,
+	.qr-placeholder {
+		display: block;
+		width: 100%;
+		max-width: 150px;
+		aspect-ratio: 1;
+		border-radius: 4px;
+	}
+
+	.qr-placeholder {
+		position: relative;
+		display: grid;
+		place-items: center;
+		overflow: hidden;
+		background:
+			linear-gradient(90deg, rgb(23 25 22 / 11%) 1px, transparent 1px) 0 0 / 9px 9px,
+			linear-gradient(rgb(23 25 22 / 11%) 1px, transparent 1px) 0 0 / 9px 9px,
+			#fffdf9;
+		border: 1px solid rgb(23 25 22 / 18%);
+	}
+
+	.qr-placeholder::before,
+	.qr-placeholder::after {
+		position: absolute;
+		width: 28%;
+		aspect-ratio: 1;
+		border: 5px solid #272421;
+		content: "";
+	}
+
+	.qr-placeholder::before {
+		top: 10%;
+		left: 10%;
+	}
+
+	.qr-placeholder::after {
+		right: 10%;
+		bottom: 10%;
+	}
+
+	.qr-placeholder span {
+		position: relative;
+		z-index: 1;
+		padding: 3px 4px;
+		background: #fffdf9;
+		color: #272421;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+	}
+
+	.qr-card strong {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1;
+		white-space: nowrap;
+	}
+
+	.qr-card__apple {
+		font-family: Arial, sans-serif;
+		font-size: 21px;
+		line-height: 0.8;
+	}
+
+	.qr-card__play {
+		display: inline-block;
+		width: 16px;
+		height: 18px;
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.store-badge:not(.store-badge--placeholder):hover,
+		.qr-card:not(.qr-card--placeholder):hover {
+			border-color: var(--shader-booking-border-strong);
+			box-shadow: 0 12px 28px rgb(201 138 165 / 18%);
+			transform: translateY(-2px);
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1439px) {
+		.app-download {
+			grid-template-columns: minmax(0, 1.1fr) minmax(270px, 0.75fr) minmax(210px, 0.6fr);
+			aspect-ratio: auto;
+			min-height: clamp(520px, 65vw, 680px);
+		}
+
+		.app-download__copy {
+			padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2.5rem);
+		}
+
+		.app-download h2 {
+			font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+			letter-spacing: -0.06em;
+		}
+
+		.app-download__description {
+			font-size: clamp(0.9rem, 1.35vw, 1.08rem);
+		}
+
+		.store-badge__copy strong {
+			font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+		}
+
+		.store-badge__icon {
+			transform: scale(0.86);
+		}
+
+		.app-download__qr {
+			padding-inline: 0.8rem 1.25rem;
+		}
+
+		.qr-card {
+			min-height: 170px;
+			padding-inline: 8px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.app-download {
+			display: block;
+			width: calc(100% + 2 * var(--page-gutter));
+			aspect-ratio: 390 / 729;
+			min-height: 0;
+			margin-inline: calc(-1 * var(--page-gutter));
+			border-radius: 22px;
+			background: #f4f1ee;
+		}
+
+		.app-download__backdrop {
+			position: absolute;
+			inset: 0 0 auto;
+			width: 100%;
+			height: 95.34%;
+			overflow: hidden;
+		}
+
+		.app-download__backdrop img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			transform: none;
+		}
+
+		.app-download__copy {
+			position: absolute;
+			inset: 0;
+			display: block;
+			padding: 0;
+			text-align: left;
+		}
+
+		.app-download__eyebrow {
+			position: absolute;
+			top: 5.08%;
+			left: 9.74%;
+			margin: 0;
+			font-size: 10px;
+			letter-spacing: 0.13em;
+		}
+
+		.app-download h2 {
+			position: absolute;
+			top: 9.05%;
+			right: 11.28%;
+			left: 9.74%;
+			width: auto;
+			font-size: 28px;
+			line-height: 1.2;
+			letter-spacing: -0.05em;
+			white-space: pre-line;
+		}
+
+		.app-download__description {
+			position: absolute;
+			top: 29.36%;
+			right: 4.36%;
+			left: 7.18%;
+			width: auto;
+			margin: 0;
+			font-size: 15px;
+			line-height: 1.2;
+			white-space: pre-line;
+		}
+
+		.app-download__cta {
+			display: none;
+		}
+
+		.app-download__stores {
+			position: absolute;
+			right: 7.69%;
+			bottom: 8.37%;
+			left: 4.36%;
+			gap: 13px;
+			width: auto;
+			max-width: none;
+			margin: 0;
+		}
+
+		.store-badge {
+			justify-content: flex-start;
+			gap: 11px;
+			min-height: 64px;
+			padding: 0 0 0 13px;
+			border-radius: 14px;
+		}
+
+		.store-badge__icon {
+			width: 26px;
+			height: 28px;
+		}
+
+		.store-badge__icon--apple {
+			font-size: 30px;
+		}
+
+		.store-badge__icon--play {
+			width: 24px;
+			height: 28px;
+		}
+
+		.store-badge__copy span {
+			font-size: 9px;
+		}
+
+		.store-badge__copy strong {
+			margin-top: 3px;
+			font-size: 14px;
+		}
+
+		.app-download__qr {
+			display: none;
+		}
+
+	}
+
+	@media (max-width: 359px) {
+		.app-download__stores {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

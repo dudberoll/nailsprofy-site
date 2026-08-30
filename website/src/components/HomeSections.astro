@@ -1,12 +1,13 @@
 ---
 import data from "../data/nailsprofi.json";
 import { blogPageArticles } from "../data/blog";
-import { serviceCards } from "../data/homeContent";
+import { appDownload, serviceCards } from "../data/homeContent";
 import BrandsSection from "./BrandsSection.astro";
 import CallbackSection from "./home/CallbackSection.astro";
 import FaqSection from "./home/FaqSection.astro";
 import JournalSection from "./home/JournalSection.astro";
 import PromoSection from "./home/PromoSection.astro";
+import AppDownloadSection from "./home/AppDownloadSection.astro";
 import ServicesSection from "./home/ServicesSection.astro";
 import StudioSection from "./home/StudioSection.astro";
 import AboutSection from "./home/AboutSection.astro";
@@ -27,6 +28,7 @@ const journalCards = blogPageArticles(1).slice(0, 4);
 	<ServicesSection services={serviceCards} />
 	<AboutSection />
 	<MatteCards variant="masters" />
+	<AppDownloadSection {...appDownload} />
 	<ReviewsSection />
 	<StudioSection
 		contacts={contacts}

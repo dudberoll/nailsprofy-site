@@ -81,14 +81,17 @@ const abonementStepsGift: Step[] = [
 	{ key: "payment", title: "Оплата" },
 ];
 
-const certificateAmounts = ["10000", "5000", "3000", "2000"];
+const certificateAmounts = ["10000", "9000", "8000", "7000", "6000", "5000", "4000"];
 const physicalCertificateAmounts = ["10000", "5000"];
 const certificateValidUntil = "до 30 июня 2027 г";
 const certificatePaymentLinks: Record<string, string> = {
-	"2000": "https://o7828.yclients.com/certificates/441579",
-	"3000": "https://o7828.yclients.com/certificates/441558",
-	"5000": "https://o7828.yclients.com/certificates/441558",
-	"10000": "https://o7828.yclients.com/certificates/441587",
+	"4000": "https://o7828.yclients.com/certificates/441579",
+	"5000": "https://o7828.yclients.com/certificates/875646",
+	"6000": "https://o7828.yclients.com/certificates/878883",
+	"7000": "https://o7828.yclients.com/certificates/878886",
+	"8000": "https://o7828.yclients.com/certificates/878889",
+	"9000": "https://o7828.yclients.com/certificates/878892",
+	"10000": "https://o7828.yclients.com/certificates/875643",
 };
 
 const certificateSteps: CertificateStep[] = [
@@ -112,7 +115,7 @@ const services = [
 const faqs = [
 	[
 		"Можно ли оформить сертификат на свою сумму?",
-		"Сертификаты доступны на фиксированные номиналы: 10 000, 5 000, 3 000 и 2 000 рублей.",
+		"Сертификаты доступны на фиксированные номиналы от 4 000 до 10 000 рублей с шагом 1 000 рублей.",
 	],
 	[
 		"Можно ли использовать сертификат частично?",
@@ -200,12 +203,13 @@ export default function GiftShopPage() {
 
 	const goCertificateNext = () => {
 		if (!canContinueCertificate) return;
-		if (isPhysicalCertificate) {
-			setIsContactModalOpen(true);
-			return;
-		}
 
 		if (currentCertificateStep.key === "review") {
+			if (isPhysicalCertificate) {
+				setIsContactModalOpen(true);
+				return;
+			}
+
 			const paymentUrl = certificatePaymentLinks[certificateAmount];
 			if (paymentUrl) window.location.assign(paymentUrl);
 			return;
@@ -280,13 +284,12 @@ export default function GiftShopPage() {
 											: "ЭЛЕКТРОННЫЙ СЕРТИФИКАТ"}
 									</p>
 									<span>
-										{isPhysicalCertificate ? 1 : certificateStepIndex + 1}/
-										{isPhysicalCertificate ? 1 : certificateSteps.length}{" "}
+										{certificateStepIndex + 1}/{certificateSteps.length}{" "}
 										{currentCertificateStep.title}
 									</span>
 									<ProgressLine
-										value={isPhysicalCertificate ? 1 : certificateStepIndex + 1}
-										max={isPhysicalCertificate ? 1 : certificateSteps.length}
+										value={certificateStepIndex + 1}
+										max={certificateSteps.length}
 									/>
 								</div>
 								<div className={cx("wizard-panel")}>
@@ -307,11 +310,11 @@ export default function GiftShopPage() {
 											type="button"
 											onClick={goCertificateNext}
 										>
-											{isPhysicalCertificate
-												? "Связаться с администратором"
-												: currentCertificateStep.key === "review"
-													? "Перейти к оплате"
-													: "Продолжить"}
+											{currentCertificateStep.key === "review"
+												? isPhysicalCertificate
+													? "Связаться с администратором"
+													: "Перейти к оплате"
+												: "Продолжить"}
 										</button>
 									</div>
 								</div>
@@ -488,8 +491,9 @@ function CertificateBody(props: {
 				showOwnerName={false}
 			/>
 			<p className={cx("underline")}>
-				Нажимая кнопку «Перейти к оплате», вы принимаете оферту и предоставляете
-				согласие на обработку персональных данных
+				{props.isPhysicalCertificate
+					? "Проверьте выбранный номинал и свяжитесь с администратором для оформления покупки в салоне."
+					: "Нажимая кнопку «Перейти к оплате», вы принимаете оферту и предоставляете согласие на обработку персональных данных"}
 			</p>
 		</div>
 	);
