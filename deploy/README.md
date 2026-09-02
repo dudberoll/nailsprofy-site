@@ -30,6 +30,7 @@ VPS Beget
 
 - `server-setup.sh` — однократная базовая подготовка Ubuntu VPS;
 - `nginx-site.conf.example` — HTTP-конфигурация Nginx до выпуска сертификата;
+- `legacy-redirects.map` — 886 подтверждённых редиректов старых статей;
 - `deploy.sh` — публикация, просмотр версий и откат;
 - `check.sh` — локальная проверка шаблонов этой папки.
 
@@ -43,7 +44,6 @@ VPS Beget
 - IP-адрес VPS;
 - основной домен: с `www` или без `www`;
 - публичный SSH-ключ Mac, с которого будет выполняться публикация;
-- окончательный список 301-редиректов со старого сайта.
 
 Не добавляйте в репозиторий пароли, приватные SSH-ключи или токены Beget.
 
@@ -92,6 +92,7 @@ DEPLOY_PUBLIC_KEY='ssh-ed25519 ЗДЕСЬ_ПУБЛИЧНЫЙ_КЛЮЧ' \
 sed 's/__DOMAIN__/example.ru/g' \
   deploy/nginx-site.conf.example > /tmp/nailsprofi.conf
 scp /tmp/nailsprofi.conf root@VPS_IP:/etc/nginx/sites-available/nailsprofi
+scp deploy/legacy-redirects.map root@VPS_IP:/etc/nginx/nailsprofi-legacy-redirects.map
 ssh root@VPS_IP \
   'ln -sfn /etc/nginx/sites-available/nailsprofi /etc/nginx/sites-enabled/nailsprofi && nginx -t && systemctl reload nginx'
 ```
@@ -156,8 +157,9 @@ certbot renew --dry-run
 успешной проверки HTTPS и продления сертификата.
 
 При переносе действующего сайта старый сервер лучше оставить включённым на
-48–72 часа. Редиректы старых страниц на новые настраиваются отдельно; шаблон
-не делает неизвестные перенаправления автоматически.
+48–72 часа. Шаблон переносит только 886 пар с листа «Готовые редиректы» файла
+`exports/nailsprofi-wordpress/sitemap-redirects.xlsx`. Адреса с листа
+«Нужно проверить» остаются без редиректа.
 
 ## 6. Последующие обновления
 

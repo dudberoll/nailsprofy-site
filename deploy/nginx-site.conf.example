@@ -1,3 +1,9 @@
+# Exact legacy redirects approved in the migration workbook.
+map $uri $nailsprofi_legacy_redirect {
+	default "";
+	include /etc/nginx/nailsprofi-legacy-redirects.map;
+}
+
 # Initial HTTP configuration. Certbot will add HTTPS after DNS points here.
 server {
 	listen 80;
@@ -11,6 +17,10 @@ server {
 
 	access_log /var/log/nginx/nailsprofi.access.log;
 	error_log /var/log/nginx/nailsprofi.error.log;
+
+	if ($nailsprofi_legacy_redirect != "") {
+		return 301 $nailsprofi_legacy_redirect$is_args$args;
+	}
 
 	location / {
 		try_files $uri $uri/ =404;
