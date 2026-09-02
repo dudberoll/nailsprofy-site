@@ -1,4 +1,6 @@
 # Exact legacy redirects approved in the migration workbook.
+map_hash_bucket_size 128;
+
 map $uri $nailsprofi_legacy_redirect {
 	default "";
 	include /etc/nginx/nailsprofi-legacy-redirects.map;
