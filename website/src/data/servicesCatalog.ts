@@ -41,6 +41,7 @@ const sourceSections = data.price_sections as SourcePriceSection[];
 
 const normalizeServiceName = (name: string) =>
 	name
+		.replace(/(?<!\p{L})(?:smart|смарт)(?!\p{L})/giu, "СМАРТ")
 		.replace(/\s*\+\s*(?=\p{L})/gu, " + ")
 		.replace(/машиинкой/giu, "машинкой")
 		.replace(/длинна/giu, "длина")
