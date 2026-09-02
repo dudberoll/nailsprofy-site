@@ -36,7 +36,7 @@ const brands = [
 
 <script>
 	document.querySelectorAll<HTMLElement>(".brands-marquee").forEach((scroller) => {
-		if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
 		let pressed = false;
 		let dragging = false;

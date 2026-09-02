@@ -22,8 +22,6 @@ import { portfolioItems } from "../data/portfolio";
 					<span class="portfolio-card__image">
 						<img
 							src={item.image}
-							width={item.width}
-							height={item.height}
 							alt={item.alt}
 							loading={index === 0 ? "eager" : "lazy"}
 							decoding="async"
@@ -113,7 +111,8 @@ import { portfolioItems } from "../data/portfolio";
 	}
 
 	.portfolio-grid {
-		columns: 4;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 		column-gap: clamp(1rem, 1.7vw, 2rem);
 	}
 
@@ -219,13 +218,13 @@ import { portfolioItems } from "../data/portfolio";
 
 	@media (max-width: 1250px) {
 		.portfolio-grid {
-			columns: 3;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
 
 	@media (max-width: 900px) {
 		.portfolio-grid {
-			columns: 2;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
@@ -240,7 +239,7 @@ import { portfolioItems } from "../data/portfolio";
 		}
 
 		.portfolio-grid {
-			columns: 2;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
 		.portfolio-card {

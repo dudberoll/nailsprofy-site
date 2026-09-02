@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:sites": "astro build && bun run scripts/prepare-sites.mjs",
     "typecheck": "astro check",
     "preview": "astro preview",
     "astro": "astro"

@@ -216,8 +216,6 @@ const reviews = [
 
 <script>
 	document.querySelectorAll<HTMLElement>("[data-reviews-scroll]").forEach((scroller) => {
-		if (window.matchMedia("(max-width: 767px)").matches) return;
-
 		let pressed = false;
 		let dragging = false;
 		let suppressClickUntil = 0;
@@ -506,7 +504,6 @@ const reviews = [
 			gap: 12px;
 			margin-top: 20px;
 			scroll-padding-inline: 16px;
-			scroll-snap-type: x mandatory;
 		}
 
 		.review-card {
