@@ -113,8 +113,10 @@ publish() {
 	remote_release="$SITE_ROOT/releases/$release"
 
 	ssh "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_release'"
-	rsync -rlptz --delete --chmod=D755,F644 \
+	rsync -rlptz --delete \
 		website/dist/ "$DEPLOY_USER@$DEPLOY_HOST:$remote_release/"
+	ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+		"find '$remote_release' -type d -exec chmod 755 {} + && find '$remote_release' -type f -exec chmod 644 {} +"
 
 	activate_release "$release"
 }
