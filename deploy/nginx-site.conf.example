@@ -1,6 +1,6 @@
 # Exact legacy redirects approved in the migration workbook.
-map_hash_max_size 4096;
-map_hash_bucket_size 128;
+map_hash_max_size 8192;
+map_hash_bucket_size 256;
 
 map $uri $nailsprofi_legacy_redirect {
 	default "";
@@ -22,7 +22,7 @@ server {
 	error_log /var/log/nginx/nailsprofi.error.log;
 
 	if ($nailsprofi_legacy_redirect != "") {
-		return 301 $nailsprofi_legacy_redirect$is_args$args;
+		return 301 $nailsprofi_legacy_redirect/$is_args$args;
 	}
 
 	location / {
