@@ -46,6 +46,7 @@ const normalizeServiceName = (name: string) =>
 		.replace(/длинна/giu, "длина")
 		.replace(/востанавливающие покрытие/giu, "восстанавливающее покрытие")
 		.replace(/бондироавние/giu, "бондирование")
+		.replace(/Сахар \(эпиляция любой зоны на лице\)/iu, "Сахар (эпиляция одной зоны на лице)")
 		.replace(/[ \t]{2,}/g, " ")
 		.trim();
 
@@ -72,6 +73,7 @@ const liveItem = (
 const liveBrowCompliment = liveItem("30675354", "Коррекция бровей - комплимент от мастера", "В подарок", "1 ч");
 const liveMaleBrow = liveItem("12955329", "Коррекция бровей мужская", "1 400 ₽", "1 ч");
 const liveBrowLightening = liveItem("12955338", "Осветление бровей", "1 200 ₽", "30 мин");
+const liveLowerLashLamination = liveItem("12955331", "Ламинирование нижних ресниц", "1 500 ₽", "1 ч");
 
 const liveBondingItems = [
 	liveItem("31123020", "Маникюр + бондирование натуральных ногтей", "3 100 ₽", "1 ч"),
@@ -110,6 +112,10 @@ const shortServiceDescriptions: Record<string, string> = {
 	"23495742": "Порекомендуйте NailsProfi другу — получите 1000 бонусных рублей. Бонусами можно оплачивать по 500 ₽ за услугу.",
 };
 
+const giftItems = sectionItems("Дарим подарки!").map((item) =>
+	item.id === "30056808" ? { ...item, price_text: "2 300 – 2 700 ₽" } : item,
+);
+
 const priceGroup = (
 	id: string,
 	title: string,
@@ -134,7 +140,7 @@ const bonusGroups: PriceGroup[] = [
 		...sectionItems("Счастливые часы"),
 		liveBrowCompliment,
 	]),
-	priceGroup("bonus-gifts", "Дарим подарки!", sectionItems("Дарим подарки!")),
+	priceGroup("bonus-gifts", "Дарим подарки!", giftItems),
 ];
 
 const browGroups: PriceGroup[] = [
@@ -152,7 +158,7 @@ const browGroups: PriceGroup[] = [
 ];
 
 const lashGroups: PriceGroup[] = [
-	priceGroup("lashes-services", "Ресницы", sectionItems("Ресницы"), {
+	priceGroup("lashes-services", "Ресницы", [...sectionItems("Ресницы"), liveLowerLashLamination], {
 		showInSubcategoryNav: false,
 	}),
 ];
