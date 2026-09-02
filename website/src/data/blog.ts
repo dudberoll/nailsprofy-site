@@ -15,10 +15,10 @@ export type BlogCategorySlug = (typeof blogCategories)[number]["slug"];
 export type BlogCategory = Exclude<(typeof blogCategories)[number]["label"], "Все">;
 
 export const blogCardImages = [
-	"/images/blog/nude-manicure.png",
-	"/images/blog/manicure-care.png",
-	"/images/blog/french-manicure.png",
-	"/images/blog/nail-inspiration.png",
+	"/images/blog/nude-manicure.webp",
+	"/images/blog/manicure-care.webp",
+	"/images/blog/french-manicure.webp",
+	"/images/blog/nail-inspiration.webp",
 ];
 
 export type BlogArticle = {
