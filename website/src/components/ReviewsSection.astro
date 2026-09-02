@@ -218,24 +218,50 @@ const reviews = [
 	document.querySelectorAll<HTMLElement>("[data-reviews-scroll]").forEach((scroller) => {
 		let pressed = false;
 		let dragging = false;
+		let touching = false;
 		let suppressClickUntil = 0;
 		let startX = 0;
 		let startLeft = 0;
+		let position = scroller.scrollLeft;
+		let previousFrame = performance.now();
+		let resumeTimer = 0;
 
-		window.setInterval(() => {
-			if (dragging || scroller.querySelector("details[open]")) return;
+		const animate = (now: number) => {
+			const elapsed = Math.min(now - previousFrame, 50);
+			previousFrame = now;
+			if (dragging || touching || scroller.querySelector("details[open]")) {
+				position = scroller.scrollLeft;
+				requestAnimationFrame(animate);
+				return;
+			}
 			const halfway = scroller.scrollWidth / 2;
-			scroller.scrollLeft = scroller.scrollLeft >= halfway ? 0 : scroller.scrollLeft + 0.6;
-		}, 18);
+			position = position >= halfway ? position - halfway : position + elapsed * 0.036;
+			scroller.scrollLeft = position;
+			requestAnimationFrame(animate);
+		};
+		requestAnimationFrame(animate);
+
+		const pauseTouch = () => {
+			touching = true;
+			window.clearTimeout(resumeTimer);
+		};
+		const resumeTouch = () => {
+			window.clearTimeout(resumeTimer);
+			resumeTimer = window.setTimeout(() => { touching = false; }, 1800);
+		};
+		scroller.addEventListener("touchstart", pauseTouch, { passive: true });
+		scroller.addEventListener("touchend", resumeTouch, { passive: true });
+		scroller.addEventListener("touchcancel", resumeTouch, { passive: true });
 
 		scroller.addEventListener("pointerdown", (event) => {
+			if (event.pointerType !== "mouse") return;
 			pressed = true;
 			startX = event.clientX;
 			startLeft = scroller.scrollLeft;
 		});
 
 		scroller.addEventListener("pointermove", (event) => {
-			if (!pressed) return;
+			if (event.pointerType !== "mouse" || !pressed) return;
 			const distance = event.clientX - startX;
 			if (!dragging && Math.abs(distance) < 6) return;
 			if (!dragging) {
@@ -401,9 +427,10 @@ const reviews = [
 		overflow-x: auto;
 		overflow-y: hidden;
 		overscroll-behavior-x: contain;
+		-webkit-overflow-scrolling: touch;
 		padding: 0 30px 8px;
 		scrollbar-width: none;
-		touch-action: pan-y;
+		touch-action: auto;
 		user-select: none;
 		cursor: grab;
 	}
