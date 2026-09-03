@@ -12,7 +12,7 @@ export const appDownload = {
 	eyebrow: "У нас есть приложение",
 	title: "Скачайте NailsProfi и записывайтесь ещё удобнее",
 	description:
-		"Записывайтесь онлайн в пару кликов,\nвыбирайте услуги и мастеров, следите\nза визитами и специальными\nпредложениями — всё в вашем смартфоне.",
+		"Записывайтесь онлайн в пару кликов,\nвыбирайте услуги и мастеров,\nследите за визитами и специальными\nпредложениями — всё в вашем смартфоне.",
 	appStoreUrl:
 		"https://apps.apple.com/ru/app/nailsprofi-%D1%81%D1%82%D1%83%D0%B4%D0%B8%D1%8F-%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B/id6463722424",
 	googlePlayUrl: "https://play.google.com/store/apps/details?id=com.yclients.mobile.sa301369&hl=ru",
