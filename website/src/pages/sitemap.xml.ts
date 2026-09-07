@@ -10,7 +10,14 @@ import {
 } from "../data/blog";
 
 const siteUrl = "https://nailsprofi.ru";
-const staticPaths = ["/", "/services", "/portfolio", "/sertifikaty_abonementy", "/blog"];
+const staticPaths = [
+	"/",
+	"/services",
+	"/portfolio",
+	"/sertifikaty_abonementy",
+	"/blog",
+	"/politika-cookie",
+];
 
 function escapeXml(value: string) {
 	return value.replace(/[<>&'\"]/g, (character) => ({

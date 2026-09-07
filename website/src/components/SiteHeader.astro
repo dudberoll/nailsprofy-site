@@ -127,7 +127,10 @@ const isNavigationItemActive = (href: string) =>
 </header>
 
 <aside class="cookie-notice" data-cookie-notice aria-live="polite">
-	<p>Данный сайт использует cookies.</p>
+	<p>
+		Данный сайт использует cookies в порядке и целях, указанных по
+		<a href="/politika-cookie/">ссылке</a>.
+	</p>
 	<button class="cookie-notice__button" type="button" data-cookie-dismiss>OK</button>
 </aside>
 
@@ -220,6 +223,10 @@ const isNavigationItemActive = (href: string) =>
 		text-align: center;
 		font-size: clamp(1rem, 1.35vw, 1.25rem);
 		line-height: 1.3;
+	}
+
+	.cookie-notice a {
+		text-underline-offset: 0.15em;
 	}
 
 	.cookie-notice__button {
