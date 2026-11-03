@@ -10,6 +10,10 @@ DEPLOY_USER="${DEPLOY_USER:-deploy}"
 DEPLOY_BRANCH="${DEPLOY_BRANCH:-main}"
 SITE_ROOT="${SITE_ROOT:-/var/www/nailsprofi}"
 SITE_URL="${SITE_URL:-}"
+SSH_CONFIG="${SSH_CONFIG:-}"
+if [[ -n "$SSH_CONFIG" && "$SSH_CONFIG" != /* ]]; then
+	SSH_CONFIG="$REPO_ROOT/$SSH_CONFIG"
+fi
 
 fail() {
 	printf 'Ошибка: %s\n' "$*" >&2
@@ -19,9 +23,9 @@ fail() {
 usage() {
 	cat <<'EOF'
 Использование:
-  DEPLOY_HOST=IP [SITE_URL=https://example.ru] ./deploy/deploy.sh publish
-  DEPLOY_HOST=IP ./deploy/deploy.sh list
-  DEPLOY_HOST=IP [SITE_URL=https://example.ru] ./deploy/deploy.sh rollback RELEASE
+  DEPLOY_HOST=HOST [SSH_CONFIG=FILE] [SITE_URL=https://example.ru] ./deploy/deploy.sh publish
+  DEPLOY_HOST=HOST [SSH_CONFIG=FILE] ./deploy/deploy.sh list
+  DEPLOY_HOST=HOST [SSH_CONFIG=FILE] [SITE_URL=https://example.ru] ./deploy/deploy.sh rollback RELEASE
 EOF
 }
 
@@ -30,9 +34,18 @@ validate_config() {
 	[[ "$DEPLOY_USER" =~ ^[a-z_][a-z0-9_-]*$ ]] || fail "некорректный DEPLOY_USER"
 	[[ "$DEPLOY_BRANCH" =~ ^[A-Za-z0-9._/-]+$ && "$DEPLOY_BRANCH" != *..* ]] || fail "некорректный DEPLOY_BRANCH"
 	[[ "$SITE_ROOT" =~ ^/[A-Za-z0-9._/-]+$ && "$SITE_ROOT" != *..* ]] || fail "некорректный SITE_ROOT"
+	[[ -z "$SSH_CONFIG" || -f "$SSH_CONFIG" ]] || fail "не найден SSH_CONFIG"
 	if [[ -n "$SITE_URL" ]]; then
 		[[ "$SITE_URL" == http://* || "$SITE_URL" == https://* ]] || fail "SITE_URL должен начинаться с http:// или https://"
 		SITE_URL="${SITE_URL%/}"
+	fi
+}
+
+ssh_to() {
+	if [[ -n "$SSH_CONFIG" ]]; then
+		ssh -F "$SSH_CONFIG" "$@"
+	else
+		ssh "$@"
 	fi
 }
 
@@ -67,8 +80,8 @@ activate_release() {
 	local target="$SITE_ROOT/releases/$release"
 	local previous
 
-	previous="$(ssh "$DEPLOY_USER@$DEPLOY_HOST" "readlink '$SITE_ROOT/current' 2>/dev/null || true")"
-	ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+	previous="$(ssh_to "$DEPLOY_USER@$DEPLOY_HOST" "readlink '$SITE_ROOT/current' 2>/dev/null || true")"
+	ssh_to "$DEPLOY_USER@$DEPLOY_HOST" \
 		"test -f '$target/index.html' && ln -sfn '$target' '$SITE_ROOT/current'"
 
 	if smoke_test; then
@@ -78,11 +91,11 @@ activate_release() {
 
 	if [[ "$previous" == "$SITE_ROOT/releases/"* ]]; then
 		printf 'Проверка не прошла, возвращаю предыдущую версию.\n' >&2
-		ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+		ssh_to "$DEPLOY_USER@$DEPLOY_HOST" \
 			"test -f '$previous/index.html' && ln -sfn '$previous' '$SITE_ROOT/current'"
 	else
 		printf 'Проверка первой версии не прошла, снимаю её с публикации.\n' >&2
-		ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+		ssh_to "$DEPLOY_USER@$DEPLOY_HOST" \
 			"active=\$(readlink '$SITE_ROOT/current' 2>/dev/null || true); if [ \"\$active\" = '$target' ]; then unlink '$SITE_ROOT/current'; fi"
 	fi
 	return 1
@@ -112,17 +125,23 @@ publish() {
 	release="$(date -u +%Y%m%d%H%M%S)-${commit:0:12}"
 	remote_release="$SITE_ROOT/releases/$release"
 
-	ssh "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_release'"
-	rsync -rlptz --delete \
+	ssh_to "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_release'"
+	local -a rsync_ssh=()
+	if [[ -n "$SSH_CONFIG" ]]; then
+		local rsync_rsh
+		printf -v rsync_rsh 'ssh -F %q' "$SSH_CONFIG"
+		rsync_ssh=(-e "$rsync_rsh")
+	fi
+	rsync "${rsync_ssh[@]}" -rlptz --delete \
 		website/dist/ "$DEPLOY_USER@$DEPLOY_HOST:$remote_release/"
-	ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+	ssh_to "$DEPLOY_USER@$DEPLOY_HOST" \
 		"find '$remote_release' -type d -exec chmod 755 {} + && find '$remote_release' -type f -exec chmod 644 {} +"
 
 	activate_release "$release"
 }
 
 list_releases() {
-	ssh "$DEPLOY_USER@$DEPLOY_HOST" \
+	ssh_to "$DEPLOY_USER@$DEPLOY_HOST" \
 		"find '$SITE_ROOT/releases' -mindepth 1 -maxdepth 1 -type d -printf '%f\\n' | sort -r"
 }
 
