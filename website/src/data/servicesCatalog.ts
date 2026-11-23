@@ -39,17 +39,7 @@ export type ServiceCategory = {
 
 const sourceSections = data.price_sections as SourcePriceSection[];
 
-const normalizeServiceName = (name: string) =>
-	name
-		.replace(/(?<!\p{L})(?:smart|смарт)(?!\p{L})/giu, "СМАРТ")
-		.replace(/\s*\+\s*(?=\p{L})/gu, " + ")
-		.replace(/машиинкой/giu, "машинкой")
-		.replace(/длинна/giu, "длина")
-		.replace(/востанавливающие покрытие/giu, "восстанавливающее покрытие")
-		.replace(/бондироавние/giu, "бондирование")
-		.replace(/Сахар \(эпиляция любой зоны на лице\)/iu, "Сахар (эпиляция одной зоны на лице)")
-		.replace(/[ \t]{2,}/g, " ")
-		.trim();
+const normalizeServiceName = (name: string) => name.replace(/[ \t]{2,}/g, " ").trim();
 
 const sectionItems = (...sectionNames: string[]) =>
 	sectionNames.flatMap(
@@ -59,63 +49,14 @@ const sectionItems = (...sectionNames: string[]) =>
 const matchingItems = (sectionNames: string[], pattern: RegExp) =>
 	sectionItems(...sectionNames).filter((item) => pattern.test(item.name));
 
-const liveItem = (
-	id: string,
-	name: string,
-	price_text: string | null,
-	duration: string | null,
-): SourcePriceItem => ({
-	id,
-	name,
-	price_text,
-	duration,
-});
-
-const liveBrowCompliment = liveItem("30675354", "Коррекция бровей - комплимент от мастера", "В подарок", "1 ч");
-const liveMaleBrow = liveItem("12955329", "Коррекция бровей мужская", "1 400 ₽", "1 ч");
-const liveBrowLightening = liveItem("12955338", "Осветление бровей", "1 200 ₽", "30 мин");
-const liveLowerLashLamination = liveItem("12955331", "Ламинирование нижних ресниц", "1 500 ₽", "1 ч");
-
-const liveBondingItems = [
-	liveItem("31123020", "Маникюр + бондирование натуральных ногтей", "3 100 ₽", "1 ч"),
-	liveItem("31123182", "Маникюр + бондироавние натуральных ногтей - топ мастер", "3 600 ₽", "1 ч"),
-	liveItem("31183956", "Смарт педикюр + бондирование - топ мастер", "5 250 ₽", "1 ч"),
-];
-
-const liveManicureItems = [
-	liveItem("31197960", "Классический маникюр + гель лак", "3 100 ₽", "1 ч 30 мин"),
-	liveItem("31198380", "Классический маникюр + гель лак френч", "3 900 ₽", "2 ч"),
-	liveItem("31198419", "Классический маникюр + лак", "2 500 ₽", "1 ч 30 мин"),
-	liveItem("31203780", "Опил искусственных + маникюр + гель - лак", "3 800 ₽", "1 ч 30 мин"),
-];
-
-const liveTopManicureItem = liveItem(
-	"31203852",
-	"Опил искусственных + маникюр + гель - лак - топ мастер",
-	"4 500 ₽",
-	"1 ч 30 мин",
-);
-const liveClassicManicureItem = liveItem("31197909", "Классический маникюр", "2 300 ₽", "1 ч");
-const liveIbxItem = liveItem("12955983", "Укрепление ногтей IBX", "700 ₽", "30 мин");
-
-const liveMaleItems = [
-	liveMaleBrow,
-	liveItem("31198632", "Классический мужской маникюр", "2 500 ₽", "1 ч"),
-	liveItem("31183167", "Пилочный маникюр мужской", "3 000 ₽", "1 ч"),
-];
-
 const shortServiceDescriptions: Record<string, string> = {
-	"30675354": "Коррекция бровей в подарок при записи на любую услугу NailsProfi.",
-	"15371415": "В будни в обеденное время снятие старого покрытия — в подарок.",
-	"15371759": "Комплекс для бровей: ламинирование, окрашивание, коррекция и ботокс. В обеденное время — на 400 ₽ выгоднее.",
-	"30056808": "Пилочный маникюр без ножниц и фрез. Для новых гостей — подарок 500 ₽; покрытие оплачивается отдельно.",
-	"15443402": "Скидка 15% на все услуги действует 7 дней до и 7 дней после дня рождения.",
-	"23495742": "Порекомендуйте NailsProfi другу — получите 1000 бонусных рублей. Бонусами можно оплачивать по 500 ₽ за услугу.",
+	"30675354": "Для клиентов, которые уже ходят к нам на услуги и пока не выбрали своего бровиста в студии. Запишитесь на основную услугу, а коррекцию бровей добавим в подарок.",
+	"15371415": "В будни с 12:00 до 15:00 при записи на маникюр с покрытием гель лак, снятие старого покрытия будет в подарок. Удобный вариант, если хотите обновить покрытие в спокойное время дня. Не суммируется с акциями и скидками.",
+	"15371759": "С 12:00 до 15:00 комплекс для бровей стоит на 400 ₽ меньше. В услугу входят ламинирование бровей, окрашивание, коррекция и ботокс для аккуратной формы и ухоженного вида. Не суммируется с акциями и скидками.",
+	"30056808": "Акция, не отдельная услуга. В разделе «Пилочный маникюр» выберите вариант с покрытием или без. В комментарии напишите «первый пилочный маникюр». Администратор применит бонус 500 ₽. Работаем пилками Japure. Не суммируется с акциями и скидками.",
+	"15443402": "Скидка 15% на все услуги студии в честь дня рождения. Действует 7 дней до даты рождения, в сам день рождения и 7 дней после.",
+	"23495742": "Порекомендуйте наш салон красоты маме, подруге или коллеге. Когда гость впервые придет по вашей рекомендации и назовет ваш номер телефона, начислим вам 1000 бонусов. 1 бонус = 1 ₽. Условия начисления и использования уточнит администратор.",
 };
-
-const giftItems = sectionItems("Дарим подарки!").map((item) =>
-	item.id === "30056808" ? { ...item, price_text: "2 300 – 2 700 ₽" } : item,
-);
 
 const priceGroup = (
 	id: string,
@@ -137,46 +78,25 @@ const priceGroup = (
 });
 
 const bonusGroups: PriceGroup[] = [
-	priceGroup("bonus-happy-hours", "Счастливые часы", [
-		...sectionItems("Счастливые часы"),
-		liveBrowCompliment,
-	]),
-	priceGroup("bonus-gifts", "Дарим подарки!", giftItems),
+	priceGroup("bonus-happy-hours", "Счастливые часы", sectionItems("Счастливые часы")),
+	priceGroup("bonus-gifts", "Дарим подарки!", sectionItems("Дарим подарки!")),
 ];
 
 const browGroups: PriceGroup[] = [
-	priceGroup(
-		"brows-services",
-		"Брови",
-		[
-			...sectionItems("Брови").filter(
-				(item) => item.id !== liveBrowCompliment.id && item.id !== liveMaleBrow.id,
-			),
-			liveBrowLightening,
-		],
-		{ showInSubcategoryNav: false },
-	),
+	priceGroup("brows-services", "Брови", sectionItems("Брови"), { showInSubcategoryNav: false }),
 ];
 
 const lashGroups: PriceGroup[] = [
-	priceGroup("lashes-services", "Ресницы", [...sectionItems("Ресницы"), liveLowerLashLamination], {
-		showInSubcategoryNav: false,
-	}),
+	priceGroup("lashes-services", "Ресницы", sectionItems("Ресницы"), { showInSubcategoryNav: false }),
 ];
 
-const manicureWithoutCoverageItems = sectionItems("Маникюр без покрытия");
-const manicureWithoutCoverageTopItems = manicureWithoutCoverageItems.filter((item) => /- топ мастер$/iu.test(item.name));
-
 const manicureGroups: PriceGroup[] = [
-	priceGroup("manicure-bonding", "Бондирование ногтей", liveBondingItems),
+	priceGroup("manicure-bonding", "Бондирование ногтей", sectionItems("Бондирование ногтей")),
 	priceGroup("manicure-coverage", "Маникюр с покрытием", [
 		...sectionItems("Маникюр с покрытием"),
-		...liveManicureItems,
+		...sectionItems("Модели"),
 	]),
-	priceGroup("manicure-coverage-top", "Маникюр с покрытием ТОП-мастер", [
-		...sectionItems("Маникюр с покрытием ТОП-мастер"),
-		liveTopManicureItem,
-	]),
+	priceGroup("manicure-coverage-top", "Маникюр с покрытием ТОП-мастер", sectionItems("Маникюр с покрытием ТОП-мастер")),
 	priceGroup("manicure-file", "Пилочный маникюр", sectionItems("Пилочный маникюр")),
 	priceGroup("manicure-express", "ЭКСПРЕСС маникюр", sectionItems("ЭКСПРЕСС маникюр")),
 	priceGroup(
@@ -184,11 +104,12 @@ const manicureGroups: PriceGroup[] = [
 		"ЭКСПРЕСС маникюр ТОП-мастер",
 		sectionItems("ЭКСПРЕСС маникюр ТОП-мастер"),
 	),
-	priceGroup("manicure-without-coverage", "Маникюр без покрытия", [
-		...manicureWithoutCoverageItems.filter((item) => !/- топ мастер$/iu.test(item.name)),
-		liveClassicManicureItem,
-	]),
-	priceGroup("manicure-without-coverage-top", "Маникюр без покрытия ТОП-мастер", manicureWithoutCoverageTopItems),
+	priceGroup("manicure-without-coverage", "Маникюр без покрытия", sectionItems("Маникюр без покрытия")),
+	priceGroup(
+		"manicure-without-coverage-top",
+		"Маникюр без покрытия ТОП-мастер",
+		sectionItems("Маникюр без покрытия ТОП-мастер"),
+	),
 ];
 
 const pedicureGroups: PriceGroup[] = [
@@ -204,23 +125,29 @@ const pedicureGroups: PriceGroup[] = [
 		"ЭКСПРЕСС педикюр ТОП-мастер",
 		sectionItems("ЭКСПРЕСС педикюр ТОП-мастер"),
 	),
-	priceGroup("pedicure-without-coverage", "Педикюр без покрытия", sectionItems("Педикюр без покрытия")),
+	priceGroup("pedicure-without-coverage", "Педикюр без покрытия", [
+		...sectionItems("Педикюр без покрытия"),
+		...sectionItems("Педикюр без покрытия ТОП-мастер"),
+	]),
 	priceGroup("pedicure-podology", "Подология", sectionItems("Подология")),
 ];
 
 const coverageGroups: PriceGroup[] = [
-	priceGroup(
-		"coverage-design-services",
-		"Покрытие\\Дизайн",
-		[...sectionItems("Покрытие\\Дизайн"), liveIbxItem],
-		{ showInSubcategoryNav: false },
-	),
+	priceGroup("coverage-design-services", "Покрытие\\Дизайн", sectionItems("Покрытие\\Дизайн"), {
+		showInSubcategoryNav: false,
+	}),
 ];
 
 const extensionGroups: PriceGroup[] = [
-	priceGroup("extension-gel", "Наращивание гель", sectionItems("Наращивание ногтей ГЕЛЬ")),
+	priceGroup("extension-gel", "Наращивание гель", [
+		...sectionItems("Наращивание ногтей ГЕЛЬ"),
+		...sectionItems("Наращивание ногтей ГЕЛЬ ТОП-мастер"),
+	]),
 	priceGroup("extension-acrylic", "Наращивание акрил", sectionItems("Наращивание ногтей АКРИЛ")),
-	priceGroup("extension-polygel", "Наращивание полигель", sectionItems("Наращивание ногтей ПОЛИГЕЛЬ")),
+	priceGroup("extension-polygel", "Наращивание полигель", [
+		...sectionItems("Наращивание ногтей ПОЛИГЕЛЬ"),
+		...sectionItems("Наращивание ногтей ПОЛИГЕЛЬ ТОП-мастер"),
+	]),
 ];
 
 const hairGroups: PriceGroup[] = [
@@ -228,16 +155,13 @@ const hairGroups: PriceGroup[] = [
 	priceGroup("hair-color", "Окрашивание волос", sectionItems("Окрашивание волос")),
 	priceGroup("hair-lightening", "Осветление волос", sectionItems("Осветление волос")),
 	priceGroup("hair-spa", "СПА процедуры для волос", sectionItems("СПА процедуры для волос")),
-	priceGroup("hair-keratin", "Кератин BBone", sectionItems("Кератин BBone")),
+	priceGroup("hair-keratin", "Кератин BBone", sectionItems("Кератин BB Оne")),
 ];
 
 const maleGroups: PriceGroup[] = [
-	priceGroup("men-cuts", "Стрижки", matchingItems(["Услуги для МУЖЧИН"], /стрижк/iu)),
-	priceGroup("men-brows", "Брови", [liveMaleBrow]),
-	priceGroup("men-manicure", "Маникюр", [
-		...matchingItems(["Услуги для МУЖЧИН"], /маникюр/iu),
-		...liveMaleItems.filter((item) => /маникюр/iu.test(item.name)),
-	]),
+	priceGroup("men-cuts", "Стрижки", matchingItems(["Услуги для МУЖЧИН"], /стрижк|бород/iu)),
+	priceGroup("men-brows", "Брови", matchingItems(["Услуги для МУЖЧИН"], /бров/iu)),
+	priceGroup("men-manicure", "Маникюр", matchingItems(["Услуги для МУЖЧИН"], /маникюр/iu)),
 	priceGroup("men-pedicure", "Педикюр", matchingItems(["Услуги для МУЖЧИН"], /педикюр/iu)),
 ];
 
