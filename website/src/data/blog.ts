@@ -42,7 +42,7 @@ export const blogArticles = (articles as BlogArticle[])
 export const totalBlogPages = Math.ceil(blogArticles.length / POSTS_PER_PAGE);
 
 export function blogPagePath(page: number) {
-	return page <= 1 ? "/blog" : `/blog/page/${page}`;
+	return page <= 1 ? "/blog/" : `/blog/page/${page}/`;
 }
 
 export function isBlogCategorySlug(value: string): value is BlogCategorySlug {
@@ -52,7 +52,7 @@ export function isBlogCategorySlug(value: string): value is BlogCategorySlug {
 export function blogCategoryPath(category: BlogCategorySlug, page = 1) {
 	if (category === "all") return blogPagePath(page);
 
-	return page <= 1 ? `/blog/category/${category}` : `/blog/category/${category}/page/${page}`;
+	return page <= 1 ? `/blog/category/${category}/` : `/blog/category/${category}/page/${page}/`;
 }
 
 export function categoryLabel(category: BlogCategorySlug) {
@@ -60,7 +60,7 @@ export function categoryLabel(category: BlogCategorySlug) {
 }
 
 export function articlePath(article: Pick<BlogArticle, "slug">) {
-	return `/blog/${article.slug}`;
+	return `/blog/${article.slug}/`;
 }
 
 export function formatBlogDate(date: string) {

@@ -1,26 +1,30 @@
 ---
+import SeoLinks from "./SeoLinks.astro";
 import SiteHeader from "./SiteHeader.astro";
 import "../styles/global.css";
 
 interface Props {
 	title?: string;
 	description?: string;
+	type?: "website" | "article";
 }
 
 const {
 	title = "Блог — NailsProfi",
 	description = "Статьи и советы NailsProfi об уходе, трендах и салонных процедурах.",
+	type = "website",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
+		<SeoLinks />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={type} />
 		<meta property="og:locale" content="ru_RU" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />

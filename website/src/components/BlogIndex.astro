@@ -4,6 +4,7 @@ import {
 	articlePath,
 	blogCategories,
 	blogCategoryPath,
+	categoryLabel,
 	type BlogCategorySlug,
 } from "../data/blog";
 
@@ -19,7 +20,7 @@ const { articles, currentPage, totalPages, activeCategory } = Astro.props;
 
 <main id="main-content" class="blog-page">
 	<section class="blog-hero" aria-labelledby="blog-title">
-		<h1 id="blog-title">Статьи и советы от нашего салона</h1>
+		<h1 id="blog-title">{activeCategory === "all" ? "Статьи и советы от нашего салона" : `${categoryLabel(activeCategory)} — статьи и советы`}</h1>
 		<nav class="blog-filters" aria-label="Темы блога">
 			{
 				blogCategories.map((category) => (

@@ -9,8 +9,16 @@ export function getStaticPaths() {
 
 const { article } = Astro.props;
 const description = article.text || article.body[0] || "Статья NailsProfi.";
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: article.title,
+	datePublished: article.date.slice(0, 10),
+	mainEntityOfPage: new URL(`/blog/${article.slug}/`, "https://nailsprofi.ru").href,
+};
 ---
 
-<BlogLayout title={`${article.title} — NailsProfi`} description={description}>
+<BlogLayout title={`${article.title} — NailsProfi`} description={description} type="article">
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema).replace(/</g, "\\u003c")} />
 	<BlogArticle article={article} />
 </BlogLayout>

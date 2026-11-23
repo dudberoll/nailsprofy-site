@@ -194,7 +194,7 @@ export default function HeaderServicesDropdown({ services, isActive = false }: P
 							<a
 								key={service.id}
 								className="header-services-dropdown__item"
-								href={`/services#${service.id}`}
+								href={`/services/#${service.id}`}
 								role="menuitem"
 							>
 								<span className="header-services-dropdown__item-title">{service.label}</span>
@@ -219,7 +219,7 @@ export default function HeaderServicesDropdown({ services, isActive = false }: P
 						))}
 					</div>
 					<div className="header-services-dropdown__footer">
-						<a href="/services">Смотреть всё</a>
+						<a href="/services/">Смотреть всё</a>
 					</div>
 				</Tab>
 			</Tabs>

@@ -3,12 +3,12 @@ import HeaderServicesDropdown from "./HeaderServicesDropdown";
 import data from "../data/nailsprofi.json";
 
 const navigation = [
-	{ label: "Портфолио", href: "/portfolio", hideOnCompact: false },
-	{ label: "Сертификаты", href: "/sertifikaty_abonementy", hideOnCompact: false },
+	{ label: "Портфолио", href: "/portfolio/", hideOnCompact: false },
+	{ label: "Сертификаты", href: "/sertifikaty_abonementy/", hideOnCompact: false },
 	{ label: "Мастера", href: "/#masters", hideOnCompact: false },
 	{ label: "Отзывы", href: "/#reviews", hideOnCompact: true },
 	{ label: "О салоне", href: "/#about", hideOnCompact: true },
-	{ label: "Блог", href: "/blog", hideOnCompact: true },
+	{ label: "Блог", href: "/blog/", hideOnCompact: true },
 	{ label: "Контакты", href: "/#contacts", hideOnCompact: false },
 ];
 
@@ -24,9 +24,9 @@ const serviceMenuItems = [
 	{ id: "brows", label: "Брови/Ресницы" },
 ];
 const isNavigationItemActive = (href: string) =>
-	(isBlogPage && href === "/blog") ||
-	(isPortfolioPage && href === "/portfolio") ||
-	(isCertificatesPage && href === "/sertifikaty_abonementy");
+	(isBlogPage && href === "/blog/") ||
+	(isPortfolioPage && href === "/portfolio/") ||
+	(isCertificatesPage && href === "/sertifikaty_abonementy/");
 ---
 
 <header class="site-header" data-site-header>
@@ -91,7 +91,7 @@ const isNavigationItemActive = (href: string) =>
 		hidden
 	>
 		<ul>
-			<li><a href="/services">Услуги</a></li>
+			<li><a href="/services/">Услуги</a></li>
 			{
 				navigation.map((item) => (
 					<li>

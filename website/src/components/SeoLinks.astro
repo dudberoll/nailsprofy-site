@@ -1,0 +1,7 @@
+---
+const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const canonical = new URL(pathname === "/" ? "/" : `${pathname}/`, "https://nailsprofi.ru").href;
+---
+<link rel="canonical" href={canonical} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content="https://nailsprofi.ru/images/nailsprofi-logo.webp" />
