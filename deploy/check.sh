@@ -9,6 +9,7 @@ bash -n "$SCRIPT_DIR/deploy.sh"
 ssh -G -F "$SCRIPT_DIR/cloud-ru-ssh.conf" nikass-cloud-vps >/dev/null
 
 grep -Fq 'server_name __DOMAIN__ www.__DOMAIN__;' "$SCRIPT_DIR/nginx-site.conf.example"
+grep -Fq 'ssl_protocols TLSv1.2 TLSv1.3;' "$SCRIPT_DIR/nginx-site.conf.example"
 grep -Fq 'try_files $uri $uri/ =404;' "$SCRIPT_DIR/nginx-site.conf.example"
 grep -Fq 'map_hash_max_size 8192;' "$SCRIPT_DIR/nginx-site.conf.example"
 grep -Fq 'map_hash_bucket_size 256;' "$SCRIPT_DIR/nginx-site.conf.example"

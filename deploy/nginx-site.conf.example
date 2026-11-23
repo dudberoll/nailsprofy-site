@@ -12,6 +12,7 @@ server {
 	listen 80;
 	listen [::]:80;
 	server_name __DOMAIN__ www.__DOMAIN__;
+	ssl_protocols TLSv1.2 TLSv1.3;
 
 	root /var/www/nailsprofi/current;
 	index index.html;
